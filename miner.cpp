@@ -76,6 +76,7 @@ uint32_t mineblock(uint32_t noncestart, char* version, char* prevhash,
 
         hashblock(nonce, version, prevhash, merkle_root, time, nbits, hash);
 
+        #pragma HLS pipeline
         for(int i = 0; i < 8; i++)
         {
             if(hash[7-i] < difficulty[i])

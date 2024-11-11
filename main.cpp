@@ -28,7 +28,7 @@ int main()
     for(int i = 0; i < 8; i++)
         result[i] = Reverse32(result[i]);
 
-    print_bytes_reversed((unsigned char *)result, 32);
+    // print_bytes_reversed((unsigned char *)result, 32);
     
     return 0;
 }

@@ -1,9 +1,17 @@
+# Extract Vivado HLS include path
+XILINX_VIVADO?=/opt/xilinx/Vivado/2019.2
+XIL_HLS=source $(XILINX_VIVADO)/settings64.sh; vivado_hls
+VHLS_INC=$(XILINX_VIVADO)/include
+
 CC = g++
 #CC = x86_64-w64-mingw32-g++
 
+#Compliation flags
 CFLAGS = -g -Wall
 
 TARGET = main.exe
+
+TCL_SCRIPT=run.tcl
 
 all: $(TARGET)
 
