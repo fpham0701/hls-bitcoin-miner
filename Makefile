@@ -32,3 +32,12 @@ sha256.o: miner.cpp sha256.h
 
 util.o: miner.cpp util.h
 	$(CC) $(CFLAGS) -c util.cpp
+
+clean:
+	@echo "Clean up output files"
+	rm -rf bnn-arm vivado_hls.log *.prj result out.dat *~
+	rm main.o 
+	rm miner.o
+	rm sha256.o
+	rm util.o
+	
