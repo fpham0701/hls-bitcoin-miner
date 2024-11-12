@@ -35,7 +35,7 @@ util.o: miner.cpp util.h
 
 clean:
 	@echo "Clean up output files"
-	rm -rf bnn-arm vivado_hls.log *.prj result out.dat *~
+	rm -rf main.exe vivado_hls.log *.prj result out.dat *~
 	rm main.o 
 	rm miner.o
 	rm sha256.o
