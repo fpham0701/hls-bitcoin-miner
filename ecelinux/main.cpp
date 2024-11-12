@@ -6,7 +6,32 @@
 #include "miner.h"
 #include "util.h"
 
-int main()
+//----------------------------------------------------------
+// Top function
+//----------------------------------------------------------
+
+void dut(hls::stream<bit32_t> &strm_in, hls::stream<bit32_t> &strm_out) {
+  bit input[1][I_WIDTH1][I_WIDTH1];
+  bit32_t input_l;
+  bit32_t output;
+
+  // read one test image into digit TODO:
+  int bitcount = 0;
+  for (int i = 0; i < I_WIDTH1 * I_WIDTH1 / BUS_WIDTH; i++) {
+    input_l = strm_in.read();
+    for (int j = 0; j < BUS_WIDTH; j++) {
+      input[0][bitcount / I_WIDTH1][bitcount % I_WIDTH1] = input_l(j, j);
+      bitcount++;
+    }
+  }
+  // call bnn
+  output = bitcoin(input);
+
+  // write out the result
+  strm_out.write(output);
+}
+
+int bitcoin()
 {
     // Genesis Block info
     char version[] = "01000000";
