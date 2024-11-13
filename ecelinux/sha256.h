@@ -1,1 +1,3 @@
-int hash(uint32_t *input, int bitlength, uint32_t *outputlocation);
+#include "typedefs.h"
+typedef ap_uint<32> bit32_t;
+int hash1(bit32_t *input, int bitlength, bit32_t *outputlocation);

@@ -7,7 +7,7 @@ CC = g++
 #CC = x86_64-w64-mingw32-g++
 
 #Compliation flags
-CFLAGS = -g -Wall
+CFLAGS=-g -I${VHLS_INC} -DHLS_NO_XIL_FPO_LIB -std=c++11 -O3
 
 TARGET = main.exe
 
@@ -18,26 +18,25 @@ all: $(TARGET)
 run: $(TARGET)
 	./$(TARGET)
 
-main.exe: main.o sha256.o miner.o util.o
-	$(CC) $(CFLAGS) -o main main.o sha256.o miner.o util.o
+main.exe: main.o sha256.o util.o typedefs.h
+	$(CC) $(CFLAGS) -o main main.o sha256.o util.o
 
-main.o: main.cpp sha256.h miner.h util.h
+main.o: main.cpp sha256.h miner.h util.h typedefs.h
 	$(CC) $(CFLAGS) -c main.cpp
 
-miner.o: miner.cpp sha256.h miner.h util.h
+miner.o: miner.cpp sha256.h miner.h util.h typedefs.h
 	$(CC) $(CFLAGS) -c miner.cpp
 
-sha256.o: miner.cpp sha256.h
+sha256.o: miner.cpp sha256.h typedefs.h
 	$(CC) $(CFLAGS) -c sha256.cpp
 
-util.o: miner.cpp util.h
+util.o: miner.cpp util.h typedefs.h
 	$(CC) $(CFLAGS) -c util.cpp
 
 clean:
 	@echo "Clean up output files"
 	rm -rf main.exe vivado_hls.log *.prj result out.dat *~
 	rm main.o 
-	rm miner.o
 	rm sha256.o
 	rm util.o
 	
