@@ -1,34 +1,44 @@
-#include <iostream>
-#include <iomanip>
-#include <string.h>
 
 #include "sha256.h"
+#include <iomanip>
+#include <iostream>
+#include "typedefs.h"
+
+
+#include <string.h>
 #include "miner.h"
 #include "util.h"
+using namespace std;
 
-int main()
-{
-    // Genesis Block info
-    char version[] = "01000000";
-    char prevhash[] = "0000000000000000000000000000000000000000000000000000000000000000";
-    char merkle_root[] = "3BA3EDFD7A7B12B27AC72C3E67768F617FC81BC3888A51323A9FB8AA4B1E5E4A";
-    char time[] = "29AB5F49";
-    char nbits[] = "FFFF001D";
 
-    uint32_t result[8];
-    //uint32_t nonce = mineblock(2083236890, version, prevhash, merkle_root, time, nbits);
-    uint32_t nonce = mineblock(10, version, prevhash, merkle_root, time, nbits);
-    
-    std::cout << "Block solved ! Nonce: " << nonce << std::endl;
-    std::cout << "Block hash:" << std::endl;
-    
-    //hashblock((uint32_t)2083236893, result);
-    hashblock(nonce, version, prevhash, merkle_root, time, nbits, result);
+typedef ap_uint<32> bit32_t;
 
-    for(int i = 0; i < 8; i++)
-        result[i] = Reverse32(result[i]);
+void dut(hls::stream<bit32_t> &strm_in, hls::stream<bit32_t> &strm_out) {
+    const int I_WIDTH1 = 64; // Define based on the input size
+    bit32_t input_l;
 
-    // print_bytes_reversed((unsigned char *)result, 32);
-    
-    return 0;
+    // Prepare input buffer for hashing
+    uint32_t input[I_WIDTH1] = {0};
+    int bitcount = 0;
+
+    // Read input data from the stream into the input array
+    for (int i = 0; i < I_WIDTH1; i++) {
+        input_l = strm_in.read();
+        input[i] = input_l;
+    }
+
+    // Calculate bit length based on the number of words read in
+    int bitlength = I_WIDTH1 * 32;
+
+    // Define the output buffer for the hash function
+    uint32_t outputlocation[8] = {0};
+
+    // Call the hash function
+    hash(input, bitlength, outputlocation);
+
+    // Write each 32-bit word of the resulting hash to the output stream
+    for (int i = 0; i < 8; i++) {
+        bit32_t output = outputlocation[i];
+        strm_out.write(output);
+    }
 }
