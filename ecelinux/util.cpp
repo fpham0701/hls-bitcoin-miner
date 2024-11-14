@@ -1,23 +1,22 @@
 #include <iostream>
-#include <iomanip>
-#include <string.h>
+#include "util.h"
 
-void print_bytes(const unsigned char *data, size_t dataLen, bool format = true) {
+void print_bytes(const unsigned char *data, size_t dataLen){//}, bool format = true) {
     for(size_t i = 0; i < dataLen; ++i) {
         std::cout << std::hex << std::setw(2) << (int)data[i];
-        if (format) {
+        // if (format) {
             std::cout << (((i + 1) % 16 == 0) ? "\n" : " ");
-        }
+        // }
     }
     std::cout << std::endl;
 }
 
-void print_bytes_reversed(const unsigned char *data, size_t dataLen, bool format = true) {
+void print_bytes_reversed(const unsigned char *data, size_t dataLen){//}, bool format = true) {
     for(size_t i = dataLen; i > 0; i--) {
         std::cout << std::hex << std::setw(2) << (int)data[i - 1];
-        if (format) {
-            std::cout << (((i - 1) % 16 == 0) ? "\n" : " ");
-        }
+        // if (format) {
+        std::cout << (((i - 1) % 16 == 0) ? "\n" : " ");
+        // }
     }
     std::cout << std::endl;
 }

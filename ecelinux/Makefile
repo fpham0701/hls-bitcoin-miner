@@ -18,19 +18,22 @@ all: $(TARGET)
 run: $(TARGET)
 	./$(TARGET)
 
-main.exe: main.o sha256.o util.o typedefs.h
-	$(CC) $(CFLAGS) -o main main.o sha256.o util.o
+main.exe: main_tb.o main.o sha256.o util.o # typedefs.h
+	$(CC) $(CFLAGS) -o main main_tb.o main.o sha256.o util.o
 
-main.o: main.cpp sha256.h miner.h util.h typedefs.h
+main_tb.o: main_tb.cpp #sha256.h miner.h util.h # typedefs.h
+	$(CC) $(CFLAGS) -c main_tb.cpp
+
+main.o: main.cpp # typedefs.h
 	$(CC) $(CFLAGS) -c main.cpp
 
-miner.o: miner.cpp sha256.h miner.h util.h typedefs.h
+miner.o: miner.cpp #sha256.h miner.h util.h # typedefs.h
 	$(CC) $(CFLAGS) -c miner.cpp
 
-sha256.o: miner.cpp sha256.h typedefs.h
+sha256.o: miner.cpp #sha256.h # typedefs.h
 	$(CC) $(CFLAGS) -c sha256.cpp
 
-util.o: miner.cpp util.h typedefs.h
+util.o: miner.cpp #util.h # typedefs.h
 	$(CC) $(CFLAGS) -c util.cpp
 
 clean:
