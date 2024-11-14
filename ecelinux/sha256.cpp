@@ -159,7 +159,7 @@ void hash1(bit32_t *input, int bitlength, bit32_t *outputlocation)
 
     for(int i = 0; i < 8; i++) {
         outputlocation[i] = H[rounds][i];
-        std::cout << "outputlocation[" << i << "] = " << std::hex << outputlocation[i] << std::endl;
+        // std::cout << "outputlocation[" << i << "] = " << std::hex << outputlocation[i] << std::endl;
     }
 
 
