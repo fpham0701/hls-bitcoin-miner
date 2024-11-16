@@ -38,7 +38,7 @@ int main(int arc, char **argv) {
     uint32_t results[TEST_SIZE];
 
     // Timer
-    Timer timer("digitrec bnn on FPGA");
+    Timer timer("SHA-256 Test");
     // intermediate results
     int nbytes;
     int error = 0;
