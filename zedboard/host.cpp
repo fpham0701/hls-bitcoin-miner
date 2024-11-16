@@ -65,11 +65,7 @@ int main(int arc, char **argv) {
     uint32_t results[TEST_SIZE];
 
     // Timer
-<<<<<<< Updated upstream
     Timer timer("SHA-256 Test");
-=======
-    Timer timer("SHA on FPGA");
->>>>>>> Stashed changes
     // intermediate results
     int nbytes;
     int error = 0;
