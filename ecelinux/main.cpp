@@ -27,7 +27,7 @@ void dut(hls::stream<bit32_t> &strm_in, hls::stream<bit32_t> &strm_out) {
     input[1] = input_high.to_uint();        // Higher 32 bits
 
     // Set bit length as 64 since we’re using 64 bits of data
-    int bitlength = I_WIDTH1;
+    bit32_t bitlength = I_WIDTH1;
 
     // Output buffer for the SHA-256 hash result (8 words of 32 bits each)
     bit32_t outputlocation[8] = {0};

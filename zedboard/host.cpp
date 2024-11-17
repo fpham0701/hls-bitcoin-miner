@@ -9,7 +9,7 @@
 #include <fstream>
 #include <sstream>
 
-#include "typedefs.h"
+//#include "typedefs.h"
 #include "miner.h"
 #include "sha256.h"
 #include "util.h"
@@ -23,19 +23,19 @@ const int OUTPUT_SIZE = 8;
 //------------------------------------------------------------------------
 // helper function to parse testing data
 //------------------------------------------------------------------------
-void parseLine(const string &line, uint32_t inputArr[INPUT_SIZE], uint32_t expectedArr[OUTPUT_SIZE]) {
+void parseLine(const string &line, bit32_t inputs[TEST_SIZE][INPUT_SIZE], bit32_t expected_hashes[TEST_SIZE][OUTPUT_SIZE], int i) {
     stringstream ss(line);
     string hex;
 
-    for (int i = 0; i < INPUT_SIZE; i++) {
+    for (int j = 0; j < INPUT_SIZE; j++) {
         if (getline(ss, hex, ',')) {
-            inputArr[i]= stoull(hex, nullptr, 16);
+            inputs[i][j]= stoul(hex, nullptr, 16);
         }
     }
 
-    for (int i = 0 < OUTPUT_SIZE; i++) {
+    for (int j = 0; j < OUTPUT_SIZE; j++) {
         if (getline(ss, hex, ',')) {
-            expectedArr[i] = stoull(hex, nullptr, 16);
+            expected_hashes[i][j] = stoul(hex, nullptr, 16);
         }
     }
 }
@@ -60,9 +60,9 @@ int main(int arc, char **argv) {
     ifstream myfile("data/testing_set.dat");
 
     // data instantiation
-    uint32_t inputs[TEST_SIZE][INPUT_SIZE];
-    uint32_t expected_hashes[TEST_SIZE][OUTPUT_SIZE];
-    uint32_t results[TEST_SIZE];
+    bit32_t inputs[TEST_SIZE][INPUT_SIZE];
+    bit32_t expected_hashes[TEST_SIZE][OUTPUT_SIZE];
+    bit32_t results[TEST_SIZE];
 
     // Timer
     Timer timer("SHA-256 Test");
@@ -81,16 +81,17 @@ int main(int arc, char **argv) {
     //--------------------------------------------------------------------
     for (int i = 0; i < TEST_SIZE; i++) {
         assert(getline(myfile, line));
-        uint32_t inputArr[INPUT_SIZE];
-        uint32_t expectedArr[OUTPUT_SIZE];
+        cout << i << endl;
 
         // parse the line
-        parseLine(line, inputArr, expectedArr);
-
-        inputs[i] = inputArr;
-        expected_hashes[i] = expectedArr;
+        parseLine(line, inputs, expected_hashes, i);
     }
 
+    // Display input array
+    cout << "  Input: ";
+    for (int j = 0; j < INPUT_SIZE; ++j) {
+        cout << "0x" << hex << inputs[1][j] << " ";
+    }
     // TODO THINGS TO CHANGE: can remove this w/o timer function and just run the thing (lab3)
     // OR, like lab4, run without timer, and then add performacne 20 times
     //--------------------------------------------------------------------
@@ -108,7 +109,7 @@ int main(int arc, char **argv) {
         nbytes = write(fdw, (void *)&input, sizeof(input));
         assert(nbytes == sizeof(input));
     }
-
+    // TODO: Need to fix stream of 2 input, stream of 8 output
     // receive data through read channel
     for (int i = 0; i < TEST_SIZE; i++) {
         uint32_t result_hash;
@@ -130,7 +131,7 @@ int main(int arc, char **argv) {
     cout << "Numeber of test instances: " << num_test_insts << endl;
     cout << "Overall Error Rate = " << setprecision(4) 
               << ((double)error / num_test_insts) * 100 << "%" << endl;
-    
+
 
     myfile.close();
     

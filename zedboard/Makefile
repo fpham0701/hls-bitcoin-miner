@@ -3,8 +3,6 @@
 #==========================================================================
 # @brief: A makefile the compiles and runs the bitcoin-mining program
 
-# TODO add more
-
 
 INC_PATH=/usr/include/vivado_hls
 CFLAGS = -I${INC_PATH} -DHLS_NO_XIL_FPO_LIB -O3
@@ -13,17 +11,24 @@ CFLAGS = -I${INC_PATH} -DHLS_NO_XIL_FPO_LIB -O3
 
 all: sw
 
-bitcoin-arm: #TODO
+bitcoin-arm: main.cpp main_tb.cpp
+	@echo "Compiling & executing digitrec software program on ARM ..."
+	g++ ${CFLAGS} $^ -o $@
+
+result/bitcoin_arm.txt: bitcoin-arm
+	mkdir -p result
+	./$< | tee $@
 
 sw: result/bitcoin_arm.txt
 	@echo "Result saved to $@"
 
-bitcoin-fpga: host.cpp #TODO
+bitcoin-fpga: host.cpp
+	@echo "Compiling host program"
+	g++ ${CFLAGS} $^ -o $@
 
 fpga: bitcoin-fpga 
-	@echo "Runnign bitcoin accelerator . . ."
+	@echo "Running bitcoin accelerator . . ."
 	./$<
-
 
 # Clean up the directory before submission
 clean:
