@@ -16,5 +16,14 @@ typedef ap_uint<4> bit4_t;
 typedef ap_uint<32> bit32_t;
 typedef ap_uint<64> bit64_t;
 
+#endif
+
+#ifndef TYPEDEFS_H
+#define TYPEDEFS_H
+// struct to hold the nonce and the new hash 
+typedef struct {
+    bit32_t nonce;
+    bit32_t hash[8];
+} new_hash_pow;
 
 #endif
