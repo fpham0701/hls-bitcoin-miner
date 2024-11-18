@@ -39,7 +39,7 @@ util.o: miner.cpp #util.h # typedefs.h
 clean:
 	@echo "Clean up output files"
 	rm -rf main.exe vivado_hls.log *.prj result out.dat *~
-	rm main_tb.o 
+	rm dut.o 
 	rm sha256.o
 	rm util.o
 	
