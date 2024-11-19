@@ -8,8 +8,10 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <string>
 
 #include "typedefs.h"
+#include "timer.h"
 #include "miner.h"
 #include "sha256.h"
 #include "util.h"
@@ -29,13 +31,13 @@ void parseLine(const string &line, bit32_t inputs[TEST_SIZE][INPUT_SIZE], bit32_
 
     for (int j = 0; j < INPUT_SIZE; j++) {
         if (getline(ss, hex, ',')) {
-            inputs[i][j]= stoul(hex, nullptr, 16);
+            inputs[i][j]= strtol(hex.c_str(), NULL, 16);
         }
     }
 
     for (int j = 0; j < OUTPUT_SIZE; j++) {
         if (getline(ss, hex, ',')) {
-            expected_hashes[i][j] = stoul(hex, nullptr, 16);
+            expected_hashes[i][j] = strtol(hex.c_str(), NULL, 16);
         }
     }
 }
@@ -81,17 +83,11 @@ int main(int arc, char **argv) {
     //--------------------------------------------------------------------
     for (int i = 0; i < TEST_SIZE; i++) {
         assert(getline(myfile, line));
-        cout << i << endl;
 
         // parse the line
         parseLine(line, inputs, expected_hashes, i);
     }
 
-    // Display input array
-    cout << "  Input: ";
-    for (int j = 0; j < INPUT_SIZE; ++j) {
-        cout << "0x" << hex << inputs[1][j] << " ";
-    }
     // TODO THINGS TO CHANGE: can remove this w/o timer function and just run the thing (lab3)
     // OR, like lab4, run without timer, and then add performacne 20 times
     //--------------------------------------------------------------------
@@ -100,19 +96,21 @@ int main(int arc, char **argv) {
     cout << "Testing accuracy over " << TEST_SIZE << " hashes." << endl;
     // Send data to accelerator
     for (int i = 0; i < TEST_SIZE; i++) {
-        // send 32-bit value through the write channel
-        bit64_t test_inst;
+        for (int j = 0; j < INPUT_SIZE; j++) {
+            // send 32-bit value through the write channel
+            bit32_t test_inst;
 
-        test_inst(inputs[i].length()-1, 0) = inputs[i](inputs[i].length()-1,0);
-        int64_t input = test_inst;
+            test_inst(inputs[i][j].length()-1, 0) = inputs[i][j](inputs[i][j].length()-1,0);
+            int64_t input = test_inst;
 
-        nbytes = write(fdw, (void *)&input, sizeof(input));
-        assert(nbytes == sizeof(input));
+            int nbytes = write(fdw, (void *)&input, sizeof(input));
+            assert(nbytes == sizeof(input));
+        }
     }
     // TODO: Need to fix stream of 2 input, stream of 8 output
     // receive data through read channel
     for (int i = 0; i < TEST_SIZE; i++) {
-        for (int i = 0; j < OUTPUT_SIZE; j++) {
+        for (int j = 0; j < OUTPUT_SIZE; j++) {
             bit32_t result_hash;
 
             int nbytes = read(fdr, (void *)&result_hash, sizeof(result_hash));
@@ -129,11 +127,11 @@ int main(int arc, char **argv) {
             if (expected_hashes[i][j] != results[i][j]) {
                 error++;
             }
-            num_tests_insts++;
+            num_test_insts++;
         }
     }
 
-    cout << "Numeber of test instances: " << num_test_insts << endl;
+    cout << "Number of test instances: " << num_test_insts << endl;
     cout << "Overall Error Rate = " << setprecision(4) 
               << ((double)error / num_test_insts) * 100 << "%" << endl;
 

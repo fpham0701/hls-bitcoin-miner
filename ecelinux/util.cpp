@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdlib.h>
 #include "util.h"
 
 void print_bytes(const unsigned char *data, size_t dataLen){//}, bool format = true) {

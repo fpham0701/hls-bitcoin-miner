@@ -11,7 +11,7 @@ CFLAGS = -I${INC_PATH} -DHLS_NO_XIL_FPO_LIB -O3
 
 all: sw
 
-bitcoin-arm: main.cpp main_tb.cpp
+bitcoin-arm: main.cpp main_tb.cpp sha256.cpp util.cpp
 	@echo "Compiling & executing digitrec software program on ARM ..."
 	g++ ${CFLAGS} $^ -o $@
 
