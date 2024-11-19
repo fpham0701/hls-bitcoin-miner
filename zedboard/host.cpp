@@ -9,7 +9,7 @@
 #include <fstream>
 #include <sstream>
 
-//#include "typedefs.h"
+#include "typedefs.h"
 #include "miner.h"
 #include "sha256.h"
 #include "util.h"
@@ -62,7 +62,7 @@ int main(int arc, char **argv) {
     // data instantiation
     bit32_t inputs[TEST_SIZE][INPUT_SIZE];
     bit32_t expected_hashes[TEST_SIZE][OUTPUT_SIZE];
-    bit32_t results[TEST_SIZE];
+    bit32_t results[TEST_SIZE][OUTPUT_SIZE];
 
     // Timer
     Timer timer("SHA-256 Test");
@@ -112,20 +112,25 @@ int main(int arc, char **argv) {
     // TODO: Need to fix stream of 2 input, stream of 8 output
     // receive data through read channel
     for (int i = 0; i < TEST_SIZE; i++) {
-        uint32_t result_hash;
+        for (int i = 0; j < OUTPUT_SIZE; j++) {
+            bit32_t result_hash;
 
-        int nbytes = read(fdr, (void *)&result_hash, sizeof(result_hash));
-        assert(nbytes == sizeof(result_hash));
+            int nbytes = read(fdr, (void *)&result_hash, sizeof(result_hash));
+            assert(nbytes == sizeof(result_hash));
+            results[i][j] = result_hash;
 
-        results[i] = result_hash;
+
+        }
     }
 
     // count errors and total test insts
-    for (int i = 0; i < N; i++) {
-        if (expected_hashes[i] != results[i]) {
-            error++;
+    for (int i = 0; i < TEST_SIZE; i++) {
+        for (int j = 0; j < OUTPUT_SIZE; j++) {
+            if (expected_hashes[i][j] != results[i][j]) {
+                error++;
+            }
+            num_tests_insts++;
         }
-        num_test_insts++;
     }
 
     cout << "Numeber of test instances: " << num_test_insts << endl;

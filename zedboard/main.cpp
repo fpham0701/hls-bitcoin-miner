@@ -8,7 +8,7 @@
 // #include <string.h>
 // #include "miner.h"
 // #include <fstream>
-// #include <hls_stream.h>
+#include <hls_stream.h>
 
 using namespace std;
 
