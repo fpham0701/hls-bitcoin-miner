@@ -1,4 +1,7 @@
 #include <iostream>
+#include "typedefs.h"
+#include "sha256.h"
+// typedef ap_uint<32> uint32_t;
 
 uint32_t rotateInt(uint32_t inputWord, int numberOfBitsToRotate) 
 {
@@ -48,7 +51,7 @@ uint32_t sig1(uint32_t x)
     return(rotateInt(x, 17) ^ rotateInt(x, 19) ^ (x >> 10));
 }
 
-void hash(uint32_t *input, int bitlength, uint32_t *outputlocation)
+void hash1(uint32_t *input, int bitlength, uint32_t *outputlocation)
 {
     uint32_t H_0[8] = { 0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19 };
 
@@ -155,6 +158,13 @@ void hash(uint32_t *input, int bitlength, uint32_t *outputlocation)
         H[i][7] = h + H[i-1][7];
     }
 
-    for(int i = 0; i < 8; i++)
+    for(int i = 0; i < 8; i++) {
         outputlocation[i] = H[rounds][i];
+        // std::cout << "outputlocation[" << i << "] = " << std::hex << outputlocation[i] << std::endl;
+    }
+
+
+
+        
 }
+        

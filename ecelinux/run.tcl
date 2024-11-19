@@ -10,15 +10,13 @@ set hls_prj sha.prj
 open_project ${hls_prj} -reset
 
 # Top function of the design is "dut"
-set_top main
+set_top dut
 
 # Add design and testbench files
-add_files miner.cpp -cflags "-std=c++11"
 add_files util.cpp -cflags "-std=c++11"
 add_files sha256.cpp -cflags "-std=c++11"
-add_files -tb main.cpp -cflags "-std=c++11"
-# add_files -tb bnn_test.cpp -cflags "-std=c++11"
-# add_files -tb data
+add_files main.cpp -cflags "-std=c++11"
+add_files main_tb.cpp -tb -cflags "-std=c++11"
 
 open_solution "solution1"
 # Use Zynq device
