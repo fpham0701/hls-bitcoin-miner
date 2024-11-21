@@ -121,25 +121,6 @@
 
 void hashblock(uint32_t* blockheader,  uint32_t* result)
 {
-    // uint32_t blockheader[20];
-
-    // // Populate blockheader with 32-bit packets
-    // blockheader[0] = version[0];
-    // for (int i = 0; i < 8; i++) {
-    //     blockheader[1 + i] = prevhash[i];
-    // }
-    // for (int i = 0; i < 8; i++) {
-    //     blockheader[9 + i] = merkle_root[i];
-    // }
-    // blockheader[17] = time[0];
-    // blockheader[18] = nbits[0];
-    // blockheader[19] = nonce;
-
-    // // Reverse each 32-bit word for little-endian compatibility
-    // for (int i = 0; i < 20; i++) {
-    //     blockheader[i] = Reverse32(blockheader[i]);
-    // }
-
     // Perform hashing twice
     uint32_t hash0[8];
     hash1(blockheader, 640, hash0);
@@ -152,12 +133,11 @@ new_hash_pow mineblock(uint32_t noncestart, uint32_t* version, uint32_t* prevhas
 {
     // Define difficulty
     uint32_t difficulty[8] = {0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0x0000};
-    uint32_t nonce_array[] = {noncestart};
-
     
 
-    uint32_t hash[8];
+    // uint32_t hash[8];
     uint32_t nonce = noncestart - 1;
+    uint32_t nonce_array[] = {nonce};
 
     uint32_t blockheader[20];
 
@@ -182,28 +162,30 @@ new_hash_pow mineblock(uint32_t noncestart, uint32_t* version, uint32_t* prevhas
     // = {version, prevhash, merkle_root, time, nbits, nonce_array}
 
 
-
+    new_hash_pow final_result;
     std::chrono::steady_clock::time_point start = std::chrono::steady_clock::now();
 
     while (true)
     {
         nonce++;
+        blockheader[19] = nonce;
         uint32_t result[8];
+        std::cout << "Input Nonce: " << std::hex << blockheader[19] << std::endl;
         hashblock(blockheader,result);
         // hashblock(nonce, version, prevhash, merkle_root, time, nbits, hash);
-    
+
 
         // Check if the hash meets the difficulty
         for (int i = 0; i < 8; i++) {
-            if (hash[7 - i] < difficulty[i]) {
-                new_hash_pow result;
-                result.nonce = nonce;
+            if (result[7 - i] < difficulty[i]) {
+                // new_hash_pow result;
+                final_result.nonce = nonce;
                 for (int j = 0; j < 8; j++) {
-                    result.hash[j] = hash[j];
+                    final_result.hash[j] = result[j];
                 }
-                return result;
+                return final_result;
             }
-            else if (hash[7 - i] > difficulty[i]) {
+            else if (result[7 - i] > difficulty[i]) {
                 break;
             }
         }

@@ -65,7 +65,7 @@ int main()
     new_hash_pow result = mineblock(10, version, prevhash, merkle_root, time, nbits);
     
     // Access the nonce via `result.nonce`
-    std::cout << "Block solved! Nonce: " << std::hex << result.nonce << std::endl;
+    std::cout << "Block solved! Nonce: "<< result.nonce << std::endl;
     std::cout << "Block hash:" << std::endl;
     
     // Print the hash from `result.hash`
