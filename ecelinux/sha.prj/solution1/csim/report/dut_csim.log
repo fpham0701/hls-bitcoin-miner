@@ -1,0 +1,21 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../main_tb.cpp in release mode
+   Compiling ../../../../dut.cpp in release mode
+   Compiling ../../../../sha256.cpp in release mode
+   Compiling ../../../../util.cpp in release mode
+   Compiling ../../../../miner.cpp in release mode
+   Generating csim.exe
+Block solved! Nonce: 0x0a006
+Block hash:
+8 hash : 0x44ba8dd2
+7 hash : 0x28acb1c8
+6 hash : 0x7bd608f
+5 hash : 0x65c2ca38
+4 hash : 0x81d6ee43
+3 hash : 0x9a70a32e
+2 hash : 0xdaddd519
+1 hash : 0x5ab5
+SHA-256 Test        :      1 calls; 40854.344 msecs total time
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

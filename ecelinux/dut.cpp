@@ -10,51 +10,51 @@
 
 using namespace std;
 
-// typedef ap_uint<32> uint32_t;
+// typedef ap_uint<32> bit32_t;
 
-// void dut(hls::stream<uint32_t> &strm_in, hls::stream<uint32_t> &strm_out) {
+// void dut(hls::stream<bit32_t> &strm_in, hls::stream<bit32_t> &strm_out) {
     
 
 // }
 
 
 
-void dut(hls::stream<uint32_t> &strm_in, hls::stream<uint32_t> &strm_out) {
+void dut(hls::stream<bit32_t> &strm_in, hls::stream<bit32_t> &strm_out) {
     // const int I_WIDTH1 = 64; // Total width of the input block in bits
-    // uint32_t input[6];       // 64-bit input buffer split into two 32-bit elements
+    // bit32_t input[6];       // 64-bit input buffer split into two 32-bit elements
 
     // Read 32-bit words from the input stream to form a 64-bit block
-    uint32_t nonce = strm_in.read();
-    std::cout << "nonce "<< std::hex << nonce << std::endl;
+    bit32_t nonce = strm_in.read();
+    // std::cout << "nonce "<< std::hex << nonce << std::endl;
     
-    uint32_t version[1];
+    bit32_t version[1];
     for(int i = 0; i<1; i++){
         version[i] = strm_in.read();
-        std::cout << "version "<< std::hex << version[i] << std::endl;
+        // std::cout << "version "<< std::hex << version[i] << std::endl;
     }
 
-    uint32_t prevhash[8];
+    bit32_t prevhash[8];
     for(int i = 0; i<8; i++){
         prevhash[i] = strm_in.read();
-        std::cout << "prevhash "<< std::hex << prevhash[i] << std::endl;
+        // std::cout << "prevhash "<< std::hex << prevhash[i] << std::endl;
     }
 
-    uint32_t merkle_root[8];
+    bit32_t merkle_root[8];
     for(int i = 0; i<8; i++){
         merkle_root[i] = strm_in.read();
-        std::cout << "merkle_root "<< std::hex << merkle_root[i] << std::endl;
+        // std::cout << "merkle_root "<< std::hex << merkle_root[i] << std::endl;
     }
   
-    uint32_t time[1];
+    bit32_t time[1];
     for(int i = 0; i<1; i++){
         time[i] = strm_in.read();
-        std::cout << "time "<< std::hex << time[i] << std::endl;
+        // std::cout << "time "<< std::hex << time[i] << std::endl;
     }
     
-    uint32_t nbits[1];
+    bit32_t nbits[1];
     for(int i = 0; i<1; i++){
         nbits[i] = strm_in.read();
-        std::cout << "nbits "<< std::hex << nbits[i] << std::endl;
+        // std::cout << "nbits "<< std::hex << nbits[i] << std::endl;
     }
 
     // Output buffer for the SHA-256 hash result (8 words of 32 bits each)
@@ -77,13 +77,13 @@ void dut(hls::stream<uint32_t> &strm_in, hls::stream<uint32_t> &strm_out) {
 }
 
 
-// // void dut(hls::stream<uint32_t> &strm_in, hls::stream<uint32_t> &strm_out) {
+// // void dut(hls::stream<bit32_t> &strm_in, hls::stream<bit32_t> &strm_out) {
 // //     const int I_WIDTH1 = 64; // Total width of the input block in bits
-// //     uint32_t input[2];       // 64-bit input buffer split into two 32-bit elements
+// //     bit32_t input[2];       // 64-bit input buffer split into two 32-bit elements
 
 // //     // Read two 32-bit words from the input stream to form a 64-bit block
-// //     uint32_t input_low = strm_in.read();
-// //     uint32_t input_high = strm_in.read();
+// //     bit32_t input_low = strm_in.read();
+// //     bit32_t input_high = strm_in.read();
 
 // //     // Combine the lower and higher parts into a single input array
 // //     input[0] = input_low.to_uint();         // Lower 32 bits
@@ -93,7 +93,7 @@ void dut(hls::stream<uint32_t> &strm_in, hls::stream<uint32_t> &strm_out) {
 // //     int bitlength = I_WIDTH1;
 
 // //     // Output buffer for the SHA-256 hash result (8 words of 32 bits each)
-// //     uint32_t outputlocation[8] = {0};
+// //     bit32_t outputlocation[8] = {0};
 
 // //     // Call the hash function
 // //     hash1(input, bitlength, outputlocation);

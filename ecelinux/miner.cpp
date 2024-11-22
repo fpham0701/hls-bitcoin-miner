@@ -1,12 +1,12 @@
 #include <stdint.h>
 #include <iostream>
-#include <chrono>
+// #include <chrono>
 #include "util.h"
 #include "sha256.h"
 
-// typedef ap_uint<32> uint32_t;
+// typedef ap_uint<32> bit32_t;
 // Converts bits to a 256-bit value that we can compare our hash against
-// void bits_to_difficulty(uint32_t bits, uint32_t* difficulty)
+// void bits_to_difficulty(bit32_t bits, bit32_t* difficulty)
 // {
 //     for(int i = 0; i < 8; i++)
 //         difficulty[i] = 0;
@@ -14,7 +14,7 @@
 //     bits = Reverse32(bits);
 
 //     char exponent = bits & 0xff;
-//     uint32_t significand = bits >> 8;
+//     bit32_t significand = bits >> 8;
 
 //     for(int i = 0; i < 3; i++)
 //     {
@@ -28,10 +28,10 @@
 // }
 
 // Hashes block with given nonce, stores hash in result
-// void hashblock(uint32_t nonce, char* version, char* prevhash, 
-//     char* merkle_root, char* time, char* nbits, uint32_t* result)
+// void hashblock(bit32_t nonce, char* version, char* prevhash, 
+//     char* merkle_root, char* time, char* nbits, bit32_t* result)
 // {
-//     uint32_t blockheader[20];
+//     bit32_t blockheader[20];
 
 //     // std::cout << "version:" << std::endl;
 //     hexstr_to_intarray(version, blockheader);
@@ -56,7 +56,7 @@
 //     for(int i = 0; i < 20; i++)
 //         blockheader[i] = Reverse32(blockheader[i]);
 
-//     uint32_t hash0[8];
+//     bit32_t hash0[8];
 //     hash1(blockheader, 640, hash0);
 
 //     hash1(hash0, 256, result);
@@ -64,12 +64,12 @@
 // }
 
 // // new mineblock reutrn nonce + valid_hash
-// new_hash_pow mineblock(uint32_t noncestart, char* version, char* prevhash, 
+// new_hash_pow mineblock(bit32_t noncestart, char* version, char* prevhash, 
 //     char* merkle_root, char* time, char* nbits)
 // {
-//     // First convert bits to a uint32_t, then convert this to a difficulty
-//     uint32_t difficulty[8];
-//     uint32_t bits[1];
+//     // First convert bits to a bit32_t, then convert this to a difficulty
+//     bit32_t difficulty[8];
+//     bit32_t bits[1];
 //     hexstr_to_intarray(nbits, bits);
 
 //     for (int t = 0; t < 8; t++ ){
@@ -80,8 +80,8 @@
 //         }
 //     }
 
-//     uint32_t hash[8];
-//     uint32_t nonce = noncestart - 1;
+//     bit32_t hash[8];
+//     bit32_t nonce = noncestart - 1;
 //     std::chrono::steady_clock::time_point start = std::chrono::steady_clock::now();
 
 //     while (true)
@@ -119,42 +119,72 @@
 //     }
 // }
 
-void hashblock(uint32_t* blockheader,  uint32_t* result)
+void hashblock(bit32_t* blockheader,  bit32_t* result)
 {
     // Perform hashing twice
-    uint32_t hash0[8];
+    bit32_t hash0[8];
     hash1(blockheader, 640, hash0);
     hash1(hash0, 256, result);
 }
 
 // Mines a block, returns nonce + valid hash
-new_hash_pow mineblock(uint32_t noncestart, uint32_t* version, uint32_t* prevhash, 
-                        uint32_t* merkle_root, uint32_t* time, uint32_t* nbits)
+new_hash_pow mineblock(bit32_t noncestart, bit32_t* version, bit32_t* prevhash, 
+                        bit32_t* merkle_root, bit32_t* time, bit32_t* nbits)
 {
     // Define difficulty
-    uint32_t difficulty[8] = {0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0x0000};
+    bit32_t difficulty[8] = {0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0x0000};
     
 
-    // uint32_t hash[8];
-    uint32_t nonce = noncestart - 1;
-    uint32_t nonce_array[] = {nonce};
+    // bit32_t hash[8];
+    bit32_t nonce = noncestart - 1;
+    bit32_t nonce_array[] = {nonce};
 
-    uint32_t blockheader[20];
+    bit32_t blockheader[20];
+    // blockheader[0] = *version;
+    
+    // for (int i = 0; i < 8; i++) {
+    //     blockheader[1 + i] = prevhash[i];
+    // }
 
-    // Copy version into blockheader[0]
-    memcpy(&blockheader[0], version, 1 * sizeof(uint32_t));
+    // for (int i = 0; i < 8; i++) {
+    //     blockheader[9 + i] = merkle_root[i];
+    // }
+
+    // blockheader[17] = time;
+    // blockheader[18] = nbits;
+
+    blockheader[0] = *version; // Copy version
 
     // Copy prevhash into blockheader[1..8]
-    memcpy(&blockheader[1], prevhash, 8 * sizeof(uint32_t));
+    for (int i = 0; i < 8; ++i) {
+        blockheader[1 + i] = prevhash[i];
+    }
 
     // Copy merkle_root into blockheader[9..16]
-    memcpy(&blockheader[9], merkle_root, 8 * sizeof(uint32_t));
+    for (int i = 0; i < 8; ++i) {
+        blockheader[9 + i] = merkle_root[i];
+    }
 
     // Copy time into blockheader[17]
-    memcpy(&blockheader[17], time, 1 * sizeof(uint32_t));
+    blockheader[17] = *time; // Copy time
 
     // Copy nbits into blockheader[18]
-    memcpy(&blockheader[18], nbits, 1 * sizeof(uint32_t));
+    blockheader[18] = *nbits; // Copy nbits
+
+    // Copy version into blockheader[0]
+    // memcpy(&blockheader[0], version, 1 * sizeof(bit32_t));
+
+    // // Copy prevhash into blockheader[1..8]
+    // memcpy(&blockheader[1], prevhash, 8 * sizeof(bit32_t));
+
+    // // Copy merkle_root into blockheader[9..16]
+    // memcpy(&blockheader[9], merkle_root, 8 * sizeof(bit32_t));
+
+    // // Copy time into blockheader[17]
+    // memcpy(&blockheader[17], time, 1 * sizeof(bit32_t));
+
+    // // Copy nbits into blockheader[18]
+    // memcpy(&blockheader[18], nbits, 1 * sizeof(bit32_t));
 
     // Copy the first element of nonce_array into blockheader[19]
     blockheader[19] = nonce_array[0]; 
@@ -163,14 +193,14 @@ new_hash_pow mineblock(uint32_t noncestart, uint32_t* version, uint32_t* prevhas
 
 
     new_hash_pow final_result;
-    std::chrono::steady_clock::time_point start = std::chrono::steady_clock::now();
+    // std::chrono::steady_clock::time_point start = std::chrono::steady_clock::now();
 
     while (true)
     {
         nonce++;
         blockheader[19] = nonce;
-        uint32_t result[8];
-        std::cout << "Input Nonce: " << std::hex << blockheader[19] << std::endl;
+        bit32_t result[8];
+        // std::cout << "Input Nonce: " << std::hex << blockheader[19] << std::endl;
         hashblock(blockheader,result);
         // hashblock(nonce, version, prevhash, merkle_root, time, nbits, hash);
 
@@ -191,12 +221,12 @@ new_hash_pow mineblock(uint32_t noncestart, uint32_t* version, uint32_t* prevhas
         }
 
         // Periodic hash rate reporting
-        if (((nonce - noncestart) % 10000) == 0 && nonce != noncestart) {
-            auto end = std::chrono::steady_clock::now();
-            long duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
-            float hashrate = 10000000.0 / (float)duration;
-            std::cout << "Currently mining at " << hashrate << " hashes / second" << std::endl;
-            start = std::chrono::steady_clock::now();
-        }
+        // if (((nonce - noncestart) % 10000) == 0 && nonce != noncestart) {
+        //     // auto end = std::chrono::steady_clock::now();
+        //     // long duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
+        //     // float hashrate = 10000000.0 / (float)duration;
+        //     // std::cout << "Currently mining at " << hashrate << " hashes / second" << std::endl;
+        //     // start = std::chrono::steady_clock::now();
+        // }
     }
 }

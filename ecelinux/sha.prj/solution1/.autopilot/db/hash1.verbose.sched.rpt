@@ -1,0 +1,639 @@
+
+
+================================================================
+== Vivado HLS Report for 'hash1'
+================================================================
+* Date:           Thu Nov 21 20:50:34 2024
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        sha.prj
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020-clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 7.625 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |      544|      608| 5.440 us | 6.080 us |  544|  608|   none  |
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------+---------+---------+-----------+-----------+-----------+------+----------+
+        |             |  Latency (cycles) | Iteration |  Initiation Interval  | Trip |          |
+        |  Loop Name  |   min   |   max   |  Latency  |  achieved |   target  | Count| Pipelined|
+        +-------------+---------+---------+-----------+-----------+-----------+------+----------+
+        |- Loop 1     |       18|       18|          2|          -|          -|     9|    no    |
+        |- Loop 2     |       96|       96|          6|          -|          -|    16|    no    |
+        | + Loop 2.1  |        4|        4|          2|          -|          -|     2|    no    |
+        |- Loop 3     |       16|       16|          2|          -|          -|     8|    no    |
+        |- Loop 4     |      393|      457| 393 ~ 457 |          -|          -|     1|    no    |
+        | + Loop 4.1  |      384|      448|   6 ~ 7   |          -|          -|    64|    no    |
+        |- Loop 5     |       16|       16|          2|          -|          -|     8|    no    |
+        +-------------+---------+---------+-----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 26
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 4 
+3 --> 2 
+4 --> 5 7 
+5 --> 6 4 
+6 --> 5 
+7 --> 8 9 
+8 --> 7 
+9 --> 10 25 
+10 --> 11 
+11 --> 12 
+12 --> 13 
+13 --> 14 
+14 --> 22 15 18 
+15 --> 16 
+16 --> 17 
+17 --> 19 
+18 --> 17 
+19 --> 20 
+20 --> 21 
+21 --> 14 
+22 --> 23 
+23 --> 24 
+24 --> 9 
+25 --> 26 
+26 --> 25 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.76>
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%message_V = alloca [10000 x i32], align 4" [sha256.cpp:77]   --->   Operation 27 'alloca' 'message_V' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%M_V = alloca [512 x i32], align 4" [sha256.cpp:102]   --->   Operation 28 'alloca' 'M_V' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_1 : Operation 29 [1/1] (0.00ns)   --->   "%H_V = alloca [256 x i32], align 4" [sha256.cpp:108]   --->   Operation 29 'alloca' 'H_V' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "%W_V = alloca [64 x i32], align 4" [sha256.cpp:125]   --->   Operation 30 'alloca' 'W_V' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_1 : Operation 31 [1/1] (1.76ns)   --->   "br label %.preheader1321" [sha256.cpp:79]   --->   Operation 31 'br' <Predicate = true> <Delay = 1.76>
+
+State 2 <SV = 1> <Delay = 3.25>
+ST_2 : Operation 32 [1/1] (0.00ns)   --->   "%i_0 = phi i4 [ %i, %0 ], [ 0, %.preheader1321.preheader ]"   --->   Operation 32 'phi' 'i_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 33 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 9, i64 9, i64 9)"   --->   Operation 33 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 34 [1/1] (1.30ns)   --->   "%icmp_ln79 = icmp eq i4 %i_0, -7" [sha256.cpp:79]   --->   Operation 34 'icmp' 'icmp_ln79' <Predicate = true> <Delay = 1.30> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 35 [1/1] (1.73ns)   --->   "%i = add i4 %i_0, 1" [sha256.cpp:79]   --->   Operation 35 'add' 'i' <Predicate = true> <Delay = 1.73> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 36 [1/1] (0.00ns)   --->   "br i1 %icmp_ln79, label %1, label %0" [sha256.cpp:79]   --->   Operation 36 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 37 [1/1] (0.00ns)   --->   "%zext_ln80 = zext i4 %i_0 to i64" [sha256.cpp:80]   --->   Operation 37 'zext' 'zext_ln80' <Predicate = (!icmp_ln79)> <Delay = 0.00>
+ST_2 : Operation 38 [1/1] (0.00ns)   --->   "%input_V_addr = getelementptr [8 x i32]* %input_V, i64 0, i64 %zext_ln80" [sha256.cpp:80]   --->   Operation 38 'getelementptr' 'input_V_addr' <Predicate = (!icmp_ln79)> <Delay = 0.00>
+ST_2 : Operation 39 [2/2] (2.32ns)   --->   "%input_V_load = load i32* %input_V_addr, align 4" [sha256.cpp:80]   --->   Operation 39 'load' 'input_V_load' <Predicate = (!icmp_ln79)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_2 : Operation 40 [1/1] (0.00ns)   --->   "%message_V_addr_1 = getelementptr [10000 x i32]* %message_V, i64 0, i64 8" [sha256.cpp:85]   --->   Operation 40 'getelementptr' 'message_V_addr_1' <Predicate = (icmp_ln79)> <Delay = 0.00>
+ST_2 : Operation 41 [1/1] (3.25ns)   --->   "store i32 -2147483648, i32* %message_V_addr_1, align 4" [sha256.cpp:85]   --->   Operation 41 'store' <Predicate = (icmp_ln79)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_2 : Operation 42 [1/1] (0.00ns)   --->   "%message_V_addr_4 = getelementptr [10000 x i32]* %message_V, i64 0, i64 15" [sha256.cpp:98]   --->   Operation 42 'getelementptr' 'message_V_addr_4' <Predicate = (icmp_ln79)> <Delay = 0.00>
+ST_2 : Operation 43 [1/1] (3.25ns)   --->   "store i32 256, i32* %message_V_addr_4, align 4" [sha256.cpp:98]   --->   Operation 43 'store' <Predicate = (icmp_ln79)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_2 : Operation 44 [1/1] (1.76ns)   --->   "br label %.loopexit" [sha256.cpp:104]   --->   Operation 44 'br' <Predicate = (icmp_ln79)> <Delay = 1.76>
+
+State 3 <SV = 2> <Delay = 5.57>
+ST_3 : Operation 45 [1/2] (2.32ns)   --->   "%input_V_load = load i32* %input_V_addr, align 4" [sha256.cpp:80]   --->   Operation 45 'load' 'input_V_load' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_3 : Operation 46 [1/1] (0.00ns)   --->   "%message_V_addr = getelementptr [10000 x i32]* %message_V, i64 0, i64 %zext_ln80" [sha256.cpp:80]   --->   Operation 46 'getelementptr' 'message_V_addr' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 47 [1/1] (3.25ns)   --->   "store i32 %input_V_load, i32* %message_V_addr, align 4" [sha256.cpp:80]   --->   Operation 47 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_3 : Operation 48 [1/1] (0.00ns)   --->   "br label %.preheader1321" [sha256.cpp:79]   --->   Operation 48 'br' <Predicate = true> <Delay = 0.00>
+
+State 4 <SV = 2> <Delay = 1.78>
+ST_4 : Operation 49 [1/1] (0.00ns)   --->   "%i4_0 = phi i5 [ 0, %1 ], [ %i_11, %.loopexit.loopexit ]"   --->   Operation 49 'phi' 'i4_0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 50 [1/1] (1.36ns)   --->   "%icmp_ln104 = icmp eq i5 %i4_0, -16" [sha256.cpp:104]   --->   Operation 50 'icmp' 'icmp_ln104' <Predicate = true> <Delay = 1.36> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 51 [1/1] (0.00ns)   --->   "%empty_17 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)"   --->   Operation 51 'speclooptripcount' 'empty_17' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 52 [1/1] (1.78ns)   --->   "%i_11 = add i5 %i4_0, 1" [sha256.cpp:104]   --->   Operation 52 'add' 'i_11' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 53 [1/1] (0.00ns)   --->   "br i1 %icmp_ln104, label %.preheader1319.preheader, label %.preheader1320.preheader" [sha256.cpp:104]   --->   Operation 53 'br' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 54 [1/1] (0.00ns)   --->   "%zext_ln1598 = zext i5 %i4_0 to i7" [sha256.cpp:105]   --->   Operation 54 'zext' 'zext_ln1598' <Predicate = (!icmp_ln104)> <Delay = 0.00>
+ST_4 : Operation 55 [1/1] (1.76ns)   --->   "br label %.preheader1320" [sha256.cpp:105]   --->   Operation 55 'br' <Predicate = (!icmp_ln104)> <Delay = 1.76>
+ST_4 : Operation 56 [1/1] (1.76ns)   --->   "br label %.preheader1319" [sha256.cpp:110]   --->   Operation 56 'br' <Predicate = (icmp_ln104)> <Delay = 1.76>
+
+State 5 <SV = 3> <Delay = 5.03>
+ST_5 : Operation 57 [1/1] (0.00ns)   --->   "%i_op_assign = phi i2 [ %j, %2 ], [ 0, %.preheader1320.preheader ]"   --->   Operation 57 'phi' 'i_op_assign' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 58 [1/1] (0.95ns)   --->   "%icmp_ln105 = icmp eq i2 %i_op_assign, -2" [sha256.cpp:105]   --->   Operation 58 'icmp' 'icmp_ln105' <Predicate = true> <Delay = 0.95> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 59 [1/1] (0.00ns)   --->   "%empty_18 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 2, i64 2, i64 2)"   --->   Operation 59 'speclooptripcount' 'empty_18' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 60 [1/1] (1.56ns)   --->   "%j = add i2 %i_op_assign, 1" [sha256.cpp:105]   --->   Operation 60 'add' 'j' <Predicate = true> <Delay = 1.56> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 61 [1/1] (0.00ns)   --->   "br i1 %icmp_ln105, label %.loopexit.loopexit, label %2" [sha256.cpp:105]   --->   Operation 61 'br' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 62 [1/1] (0.00ns)   --->   "%tmp = call i6 @_ssdm_op_BitConcatenate.i6.i2.i4(i2 %i_op_assign, i4 0)" [sha256.cpp:106]   --->   Operation 62 'bitconcatenate' 'tmp' <Predicate = (!icmp_ln105)> <Delay = 0.00>
+ST_5 : Operation 63 [1/1] (0.00ns)   --->   "%zext_ln321 = zext i6 %tmp to i7" [sha256.cpp:106]   --->   Operation 63 'zext' 'zext_ln321' <Predicate = (!icmp_ln105)> <Delay = 0.00>
+ST_5 : Operation 64 [1/1] (1.82ns)   --->   "%add_ln321 = add i7 %zext_ln321, %zext_ln1598" [sha256.cpp:106]   --->   Operation 64 'add' 'add_ln321' <Predicate = (!icmp_ln105)> <Delay = 1.82> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 65 [1/1] (0.00ns)   --->   "%trunc_ln106 = trunc i2 %i_op_assign to i1" [sha256.cpp:106]   --->   Operation 65 'trunc' 'trunc_ln106' <Predicate = (!icmp_ln105)> <Delay = 0.00>
+ST_5 : Operation 66 [1/1] (0.00ns)   --->   "%shl_ln = call i5 @_ssdm_op_BitConcatenate.i5.i1.i4(i1 %trunc_ln106, i4 0)" [sha256.cpp:106]   --->   Operation 66 'bitconcatenate' 'shl_ln' <Predicate = (!icmp_ln105)> <Delay = 0.00>
+ST_5 : Operation 67 [1/1] (1.78ns)   --->   "%add_ln106 = add i5 %shl_ln, %i4_0" [sha256.cpp:106]   --->   Operation 67 'add' 'add_ln106' <Predicate = (!icmp_ln105)> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 68 [1/1] (0.00ns)   --->   "%zext_ln106 = zext i5 %add_ln106 to i64" [sha256.cpp:106]   --->   Operation 68 'zext' 'zext_ln106' <Predicate = (!icmp_ln105)> <Delay = 0.00>
+ST_5 : Operation 69 [1/1] (0.00ns)   --->   "%message_V_addr_5 = getelementptr [10000 x i32]* %message_V, i64 0, i64 %zext_ln106" [sha256.cpp:106]   --->   Operation 69 'getelementptr' 'message_V_addr_5' <Predicate = (!icmp_ln105)> <Delay = 0.00>
+ST_5 : Operation 70 [2/2] (3.25ns)   --->   "%message_V_load = load i32* %message_V_addr_5, align 4" [sha256.cpp:106]   --->   Operation 70 'load' 'message_V_load' <Predicate = (!icmp_ln105)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_5 : Operation 71 [1/1] (0.00ns)   --->   "br label %.loopexit"   --->   Operation 71 'br' <Predicate = (icmp_ln105)> <Delay = 0.00>
+
+State 6 <SV = 4> <Delay = 6.50>
+ST_6 : Operation 72 [1/1] (0.00ns)   --->   "%zext_ln321_5 = zext i7 %add_ln321 to i64" [sha256.cpp:106]   --->   Operation 72 'zext' 'zext_ln321_5' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 73 [1/1] (0.00ns)   --->   "%M_V_addr = getelementptr [512 x i32]* %M_V, i64 0, i64 %zext_ln321_5" [sha256.cpp:106]   --->   Operation 73 'getelementptr' 'M_V_addr' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 74 [1/2] (3.25ns)   --->   "%message_V_load = load i32* %message_V_addr_5, align 4" [sha256.cpp:106]   --->   Operation 74 'load' 'message_V_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_6 : Operation 75 [1/1] (3.25ns)   --->   "store i32 %message_V_load, i32* %M_V_addr, align 4" [sha256.cpp:106]   --->   Operation 75 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_6 : Operation 76 [1/1] (0.00ns)   --->   "br label %.preheader1320" [sha256.cpp:105]   --->   Operation 76 'br' <Predicate = true> <Delay = 0.00>
+
+State 7 <SV = 3> <Delay = 3.25>
+ST_7 : Operation 77 [1/1] (0.00ns)   --->   "%i9_0 = phi i4 [ %i_12, %3 ], [ 0, %.preheader1319.preheader ]"   --->   Operation 77 'phi' 'i9_0' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 78 [1/1] (1.30ns)   --->   "%icmp_ln110 = icmp eq i4 %i9_0, -8" [sha256.cpp:110]   --->   Operation 78 'icmp' 'icmp_ln110' <Predicate = true> <Delay = 1.30> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 79 [1/1] (0.00ns)   --->   "%empty_19 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 8, i64 8, i64 8)"   --->   Operation 79 'speclooptripcount' 'empty_19' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 80 [1/1] (1.73ns)   --->   "%i_12 = add i4 %i9_0, 1" [sha256.cpp:110]   --->   Operation 80 'add' 'i_12' <Predicate = true> <Delay = 1.73> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 81 [1/1] (0.00ns)   --->   "br i1 %icmp_ln110, label %.preheader9.preheader, label %3" [sha256.cpp:110]   --->   Operation 81 'br' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 82 [1/1] (0.00ns)   --->   "%zext_ln111 = zext i4 %i9_0 to i64" [sha256.cpp:111]   --->   Operation 82 'zext' 'zext_ln111' <Predicate = (!icmp_ln110)> <Delay = 0.00>
+ST_7 : Operation 83 [1/1] (0.00ns)   --->   "%H_0_V_addr = getelementptr [8 x i32]* @H_0_V, i64 0, i64 %zext_ln111" [sha256.cpp:111]   --->   Operation 83 'getelementptr' 'H_0_V_addr' <Predicate = (!icmp_ln110)> <Delay = 0.00>
+ST_7 : Operation 84 [2/2] (3.25ns)   --->   "%H_0_V_load = load i32* %H_0_V_addr, align 4" [sha256.cpp:111]   --->   Operation 84 'load' 'H_0_V_load' <Predicate = (!icmp_ln110)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 32> <Depth = 64> <ROM>
+ST_7 : Operation 85 [1/1] (1.76ns)   --->   "br label %.preheader9" [sha256.cpp:114]   --->   Operation 85 'br' <Predicate = (icmp_ln110)> <Delay = 1.76>
+
+State 8 <SV = 4> <Delay = 6.50>
+ST_8 : Operation 86 [1/1] (0.00ns)   --->   "%H_V_addr = getelementptr [256 x i32]* %H_V, i64 0, i64 %zext_ln111" [sha256.cpp:111]   --->   Operation 86 'getelementptr' 'H_V_addr' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 87 [1/2] (3.25ns)   --->   "%H_0_V_load = load i32* %H_0_V_addr, align 4" [sha256.cpp:111]   --->   Operation 87 'load' 'H_0_V_load' <Predicate = true> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 32> <Depth = 64> <ROM>
+ST_8 : Operation 88 [1/1] (3.25ns)   --->   "store i32 %H_0_V_load, i32* %H_V_addr, align 4" [sha256.cpp:111]   --->   Operation 88 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_8 : Operation 89 [1/1] (0.00ns)   --->   "br label %.preheader1319" [sha256.cpp:110]   --->   Operation 89 'br' <Predicate = true> <Delay = 0.00>
+
+State 9 <SV = 4> <Delay = 4.81>
+ST_9 : Operation 90 [1/1] (0.00ns)   --->   "%i_op_assign_2 = phi i2 [ %i_14, %8 ], [ 1, %.preheader9.preheader ]"   --->   Operation 90 'phi' 'i_op_assign_2' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 91 [1/1] (0.95ns)   --->   "%icmp_ln114 = icmp eq i2 %i_op_assign_2, -2" [sha256.cpp:114]   --->   Operation 91 'icmp' 'icmp_ln114' <Predicate = true> <Delay = 0.95> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 92 [1/1] (0.00ns)   --->   "%empty_20 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 1, i64 1, i64 1)"   --->   Operation 92 'speclooptripcount' 'empty_20' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 93 [1/1] (0.00ns)   --->   "br i1 %icmp_ln114, label %.preheader.preheader, label %.preheader1318.preheader" [sha256.cpp:114]   --->   Operation 93 'br' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 94 [1/1] (1.56ns)   --->   "%add_ln116 = add i2 %i_op_assign_2, -1" [sha256.cpp:116]   --->   Operation 94 'add' 'add_ln116' <Predicate = (!icmp_ln114)> <Delay = 1.56> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 95 [1/1] (0.00ns)   --->   "%tmp_18 = call i5 @_ssdm_op_BitConcatenate.i5.i2.i3(i2 %add_ln116, i3 0)" [sha256.cpp:116]   --->   Operation 95 'bitconcatenate' 'tmp_18' <Predicate = (!icmp_ln114)> <Delay = 0.00>
+ST_9 : Operation 96 [1/1] (0.00ns)   --->   "%zext_ln116 = zext i5 %tmp_18 to i64" [sha256.cpp:116]   --->   Operation 96 'zext' 'zext_ln116' <Predicate = (!icmp_ln114)> <Delay = 0.00>
+ST_9 : Operation 97 [1/1] (0.00ns)   --->   "%H_V_addr_1 = getelementptr [256 x i32]* %H_V, i64 0, i64 %zext_ln116" [sha256.cpp:116]   --->   Operation 97 'getelementptr' 'H_V_addr_1' <Predicate = (!icmp_ln114)> <Delay = 0.00>
+ST_9 : Operation 98 [1/1] (0.00ns)   --->   "%or_ln117 = or i5 %tmp_18, 1" [sha256.cpp:117]   --->   Operation 98 'or' 'or_ln117' <Predicate = (!icmp_ln114)> <Delay = 0.00>
+ST_9 : Operation 99 [1/1] (0.00ns)   --->   "%tmp_19 = call i64 @_ssdm_op_BitConcatenate.i64.i59.i5(i59 0, i5 %or_ln117)" [sha256.cpp:117]   --->   Operation 99 'bitconcatenate' 'tmp_19' <Predicate = (!icmp_ln114)> <Delay = 0.00>
+ST_9 : Operation 100 [1/1] (0.00ns)   --->   "%H_V_addr_2 = getelementptr [256 x i32]* %H_V, i64 0, i64 %tmp_19" [sha256.cpp:117]   --->   Operation 100 'getelementptr' 'H_V_addr_2' <Predicate = (!icmp_ln114)> <Delay = 0.00>
+ST_9 : Operation 101 [2/2] (3.25ns)   --->   "%a_V = load i32* %H_V_addr_1, align 16" [sha256.cpp:116]   --->   Operation 101 'load' 'a_V' <Predicate = (!icmp_ln114)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_9 : Operation 102 [2/2] (3.25ns)   --->   "%b_V = load i32* %H_V_addr_2, align 4" [sha256.cpp:117]   --->   Operation 102 'load' 'b_V' <Predicate = (!icmp_ln114)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_9 : Operation 103 [1/1] (1.76ns)   --->   "br label %.preheader" [sha256.cpp:161]   --->   Operation 103 'br' <Predicate = (icmp_ln114)> <Delay = 1.76>
+
+State 10 <SV = 5> <Delay = 3.25>
+ST_10 : Operation 104 [1/1] (0.00ns)   --->   "%or_ln118 = or i5 %tmp_18, 2" [sha256.cpp:118]   --->   Operation 104 'or' 'or_ln118' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 105 [1/1] (0.00ns)   --->   "%tmp_20 = call i64 @_ssdm_op_BitConcatenate.i64.i59.i5(i59 0, i5 %or_ln118)" [sha256.cpp:118]   --->   Operation 105 'bitconcatenate' 'tmp_20' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 106 [1/1] (0.00ns)   --->   "%H_V_addr_3 = getelementptr [256 x i32]* %H_V, i64 0, i64 %tmp_20" [sha256.cpp:118]   --->   Operation 106 'getelementptr' 'H_V_addr_3' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 107 [1/1] (0.00ns)   --->   "%or_ln119 = or i5 %tmp_18, 3" [sha256.cpp:119]   --->   Operation 107 'or' 'or_ln119' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 108 [1/1] (0.00ns)   --->   "%tmp_21 = call i64 @_ssdm_op_BitConcatenate.i64.i59.i5(i59 0, i5 %or_ln119)" [sha256.cpp:119]   --->   Operation 108 'bitconcatenate' 'tmp_21' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 109 [1/1] (0.00ns)   --->   "%H_V_addr_4 = getelementptr [256 x i32]* %H_V, i64 0, i64 %tmp_21" [sha256.cpp:119]   --->   Operation 109 'getelementptr' 'H_V_addr_4' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 110 [1/2] (3.25ns)   --->   "%a_V = load i32* %H_V_addr_1, align 16" [sha256.cpp:116]   --->   Operation 110 'load' 'a_V' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_10 : Operation 111 [1/2] (3.25ns)   --->   "%b_V = load i32* %H_V_addr_2, align 4" [sha256.cpp:117]   --->   Operation 111 'load' 'b_V' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_10 : Operation 112 [2/2] (3.25ns)   --->   "%c_V = load i32* %H_V_addr_3, align 8" [sha256.cpp:118]   --->   Operation 112 'load' 'c_V' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_10 : Operation 113 [2/2] (3.25ns)   --->   "%d_V = load i32* %H_V_addr_4, align 4" [sha256.cpp:119]   --->   Operation 113 'load' 'd_V' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+
+State 11 <SV = 6> <Delay = 3.25>
+ST_11 : Operation 114 [1/1] (0.00ns)   --->   "%or_ln120 = or i5 %tmp_18, 4" [sha256.cpp:120]   --->   Operation 114 'or' 'or_ln120' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 115 [1/1] (0.00ns)   --->   "%tmp_22 = call i64 @_ssdm_op_BitConcatenate.i64.i59.i5(i59 0, i5 %or_ln120)" [sha256.cpp:120]   --->   Operation 115 'bitconcatenate' 'tmp_22' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 116 [1/1] (0.00ns)   --->   "%H_V_addr_5 = getelementptr [256 x i32]* %H_V, i64 0, i64 %tmp_22" [sha256.cpp:120]   --->   Operation 116 'getelementptr' 'H_V_addr_5' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 117 [1/1] (0.00ns)   --->   "%or_ln121 = or i5 %tmp_18, 5" [sha256.cpp:121]   --->   Operation 117 'or' 'or_ln121' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 118 [1/1] (0.00ns)   --->   "%tmp_23 = call i64 @_ssdm_op_BitConcatenate.i64.i59.i5(i59 0, i5 %or_ln121)" [sha256.cpp:121]   --->   Operation 118 'bitconcatenate' 'tmp_23' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 119 [1/1] (0.00ns)   --->   "%H_V_addr_6 = getelementptr [256 x i32]* %H_V, i64 0, i64 %tmp_23" [sha256.cpp:121]   --->   Operation 119 'getelementptr' 'H_V_addr_6' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 120 [1/2] (3.25ns)   --->   "%c_V = load i32* %H_V_addr_3, align 8" [sha256.cpp:118]   --->   Operation 120 'load' 'c_V' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_11 : Operation 121 [1/2] (3.25ns)   --->   "%d_V = load i32* %H_V_addr_4, align 4" [sha256.cpp:119]   --->   Operation 121 'load' 'd_V' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_11 : Operation 122 [2/2] (3.25ns)   --->   "%e_V = load i32* %H_V_addr_5, align 16" [sha256.cpp:120]   --->   Operation 122 'load' 'e_V' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_11 : Operation 123 [2/2] (3.25ns)   --->   "%f_V = load i32* %H_V_addr_6, align 4" [sha256.cpp:121]   --->   Operation 123 'load' 'f_V' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+
+State 12 <SV = 7> <Delay = 3.25>
+ST_12 : Operation 124 [1/1] (0.00ns)   --->   "%or_ln122 = or i5 %tmp_18, 6" [sha256.cpp:122]   --->   Operation 124 'or' 'or_ln122' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 125 [1/1] (0.00ns)   --->   "%tmp_24 = call i64 @_ssdm_op_BitConcatenate.i64.i59.i5(i59 0, i5 %or_ln122)" [sha256.cpp:122]   --->   Operation 125 'bitconcatenate' 'tmp_24' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 126 [1/1] (0.00ns)   --->   "%H_V_addr_7 = getelementptr [256 x i32]* %H_V, i64 0, i64 %tmp_24" [sha256.cpp:122]   --->   Operation 126 'getelementptr' 'H_V_addr_7' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 127 [1/1] (0.00ns)   --->   "%or_ln123 = or i5 %tmp_18, 7" [sha256.cpp:123]   --->   Operation 127 'or' 'or_ln123' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 128 [1/1] (0.00ns)   --->   "%tmp_25 = call i64 @_ssdm_op_BitConcatenate.i64.i59.i5(i59 0, i5 %or_ln123)" [sha256.cpp:123]   --->   Operation 128 'bitconcatenate' 'tmp_25' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 129 [1/1] (0.00ns)   --->   "%H_V_addr_8 = getelementptr [256 x i32]* %H_V, i64 0, i64 %tmp_25" [sha256.cpp:123]   --->   Operation 129 'getelementptr' 'H_V_addr_8' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 130 [1/2] (3.25ns)   --->   "%e_V = load i32* %H_V_addr_5, align 16" [sha256.cpp:120]   --->   Operation 130 'load' 'e_V' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_12 : Operation 131 [1/2] (3.25ns)   --->   "%f_V = load i32* %H_V_addr_6, align 4" [sha256.cpp:121]   --->   Operation 131 'load' 'f_V' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_12 : Operation 132 [2/2] (3.25ns)   --->   "%g_V = load i32* %H_V_addr_7, align 8" [sha256.cpp:122]   --->   Operation 132 'load' 'g_V' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_12 : Operation 133 [2/2] (3.25ns)   --->   "%h_V = load i32* %H_V_addr_8, align 4" [sha256.cpp:123]   --->   Operation 133 'load' 'h_V' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+
+State 13 <SV = 8> <Delay = 3.25>
+ST_13 : Operation 134 [1/1] (0.00ns)   --->   "%tmp_s = call i6 @_ssdm_op_BitConcatenate.i6.i2.i4(i2 %add_ln116, i4 0)" [sha256.cpp:135]   --->   Operation 134 'bitconcatenate' 'tmp_s' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 135 [1/1] (0.00ns)   --->   "%zext_ln116_2 = zext i6 %tmp_s to i7" [sha256.cpp:116]   --->   Operation 135 'zext' 'zext_ln116_2' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 136 [1/2] (3.25ns)   --->   "%g_V = load i32* %H_V_addr_7, align 8" [sha256.cpp:122]   --->   Operation 136 'load' 'g_V' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_13 : Operation 137 [1/2] (3.25ns)   --->   "%h_V = load i32* %H_V_addr_8, align 4" [sha256.cpp:123]   --->   Operation 137 'load' 'h_V' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_13 : Operation 138 [1/1] (1.76ns)   --->   "br label %.preheader1318" [sha256.cpp:127]   --->   Operation 138 'br' <Predicate = true> <Delay = 1.76>
+
+State 14 <SV = 9> <Delay = 5.80>
+ST_14 : Operation 139 [1/1] (0.00ns)   --->   "%b_V_2 = phi i32 [ %a_V_2, %7 ], [ %a_V, %.preheader1318.preheader ]"   --->   Operation 139 'phi' 'b_V_2' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 140 [1/1] (0.00ns)   --->   "%c_V_2 = phi i32 [ %b_V_2, %7 ], [ %b_V, %.preheader1318.preheader ]"   --->   Operation 140 'phi' 'c_V_2' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 141 [1/1] (0.00ns)   --->   "%d_V_2 = phi i32 [ %c_V_2, %7 ], [ %c_V, %.preheader1318.preheader ]"   --->   Operation 141 'phi' 'd_V_2' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 142 [1/1] (0.00ns)   --->   "%p_0622_0 = phi i32 [ %d_V_2, %7 ], [ %d_V, %.preheader1318.preheader ]"   --->   Operation 142 'phi' 'p_0622_0' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 143 [1/1] (0.00ns)   --->   "%f_V_2 = phi i32 [ %e_V_2, %7 ], [ %e_V, %.preheader1318.preheader ]"   --->   Operation 143 'phi' 'f_V_2' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 144 [1/1] (0.00ns)   --->   "%g_V_2 = phi i32 [ %f_V_2, %7 ], [ %f_V, %.preheader1318.preheader ]"   --->   Operation 144 'phi' 'g_V_2' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 145 [1/1] (0.00ns)   --->   "%h_V_2 = phi i32 [ %g_V_2, %7 ], [ %g_V, %.preheader1318.preheader ]"   --->   Operation 145 'phi' 'h_V_2' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 146 [1/1] (0.00ns)   --->   "%p_0657_0 = phi i32 [ %h_V_2, %7 ], [ %h_V, %.preheader1318.preheader ]"   --->   Operation 146 'phi' 'p_0657_0' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 147 [1/1] (0.00ns)   --->   "%j12_0 = phi i7 [ %j_2, %7 ], [ 0, %.preheader1318.preheader ]"   --->   Operation 147 'phi' 'j12_0' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 148 [1/1] (1.48ns)   --->   "%icmp_ln127 = icmp eq i7 %j12_0, -64" [sha256.cpp:127]   --->   Operation 148 'icmp' 'icmp_ln127' <Predicate = true> <Delay = 1.48> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 149 [1/1] (0.00ns)   --->   "%empty_21 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 64, i64 64, i64 64)"   --->   Operation 149 'speclooptripcount' 'empty_21' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 150 [1/1] (1.87ns)   --->   "%j_2 = add i7 %j12_0, 1" [sha256.cpp:127]   --->   Operation 150 'add' 'j_2' <Predicate = true> <Delay = 1.87> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 151 [1/1] (0.00ns)   --->   "br i1 %icmp_ln127, label %8, label %4" [sha256.cpp:127]   --->   Operation 151 'br' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 152 [1/1] (0.00ns) (grouped into LUT with out node ch_V)   --->   "%and_ln26 = and i32 %g_V_2, %f_V_2" [sha256.cpp:26->sha256.cpp:129]   --->   Operation 152 'and' 'and_ln26' <Predicate = (!icmp_ln127)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 153 [1/1] (0.00ns) (grouped into LUT with out node ch_V)   --->   "%xor_ln26 = xor i32 %f_V_2, -1" [sha256.cpp:26->sha256.cpp:129]   --->   Operation 153 'xor' 'xor_ln26' <Predicate = (!icmp_ln127)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 154 [1/1] (0.00ns) (grouped into LUT with out node ch_V)   --->   "%and_ln26_2 = and i32 %h_V_2, %xor_ln26" [sha256.cpp:26->sha256.cpp:129]   --->   Operation 154 'and' 'and_ln26_2' <Predicate = (!icmp_ln127)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 155 [1/1] (0.99ns) (out node of the LUT)   --->   "%ch_V = xor i32 %and_ln26_2, %and_ln26" [sha256.cpp:26->sha256.cpp:129]   --->   Operation 155 'xor' 'ch_V' <Predicate = (!icmp_ln127)> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 156 [1/1] (0.00ns) (grouped into LUT with out node maj_V)   --->   "%xor_ln31 = xor i32 %d_V_2, %c_V_2" [sha256.cpp:31->sha256.cpp:130]   --->   Operation 156 'xor' 'xor_ln31' <Predicate = (!icmp_ln127)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 157 [1/1] (0.00ns) (grouped into LUT with out node maj_V)   --->   "%and_ln31 = and i32 %xor_ln31, %b_V_2" [sha256.cpp:31->sha256.cpp:130]   --->   Operation 157 'and' 'and_ln31' <Predicate = (!icmp_ln127)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 158 [1/1] (0.00ns) (grouped into LUT with out node maj_V)   --->   "%and_ln31_2 = and i32 %d_V_2, %c_V_2" [sha256.cpp:31->sha256.cpp:130]   --->   Operation 158 'and' 'and_ln31_2' <Predicate = (!icmp_ln127)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 159 [1/1] (0.99ns) (out node of the LUT)   --->   "%maj_V = xor i32 %and_ln31, %and_ln31_2" [sha256.cpp:31->sha256.cpp:130]   --->   Operation 159 'xor' 'maj_V' <Predicate = (!icmp_ln127)> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 160 [1/1] (0.00ns) (grouped into LUT with out node ret_V_42)   --->   "%r_V = call i30 @_ssdm_op_PartSelect.i30.i32.i32.i32(i32 %b_V_2, i32 2, i32 31)" [sha256.cpp:16->sha256.cpp:36->sha256.cpp:131]   --->   Operation 160 'partselect' 'r_V' <Predicate = (!icmp_ln127)> <Delay = 0.00>
+ST_14 : Operation 161 [1/1] (0.00ns) (grouped into LUT with out node ret_V_42)   --->   "%trunc_ln1503 = trunc i32 %b_V_2 to i2" [sha256.cpp:19->sha256.cpp:36->sha256.cpp:131]   --->   Operation 161 'trunc' 'trunc_ln1503' <Predicate = (!icmp_ln127)> <Delay = 0.00>
+ST_14 : Operation 162 [1/1] (0.00ns) (grouped into LUT with out node ret_V_42)   --->   "%ret_V_39 = call i32 @_ssdm_op_BitConcatenate.i32.i2.i30(i2 %trunc_ln1503, i30 %r_V)" [sha256.cpp:21->sha256.cpp:36->sha256.cpp:131]   --->   Operation 162 'bitconcatenate' 'ret_V_39' <Predicate = (!icmp_ln127)> <Delay = 0.00>
+ST_14 : Operation 163 [1/1] (0.00ns) (grouped into LUT with out node ret_V_42)   --->   "%r_V_s = call i19 @_ssdm_op_PartSelect.i19.i32.i32.i32(i32 %b_V_2, i32 13, i32 31)" [sha256.cpp:16->sha256.cpp:36->sha256.cpp:131]   --->   Operation 163 'partselect' 'r_V_s' <Predicate = (!icmp_ln127)> <Delay = 0.00>
+ST_14 : Operation 164 [1/1] (0.00ns) (grouped into LUT with out node ret_V_42)   --->   "%trunc_ln1503_10 = trunc i32 %b_V_2 to i13" [sha256.cpp:19->sha256.cpp:36->sha256.cpp:131]   --->   Operation 164 'trunc' 'trunc_ln1503_10' <Predicate = (!icmp_ln127)> <Delay = 0.00>
+ST_14 : Operation 165 [1/1] (0.00ns) (grouped into LUT with out node ret_V_42)   --->   "%ret_V_40 = call i32 @_ssdm_op_BitConcatenate.i32.i13.i19(i13 %trunc_ln1503_10, i19 %r_V_s)" [sha256.cpp:21->sha256.cpp:36->sha256.cpp:131]   --->   Operation 165 'bitconcatenate' 'ret_V_40' <Predicate = (!icmp_ln127)> <Delay = 0.00>
+ST_14 : Operation 166 [1/1] (0.00ns) (grouped into LUT with out node ret_V_42)   --->   "%r_V_11 = call i10 @_ssdm_op_PartSelect.i10.i32.i32.i32(i32 %b_V_2, i32 22, i32 31)" [sha256.cpp:16->sha256.cpp:36->sha256.cpp:131]   --->   Operation 166 'partselect' 'r_V_11' <Predicate = (!icmp_ln127)> <Delay = 0.00>
+ST_14 : Operation 167 [1/1] (0.00ns) (grouped into LUT with out node ret_V_42)   --->   "%trunc_ln1503_11 = trunc i32 %b_V_2 to i22" [sha256.cpp:19->sha256.cpp:36->sha256.cpp:131]   --->   Operation 167 'trunc' 'trunc_ln1503_11' <Predicate = (!icmp_ln127)> <Delay = 0.00>
+ST_14 : Operation 168 [1/1] (0.00ns) (grouped into LUT with out node ret_V_42)   --->   "%ret_V_41 = call i32 @_ssdm_op_BitConcatenate.i32.i22.i10(i22 %trunc_ln1503_11, i10 %r_V_11)" [sha256.cpp:21->sha256.cpp:36->sha256.cpp:131]   --->   Operation 168 'bitconcatenate' 'ret_V_41' <Predicate = (!icmp_ln127)> <Delay = 0.00>
+ST_14 : Operation 169 [1/1] (0.00ns) (grouped into LUT with out node ret_V_42)   --->   "%xor_ln1357 = xor i32 %ret_V_39, %ret_V_41" [sha256.cpp:36->sha256.cpp:131]   --->   Operation 169 'xor' 'xor_ln1357' <Predicate = (!icmp_ln127)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 170 [1/1] (0.99ns) (out node of the LUT)   --->   "%ret_V_42 = xor i32 %xor_ln1357, %ret_V_40" [sha256.cpp:36->sha256.cpp:131]   --->   Operation 170 'xor' 'ret_V_42' <Predicate = (!icmp_ln127)> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 171 [1/1] (0.00ns) (grouped into LUT with out node ret_V_46)   --->   "%r_V_12 = call i26 @_ssdm_op_PartSelect.i26.i32.i32.i32(i32 %f_V_2, i32 6, i32 31)" [sha256.cpp:16->sha256.cpp:41->sha256.cpp:132]   --->   Operation 171 'partselect' 'r_V_12' <Predicate = (!icmp_ln127)> <Delay = 0.00>
+ST_14 : Operation 172 [1/1] (0.00ns) (grouped into LUT with out node ret_V_46)   --->   "%trunc_ln1503_12 = trunc i32 %f_V_2 to i6" [sha256.cpp:19->sha256.cpp:41->sha256.cpp:132]   --->   Operation 172 'trunc' 'trunc_ln1503_12' <Predicate = (!icmp_ln127)> <Delay = 0.00>
+ST_14 : Operation 173 [1/1] (0.00ns) (grouped into LUT with out node ret_V_46)   --->   "%ret_V_43 = call i32 @_ssdm_op_BitConcatenate.i32.i6.i26(i6 %trunc_ln1503_12, i26 %r_V_12)" [sha256.cpp:21->sha256.cpp:41->sha256.cpp:132]   --->   Operation 173 'bitconcatenate' 'ret_V_43' <Predicate = (!icmp_ln127)> <Delay = 0.00>
+ST_14 : Operation 174 [1/1] (0.00ns) (grouped into LUT with out node ret_V_46)   --->   "%r_V_13 = call i21 @_ssdm_op_PartSelect.i21.i32.i32.i32(i32 %f_V_2, i32 11, i32 31)" [sha256.cpp:16->sha256.cpp:41->sha256.cpp:132]   --->   Operation 174 'partselect' 'r_V_13' <Predicate = (!icmp_ln127)> <Delay = 0.00>
+ST_14 : Operation 175 [1/1] (0.00ns) (grouped into LUT with out node ret_V_46)   --->   "%trunc_ln1503_13 = trunc i32 %f_V_2 to i11" [sha256.cpp:19->sha256.cpp:41->sha256.cpp:132]   --->   Operation 175 'trunc' 'trunc_ln1503_13' <Predicate = (!icmp_ln127)> <Delay = 0.00>
+ST_14 : Operation 176 [1/1] (0.00ns) (grouped into LUT with out node ret_V_46)   --->   "%ret_V_44 = call i32 @_ssdm_op_BitConcatenate.i32.i11.i21(i11 %trunc_ln1503_13, i21 %r_V_13)" [sha256.cpp:21->sha256.cpp:41->sha256.cpp:132]   --->   Operation 176 'bitconcatenate' 'ret_V_44' <Predicate = (!icmp_ln127)> <Delay = 0.00>
+ST_14 : Operation 177 [1/1] (0.00ns) (grouped into LUT with out node ret_V_46)   --->   "%r_V_14 = call i7 @_ssdm_op_PartSelect.i7.i32.i32.i32(i32 %f_V_2, i32 25, i32 31)" [sha256.cpp:16->sha256.cpp:41->sha256.cpp:132]   --->   Operation 177 'partselect' 'r_V_14' <Predicate = (!icmp_ln127)> <Delay = 0.00>
+ST_14 : Operation 178 [1/1] (0.00ns) (grouped into LUT with out node ret_V_46)   --->   "%trunc_ln1503_14 = trunc i32 %f_V_2 to i25" [sha256.cpp:19->sha256.cpp:41->sha256.cpp:132]   --->   Operation 178 'trunc' 'trunc_ln1503_14' <Predicate = (!icmp_ln127)> <Delay = 0.00>
+ST_14 : Operation 179 [1/1] (0.00ns) (grouped into LUT with out node ret_V_46)   --->   "%ret_V_45 = call i32 @_ssdm_op_BitConcatenate.i32.i25.i7(i25 %trunc_ln1503_14, i7 %r_V_14)" [sha256.cpp:21->sha256.cpp:41->sha256.cpp:132]   --->   Operation 179 'bitconcatenate' 'ret_V_45' <Predicate = (!icmp_ln127)> <Delay = 0.00>
+ST_14 : Operation 180 [1/1] (0.00ns) (grouped into LUT with out node ret_V_46)   --->   "%xor_ln1357_9 = xor i32 %ret_V_43, %ret_V_45" [sha256.cpp:41->sha256.cpp:132]   --->   Operation 180 'xor' 'xor_ln1357_9' <Predicate = (!icmp_ln127)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 181 [1/1] (0.99ns) (out node of the LUT)   --->   "%ret_V_46 = xor i32 %xor_ln1357_9, %ret_V_44" [sha256.cpp:41->sha256.cpp:132]   --->   Operation 181 'xor' 'ret_V_46' <Predicate = (!icmp_ln127)> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 182 [1/1] (0.00ns)   --->   "%tmp_34 = call i3 @_ssdm_op_PartSelect.i3.i7.i32.i32(i7 %j12_0, i32 4, i32 6)" [sha256.cpp:134]   --->   Operation 182 'partselect' 'tmp_34' <Predicate = (!icmp_ln127)> <Delay = 0.00>
+ST_14 : Operation 183 [1/1] (1.13ns)   --->   "%icmp_ln134 = icmp eq i3 %tmp_34, 0" [sha256.cpp:134]   --->   Operation 183 'icmp' 'icmp_ln134' <Predicate = (!icmp_ln127)> <Delay = 1.13> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 184 [1/1] (0.00ns)   --->   "%zext_ln135 = zext i7 %j12_0 to i64" [sha256.cpp:135]   --->   Operation 184 'zext' 'zext_ln135' <Predicate = (!icmp_ln127)> <Delay = 0.00>
+ST_14 : Operation 185 [1/1] (1.87ns)   --->   "%add_ln321_2 = add i7 %zext_ln116_2, %j12_0" [sha256.cpp:135]   --->   Operation 185 'add' 'add_ln321_2' <Predicate = (!icmp_ln127)> <Delay = 1.87> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 186 [1/1] (0.00ns)   --->   "%zext_ln321_7 = zext i7 %add_ln321_2 to i64" [sha256.cpp:135]   --->   Operation 186 'zext' 'zext_ln321_7' <Predicate = (!icmp_ln127)> <Delay = 0.00>
+ST_14 : Operation 187 [1/1] (0.00ns)   --->   "%M_V_addr_1 = getelementptr [512 x i32]* %M_V, i64 0, i64 %zext_ln321_7" [sha256.cpp:135]   --->   Operation 187 'getelementptr' 'M_V_addr_1' <Predicate = (!icmp_ln127)> <Delay = 0.00>
+ST_14 : Operation 188 [1/1] (0.00ns)   --->   "br i1 %icmp_ln134, label %5, label %6" [sha256.cpp:134]   --->   Operation 188 'br' <Predicate = (!icmp_ln127)> <Delay = 0.00>
+ST_14 : Operation 189 [1/1] (1.87ns)   --->   "%add_ln137 = add i7 -2, %j12_0" [sha256.cpp:137]   --->   Operation 189 'add' 'add_ln137' <Predicate = (!icmp_ln127 & !icmp_ln134)> <Delay = 1.87> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 190 [1/1] (0.00ns)   --->   "%zext_ln137 = zext i7 %add_ln137 to i64" [sha256.cpp:137]   --->   Operation 190 'zext' 'zext_ln137' <Predicate = (!icmp_ln127 & !icmp_ln134)> <Delay = 0.00>
+ST_14 : Operation 191 [1/1] (0.00ns)   --->   "%W_V_addr_1 = getelementptr [64 x i32]* %W_V, i64 0, i64 %zext_ln137" [sha256.cpp:137]   --->   Operation 191 'getelementptr' 'W_V_addr_1' <Predicate = (!icmp_ln127 & !icmp_ln134)> <Delay = 0.00>
+ST_14 : Operation 192 [2/2] (3.25ns)   --->   "%tempWord_V = load i32* %W_V_addr_1, align 4" [sha256.cpp:137]   --->   Operation 192 'load' 'tempWord_V' <Predicate = (!icmp_ln127 & !icmp_ln134)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_14 : Operation 193 [1/1] (1.87ns)   --->   "%add_ln137_1 = add i7 -7, %j12_0" [sha256.cpp:137]   --->   Operation 193 'add' 'add_ln137_1' <Predicate = (!icmp_ln127 & !icmp_ln134)> <Delay = 1.87> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 194 [1/1] (0.00ns)   --->   "%zext_ln137_4 = zext i7 %add_ln137_1 to i64" [sha256.cpp:137]   --->   Operation 194 'zext' 'zext_ln137_4' <Predicate = (!icmp_ln127 & !icmp_ln134)> <Delay = 0.00>
+ST_14 : Operation 195 [1/1] (0.00ns)   --->   "%W_V_addr_2 = getelementptr [64 x i32]* %W_V, i64 0, i64 %zext_ln137_4" [sha256.cpp:137]   --->   Operation 195 'getelementptr' 'W_V_addr_2' <Predicate = (!icmp_ln127 & !icmp_ln134)> <Delay = 0.00>
+ST_14 : Operation 196 [2/2] (3.25ns)   --->   "%W_V_load_1 = load i32* %W_V_addr_2, align 4" [sha256.cpp:137]   --->   Operation 196 'load' 'W_V_load_1' <Predicate = (!icmp_ln127 & !icmp_ln134)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_14 : Operation 197 [2/2] (3.25ns)   --->   "%M_V_load = load i32* %M_V_addr_1, align 4" [sha256.cpp:135]   --->   Operation 197 'load' 'M_V_load' <Predicate = (!icmp_ln127 & icmp_ln134)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_14 : Operation 198 [1/1] (0.00ns)   --->   "%tmp_26 = call i5 @_ssdm_op_BitConcatenate.i5.i2.i3(i2 %i_op_assign_2, i3 0)" [sha256.cpp:151]   --->   Operation 198 'bitconcatenate' 'tmp_26' <Predicate = (icmp_ln127)> <Delay = 0.00>
+ST_14 : Operation 199 [1/1] (0.00ns)   --->   "%zext_ln321_4 = zext i5 %tmp_26 to i64" [sha256.cpp:151]   --->   Operation 199 'zext' 'zext_ln321_4' <Predicate = (icmp_ln127)> <Delay = 0.00>
+ST_14 : Operation 200 [1/1] (0.00ns)   --->   "%H_V_addr_10 = getelementptr [256 x i32]* %H_V, i64 0, i64 %zext_ln321_4" [sha256.cpp:151]   --->   Operation 200 'getelementptr' 'H_V_addr_10' <Predicate = (icmp_ln127)> <Delay = 0.00>
+ST_14 : Operation 201 [1/1] (0.00ns)   --->   "%or_ln321 = or i5 %tmp_26, 1" [sha256.cpp:152]   --->   Operation 201 'or' 'or_ln321' <Predicate = (icmp_ln127)> <Delay = 0.00>
+ST_14 : Operation 202 [1/1] (0.00ns)   --->   "%tmp_27 = call i64 @_ssdm_op_BitConcatenate.i64.i59.i5(i59 0, i5 %or_ln321)" [sha256.cpp:152]   --->   Operation 202 'bitconcatenate' 'tmp_27' <Predicate = (icmp_ln127)> <Delay = 0.00>
+ST_14 : Operation 203 [1/1] (0.00ns)   --->   "%H_V_addr_11 = getelementptr [256 x i32]* %H_V, i64 0, i64 %tmp_27" [sha256.cpp:152]   --->   Operation 203 'getelementptr' 'H_V_addr_11' <Predicate = (icmp_ln127)> <Delay = 0.00>
+ST_14 : Operation 204 [1/1] (2.55ns)   --->   "%add_ln209 = add i32 %b_V_2, %a_V" [sha256.cpp:151]   --->   Operation 204 'add' 'add_ln209' <Predicate = (icmp_ln127)> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 205 [1/1] (3.25ns)   --->   "store i32 %add_ln209, i32* %H_V_addr_10, align 16" [sha256.cpp:151]   --->   Operation 205 'store' <Predicate = (icmp_ln127)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_14 : Operation 206 [1/1] (2.55ns)   --->   "%add_ln209_1 = add i32 %c_V_2, %b_V" [sha256.cpp:152]   --->   Operation 206 'add' 'add_ln209_1' <Predicate = (icmp_ln127)> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 207 [1/1] (3.25ns)   --->   "store i32 %add_ln209_1, i32* %H_V_addr_11, align 4" [sha256.cpp:152]   --->   Operation 207 'store' <Predicate = (icmp_ln127)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_14 : Operation 208 [1/1] (2.55ns)   --->   "%add_ln209_2 = add i32 %d_V_2, %c_V" [sha256.cpp:153]   --->   Operation 208 'add' 'add_ln209_2' <Predicate = (icmp_ln127)> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 209 [1/1] (2.55ns)   --->   "%add_ln209_4 = add i32 %f_V_2, %e_V" [sha256.cpp:155]   --->   Operation 209 'add' 'add_ln209_4' <Predicate = (icmp_ln127)> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 210 [1/1] (2.55ns)   --->   "%add_ln209_5 = add i32 %g_V_2, %f_V" [sha256.cpp:156]   --->   Operation 210 'add' 'add_ln209_5' <Predicate = (icmp_ln127)> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 211 [1/1] (2.55ns)   --->   "%add_ln209_6 = add i32 %h_V_2, %g_V" [sha256.cpp:157]   --->   Operation 211 'add' 'add_ln209_6' <Predicate = (icmp_ln127)> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 212 [1/1] (1.56ns)   --->   "%i_14 = add i2 %i_op_assign_2, 1" [sha256.cpp:114]   --->   Operation 212 'add' 'i_14' <Predicate = (icmp_ln127)> <Delay = 1.56> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 15 <SV = 10> <Delay = 5.12>
+ST_15 : Operation 213 [1/2] (3.25ns)   --->   "%tempWord_V = load i32* %W_V_addr_1, align 4" [sha256.cpp:137]   --->   Operation 213 'load' 'tempWord_V' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_15 : Operation 214 [1/2] (3.25ns)   --->   "%W_V_load_1 = load i32* %W_V_addr_2, align 4" [sha256.cpp:137]   --->   Operation 214 'load' 'W_V_load_1' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_15 : Operation 215 [1/1] (1.87ns)   --->   "%add_ln137_2 = add i7 -15, %j12_0" [sha256.cpp:137]   --->   Operation 215 'add' 'add_ln137_2' <Predicate = true> <Delay = 1.87> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 216 [1/1] (0.00ns)   --->   "%zext_ln137_5 = zext i7 %add_ln137_2 to i64" [sha256.cpp:137]   --->   Operation 216 'zext' 'zext_ln137_5' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 217 [1/1] (0.00ns)   --->   "%W_V_addr_3 = getelementptr [64 x i32]* %W_V, i64 0, i64 %zext_ln137_5" [sha256.cpp:137]   --->   Operation 217 'getelementptr' 'W_V_addr_3' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 218 [2/2] (3.25ns)   --->   "%tempWord_V_6 = load i32* %W_V_addr_3, align 4" [sha256.cpp:137]   --->   Operation 218 'load' 'tempWord_V_6' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_15 : Operation 219 [1/1] (1.87ns)   --->   "%add_ln137_3 = add i7 -16, %j12_0" [sha256.cpp:137]   --->   Operation 219 'add' 'add_ln137_3' <Predicate = true> <Delay = 1.87> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 220 [1/1] (0.00ns)   --->   "%zext_ln137_6 = zext i7 %add_ln137_3 to i64" [sha256.cpp:137]   --->   Operation 220 'zext' 'zext_ln137_6' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 221 [1/1] (0.00ns)   --->   "%W_V_addr_4 = getelementptr [64 x i32]* %W_V, i64 0, i64 %zext_ln137_6" [sha256.cpp:137]   --->   Operation 221 'getelementptr' 'W_V_addr_4' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 222 [2/2] (3.25ns)   --->   "%W_V_load_3 = load i32* %W_V_addr_4, align 4" [sha256.cpp:137]   --->   Operation 222 'load' 'W_V_load_3' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+
+State 16 <SV = 11> <Delay = 5.80>
+ST_16 : Operation 223 [1/1] (0.00ns) (grouped into LUT with out node add_ln209_19)   --->   "%r_V_15 = call i15 @_ssdm_op_PartSelect.i15.i32.i32.i32(i32 %tempWord_V, i32 17, i32 31)" [sha256.cpp:16->sha256.cpp:51->sha256.cpp:137]   --->   Operation 223 'partselect' 'r_V_15' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 224 [1/1] (0.00ns) (grouped into LUT with out node add_ln209_19)   --->   "%trunc_ln1503_15 = trunc i32 %tempWord_V to i17" [sha256.cpp:19->sha256.cpp:51->sha256.cpp:137]   --->   Operation 224 'trunc' 'trunc_ln1503_15' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 225 [1/1] (0.00ns) (grouped into LUT with out node add_ln209_19)   --->   "%ret_V_47 = call i32 @_ssdm_op_BitConcatenate.i32.i17.i15(i17 %trunc_ln1503_15, i15 %r_V_15)" [sha256.cpp:21->sha256.cpp:51->sha256.cpp:137]   --->   Operation 225 'bitconcatenate' 'ret_V_47' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 226 [1/1] (0.00ns) (grouped into LUT with out node add_ln209_19)   --->   "%r_V_16 = call i13 @_ssdm_op_PartSelect.i13.i32.i32.i32(i32 %tempWord_V, i32 19, i32 31)" [sha256.cpp:16->sha256.cpp:51->sha256.cpp:137]   --->   Operation 226 'partselect' 'r_V_16' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 227 [1/1] (0.00ns) (grouped into LUT with out node add_ln209_19)   --->   "%trunc_ln1503_16 = trunc i32 %tempWord_V to i19" [sha256.cpp:19->sha256.cpp:51->sha256.cpp:137]   --->   Operation 227 'trunc' 'trunc_ln1503_16' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 228 [1/1] (0.00ns) (grouped into LUT with out node add_ln209_19)   --->   "%ret_V_48 = call i32 @_ssdm_op_BitConcatenate.i32.i19.i13(i19 %trunc_ln1503_16, i13 %r_V_16)" [sha256.cpp:21->sha256.cpp:51->sha256.cpp:137]   --->   Operation 228 'bitconcatenate' 'ret_V_48' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 229 [1/1] (0.00ns) (grouped into LUT with out node add_ln209_19)   --->   "%r_V_17 = call i22 @_ssdm_op_PartSelect.i22.i32.i32.i32(i32 %tempWord_V, i32 10, i32 31)" [sha256.cpp:51->sha256.cpp:137]   --->   Operation 229 'partselect' 'r_V_17' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 230 [1/1] (0.00ns) (grouped into LUT with out node add_ln209_19)   --->   "%r_V_23 = zext i22 %r_V_17 to i32" [sha256.cpp:51->sha256.cpp:137]   --->   Operation 230 'zext' 'r_V_23' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 231 [1/1] (0.00ns) (grouped into LUT with out node add_ln209_19)   --->   "%xor_ln1357_11 = xor i32 %r_V_23, %ret_V_48" [sha256.cpp:51->sha256.cpp:137]   --->   Operation 231 'xor' 'xor_ln1357_11' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 232 [1/1] (0.00ns) (grouped into LUT with out node add_ln209_19)   --->   "%ret_V = xor i32 %xor_ln1357_11, %ret_V_47" [sha256.cpp:51->sha256.cpp:137]   --->   Operation 232 'xor' 'ret_V' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 233 [1/2] (3.25ns)   --->   "%tempWord_V_6 = load i32* %W_V_addr_3, align 4" [sha256.cpp:137]   --->   Operation 233 'load' 'tempWord_V_6' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_16 : Operation 234 [1/1] (0.00ns) (grouped into LUT with out node add_ln209_19)   --->   "%r_V_18 = call i25 @_ssdm_op_PartSelect.i25.i32.i32.i32(i32 %tempWord_V_6, i32 7, i32 31)" [sha256.cpp:16->sha256.cpp:46->sha256.cpp:137]   --->   Operation 234 'partselect' 'r_V_18' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 235 [1/1] (0.00ns) (grouped into LUT with out node add_ln209_19)   --->   "%trunc_ln1503_17 = trunc i32 %tempWord_V_6 to i7" [sha256.cpp:19->sha256.cpp:46->sha256.cpp:137]   --->   Operation 235 'trunc' 'trunc_ln1503_17' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 236 [1/1] (0.00ns) (grouped into LUT with out node add_ln209_19)   --->   "%ret_V_49 = call i32 @_ssdm_op_BitConcatenate.i32.i7.i25(i7 %trunc_ln1503_17, i25 %r_V_18)" [sha256.cpp:21->sha256.cpp:46->sha256.cpp:137]   --->   Operation 236 'bitconcatenate' 'ret_V_49' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 237 [1/1] (0.00ns) (grouped into LUT with out node add_ln209_19)   --->   "%r_V_19 = call i14 @_ssdm_op_PartSelect.i14.i32.i32.i32(i32 %tempWord_V_6, i32 18, i32 31)" [sha256.cpp:16->sha256.cpp:46->sha256.cpp:137]   --->   Operation 237 'partselect' 'r_V_19' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 238 [1/1] (0.00ns) (grouped into LUT with out node add_ln209_19)   --->   "%trunc_ln1503_18 = trunc i32 %tempWord_V_6 to i18" [sha256.cpp:19->sha256.cpp:46->sha256.cpp:137]   --->   Operation 238 'trunc' 'trunc_ln1503_18' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 239 [1/1] (0.00ns) (grouped into LUT with out node add_ln209_19)   --->   "%ret_V_50 = call i32 @_ssdm_op_BitConcatenate.i32.i18.i14(i18 %trunc_ln1503_18, i14 %r_V_19)" [sha256.cpp:21->sha256.cpp:46->sha256.cpp:137]   --->   Operation 239 'bitconcatenate' 'ret_V_50' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 240 [1/1] (0.00ns) (grouped into LUT with out node add_ln209_19)   --->   "%r_V_20 = call i29 @_ssdm_op_PartSelect.i29.i32.i32.i32(i32 %tempWord_V_6, i32 3, i32 31)" [sha256.cpp:46->sha256.cpp:137]   --->   Operation 240 'partselect' 'r_V_20' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 241 [1/1] (0.00ns) (grouped into LUT with out node add_ln209_19)   --->   "%r_V_24 = zext i29 %r_V_20 to i32" [sha256.cpp:46->sha256.cpp:137]   --->   Operation 241 'zext' 'r_V_24' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 242 [1/1] (0.00ns) (grouped into LUT with out node add_ln209_19)   --->   "%xor_ln1357_13 = xor i32 %r_V_24, %ret_V_50" [sha256.cpp:46->sha256.cpp:137]   --->   Operation 242 'xor' 'xor_ln1357_13' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 243 [1/1] (0.00ns) (grouped into LUT with out node add_ln209_19)   --->   "%ret_V_38 = xor i32 %xor_ln1357_13, %ret_V_49" [sha256.cpp:46->sha256.cpp:137]   --->   Operation 243 'xor' 'ret_V_38' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 244 [1/2] (3.25ns)   --->   "%W_V_load_3 = load i32* %W_V_addr_4, align 4" [sha256.cpp:137]   --->   Operation 244 'load' 'W_V_load_3' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_16 : Operation 245 [1/1] (2.55ns) (out node of the LUT)   --->   "%add_ln209_19 = add i32 %ret_V, %ret_V_38" [sha256.cpp:137]   --->   Operation 245 'add' 'add_ln209_19' <Predicate = true> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 17 <SV = 12> <Delay = 7.62>
+ST_17 : Operation 246 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln209_18 = add i32 %W_V_load_1, %W_V_load_3" [sha256.cpp:137]   --->   Operation 246 'add' 'add_ln209_18' <Predicate = (!icmp_ln134)> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 2.18> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_17 : Operation 247 [1/1] (4.37ns) (root node of TernaryAdder)   --->   "%add_ln209_10 = add i32 %add_ln209_19, %add_ln209_18" [sha256.cpp:137]   --->   Operation 247 'add' 'add_ln209_10' <Predicate = (!icmp_ln134)> <Delay = 4.37> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 2.18> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_17 : Operation 248 [1/1] (0.00ns)   --->   "%W_V_addr_5 = getelementptr [64 x i32]* %W_V, i64 0, i64 %zext_ln135" [sha256.cpp:137]   --->   Operation 248 'getelementptr' 'W_V_addr_5' <Predicate = (!icmp_ln134)> <Delay = 0.00>
+ST_17 : Operation 249 [1/1] (3.25ns)   --->   "store i32 %add_ln209_10, i32* %W_V_addr_5, align 4" [sha256.cpp:137]   --->   Operation 249 'store' <Predicate = (!icmp_ln134)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_17 : Operation 250 [1/1] (0.00ns)   --->   "br label %7"   --->   Operation 250 'br' <Predicate = (!icmp_ln134)> <Delay = 0.00>
+ST_17 : Operation 251 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln209_21 = add i32 %ret_V_46, %p_0657_0" [sha256.cpp:139]   --->   Operation 251 'add' 'add_ln209_21' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 2.18> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_17 : Operation 252 [1/1] (4.37ns) (root node of TernaryAdder)   --->   "%add_ln209_22 = add i32 %add_ln209_21, %ch_V" [sha256.cpp:139]   --->   Operation 252 'add' 'add_ln209_22' <Predicate = true> <Delay = 4.37> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 2.18> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+
+State 18 <SV = 10> <Delay = 6.50>
+ST_18 : Operation 253 [1/2] (3.25ns)   --->   "%M_V_load = load i32* %M_V_addr_1, align 4" [sha256.cpp:135]   --->   Operation 253 'load' 'M_V_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_18 : Operation 254 [1/1] (0.00ns)   --->   "%W_V_addr = getelementptr [64 x i32]* %W_V, i64 0, i64 %zext_ln135" [sha256.cpp:135]   --->   Operation 254 'getelementptr' 'W_V_addr' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 255 [1/1] (3.25ns)   --->   "store i32 %M_V_load, i32* %W_V_addr, align 4" [sha256.cpp:135]   --->   Operation 255 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_18 : Operation 256 [1/1] (0.00ns)   --->   "br label %7" [sha256.cpp:135]   --->   Operation 256 'br' <Predicate = true> <Delay = 0.00>
+
+State 19 <SV = 13> <Delay = 3.25>
+ST_19 : Operation 257 [1/1] (0.00ns)   --->   "%K_addr = getelementptr [64 x i32]* @K, i64 0, i64 %zext_ln135" [sha256.cpp:139]   --->   Operation 257 'getelementptr' 'K_addr' <Predicate = true> <Delay = 0.00>
+ST_19 : Operation 258 [2/2] (3.25ns)   --->   "%K_load = load i32* %K_addr, align 4" [sha256.cpp:139]   --->   Operation 258 'load' 'K_load' <Predicate = true> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 32> <Depth = 64> <ROM>
+ST_19 : Operation 259 [1/1] (0.00ns)   --->   "%W_V_addr_6 = getelementptr [64 x i32]* %W_V, i64 0, i64 %zext_ln135" [sha256.cpp:139]   --->   Operation 259 'getelementptr' 'W_V_addr_6' <Predicate = true> <Delay = 0.00>
+ST_19 : Operation 260 [2/2] (3.25ns)   --->   "%W_V_load = load i32* %W_V_addr_6, align 4" [sha256.cpp:139]   --->   Operation 260 'load' 'W_V_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+
+State 20 <SV = 14> <Delay = 7.62>
+ST_20 : Operation 261 [1/2] (3.25ns)   --->   "%K_load = load i32* %K_addr, align 4" [sha256.cpp:139]   --->   Operation 261 'load' 'K_load' <Predicate = true> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 32> <Depth = 64> <ROM>
+ST_20 : Operation 262 [1/2] (3.25ns)   --->   "%W_V_load = load i32* %W_V_addr_6, align 4" [sha256.cpp:139]   --->   Operation 262 'load' 'W_V_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_20 : Operation 263 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln209_20 = add i32 %K_load, %W_V_load" [sha256.cpp:139]   --->   Operation 263 'add' 'add_ln209_20' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 2.18> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_20 : Operation 264 [1/1] (4.37ns) (root node of TernaryAdder)   --->   "%T1_V = add i32 %add_ln209_22, %add_ln209_20" [sha256.cpp:139]   --->   Operation 264 'add' 'T1_V' <Predicate = true> <Delay = 4.37> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 2.18> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+
+State 21 <SV = 15> <Delay = 4.37>
+ST_21 : Operation 265 [1/1] (2.55ns)   --->   "%e_V_2 = add i32 %p_0622_0, %T1_V" [sha256.cpp:144]   --->   Operation 265 'add' 'e_V_2' <Predicate = true> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_21 : Operation 266 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln209_25 = add i32 %ret_V_42, %T1_V" [sha256.cpp:148]   --->   Operation 266 'add' 'add_ln209_25' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 2.18> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_21 : Operation 267 [1/1] (4.37ns) (root node of TernaryAdder)   --->   "%a_V_2 = add i32 %add_ln209_25, %maj_V" [sha256.cpp:148]   --->   Operation 267 'add' 'a_V_2' <Predicate = true> <Delay = 4.37> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 2.18> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_21 : Operation 268 [1/1] (0.00ns)   --->   "br label %.preheader1318" [sha256.cpp:127]   --->   Operation 268 'br' <Predicate = true> <Delay = 0.00>
+
+State 22 <SV = 10> <Delay = 5.80>
+ST_22 : Operation 269 [1/1] (0.00ns)   --->   "%or_ln321_7 = or i5 %tmp_26, 2" [sha256.cpp:153]   --->   Operation 269 'or' 'or_ln321_7' <Predicate = true> <Delay = 0.00>
+ST_22 : Operation 270 [1/1] (0.00ns)   --->   "%tmp_28 = call i64 @_ssdm_op_BitConcatenate.i64.i59.i5(i59 0, i5 %or_ln321_7)" [sha256.cpp:153]   --->   Operation 270 'bitconcatenate' 'tmp_28' <Predicate = true> <Delay = 0.00>
+ST_22 : Operation 271 [1/1] (0.00ns)   --->   "%H_V_addr_12 = getelementptr [256 x i32]* %H_V, i64 0, i64 %tmp_28" [sha256.cpp:153]   --->   Operation 271 'getelementptr' 'H_V_addr_12' <Predicate = true> <Delay = 0.00>
+ST_22 : Operation 272 [1/1] (0.00ns)   --->   "%or_ln321_8 = or i5 %tmp_26, 3" [sha256.cpp:154]   --->   Operation 272 'or' 'or_ln321_8' <Predicate = true> <Delay = 0.00>
+ST_22 : Operation 273 [1/1] (0.00ns)   --->   "%tmp_29 = call i64 @_ssdm_op_BitConcatenate.i64.i59.i5(i59 0, i5 %or_ln321_8)" [sha256.cpp:154]   --->   Operation 273 'bitconcatenate' 'tmp_29' <Predicate = true> <Delay = 0.00>
+ST_22 : Operation 274 [1/1] (0.00ns)   --->   "%H_V_addr_13 = getelementptr [256 x i32]* %H_V, i64 0, i64 %tmp_29" [sha256.cpp:154]   --->   Operation 274 'getelementptr' 'H_V_addr_13' <Predicate = true> <Delay = 0.00>
+ST_22 : Operation 275 [1/1] (3.25ns)   --->   "store i32 %add_ln209_2, i32* %H_V_addr_12, align 8" [sha256.cpp:153]   --->   Operation 275 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_22 : Operation 276 [1/1] (2.55ns)   --->   "%add_ln209_3 = add i32 %p_0622_0, %d_V" [sha256.cpp:154]   --->   Operation 276 'add' 'add_ln209_3' <Predicate = true> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_22 : Operation 277 [1/1] (3.25ns)   --->   "store i32 %add_ln209_3, i32* %H_V_addr_13, align 4" [sha256.cpp:154]   --->   Operation 277 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+
+State 23 <SV = 11> <Delay = 3.25>
+ST_23 : Operation 278 [1/1] (0.00ns)   --->   "%or_ln321_9 = or i5 %tmp_26, 4" [sha256.cpp:155]   --->   Operation 278 'or' 'or_ln321_9' <Predicate = true> <Delay = 0.00>
+ST_23 : Operation 279 [1/1] (0.00ns)   --->   "%tmp_30 = call i64 @_ssdm_op_BitConcatenate.i64.i59.i5(i59 0, i5 %or_ln321_9)" [sha256.cpp:155]   --->   Operation 279 'bitconcatenate' 'tmp_30' <Predicate = true> <Delay = 0.00>
+ST_23 : Operation 280 [1/1] (0.00ns)   --->   "%H_V_addr_14 = getelementptr [256 x i32]* %H_V, i64 0, i64 %tmp_30" [sha256.cpp:155]   --->   Operation 280 'getelementptr' 'H_V_addr_14' <Predicate = true> <Delay = 0.00>
+ST_23 : Operation 281 [1/1] (0.00ns)   --->   "%or_ln321_10 = or i5 %tmp_26, 5" [sha256.cpp:156]   --->   Operation 281 'or' 'or_ln321_10' <Predicate = true> <Delay = 0.00>
+ST_23 : Operation 282 [1/1] (0.00ns)   --->   "%tmp_31 = call i64 @_ssdm_op_BitConcatenate.i64.i59.i5(i59 0, i5 %or_ln321_10)" [sha256.cpp:156]   --->   Operation 282 'bitconcatenate' 'tmp_31' <Predicate = true> <Delay = 0.00>
+ST_23 : Operation 283 [1/1] (0.00ns)   --->   "%H_V_addr_15 = getelementptr [256 x i32]* %H_V, i64 0, i64 %tmp_31" [sha256.cpp:156]   --->   Operation 283 'getelementptr' 'H_V_addr_15' <Predicate = true> <Delay = 0.00>
+ST_23 : Operation 284 [1/1] (3.25ns)   --->   "store i32 %add_ln209_4, i32* %H_V_addr_14, align 16" [sha256.cpp:155]   --->   Operation 284 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_23 : Operation 285 [1/1] (3.25ns)   --->   "store i32 %add_ln209_5, i32* %H_V_addr_15, align 4" [sha256.cpp:156]   --->   Operation 285 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+
+State 24 <SV = 12> <Delay = 5.80>
+ST_24 : Operation 286 [1/1] (0.00ns)   --->   "%or_ln321_11 = or i5 %tmp_26, 6" [sha256.cpp:157]   --->   Operation 286 'or' 'or_ln321_11' <Predicate = true> <Delay = 0.00>
+ST_24 : Operation 287 [1/1] (0.00ns)   --->   "%tmp_32 = call i64 @_ssdm_op_BitConcatenate.i64.i59.i5(i59 0, i5 %or_ln321_11)" [sha256.cpp:157]   --->   Operation 287 'bitconcatenate' 'tmp_32' <Predicate = true> <Delay = 0.00>
+ST_24 : Operation 288 [1/1] (0.00ns)   --->   "%H_V_addr_16 = getelementptr [256 x i32]* %H_V, i64 0, i64 %tmp_32" [sha256.cpp:157]   --->   Operation 288 'getelementptr' 'H_V_addr_16' <Predicate = true> <Delay = 0.00>
+ST_24 : Operation 289 [1/1] (0.00ns)   --->   "%or_ln321_12 = or i5 %tmp_26, 7" [sha256.cpp:158]   --->   Operation 289 'or' 'or_ln321_12' <Predicate = true> <Delay = 0.00>
+ST_24 : Operation 290 [1/1] (0.00ns)   --->   "%tmp_33 = call i64 @_ssdm_op_BitConcatenate.i64.i59.i5(i59 0, i5 %or_ln321_12)" [sha256.cpp:158]   --->   Operation 290 'bitconcatenate' 'tmp_33' <Predicate = true> <Delay = 0.00>
+ST_24 : Operation 291 [1/1] (0.00ns)   --->   "%H_V_addr_17 = getelementptr [256 x i32]* %H_V, i64 0, i64 %tmp_33" [sha256.cpp:158]   --->   Operation 291 'getelementptr' 'H_V_addr_17' <Predicate = true> <Delay = 0.00>
+ST_24 : Operation 292 [1/1] (3.25ns)   --->   "store i32 %add_ln209_6, i32* %H_V_addr_16, align 8" [sha256.cpp:157]   --->   Operation 292 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_24 : Operation 293 [1/1] (2.55ns)   --->   "%add_ln209_7 = add i32 %p_0657_0, %h_V" [sha256.cpp:158]   --->   Operation 293 'add' 'add_ln209_7' <Predicate = true> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_24 : Operation 294 [1/1] (3.25ns)   --->   "store i32 %add_ln209_7, i32* %H_V_addr_17, align 4" [sha256.cpp:158]   --->   Operation 294 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_24 : Operation 295 [1/1] (0.00ns)   --->   "br label %.preheader9" [sha256.cpp:114]   --->   Operation 295 'br' <Predicate = true> <Delay = 0.00>
+
+State 25 <SV = 5> <Delay = 4.22>
+ST_25 : Operation 296 [1/1] (0.00ns)   --->   "%i13_0 = phi i4 [ %i_13, %9 ], [ 0, %.preheader.preheader ]"   --->   Operation 296 'phi' 'i13_0' <Predicate = true> <Delay = 0.00>
+ST_25 : Operation 297 [1/1] (1.30ns)   --->   "%icmp_ln161 = icmp eq i4 %i13_0, -8" [sha256.cpp:161]   --->   Operation 297 'icmp' 'icmp_ln161' <Predicate = true> <Delay = 1.30> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_25 : Operation 298 [1/1] (0.00ns)   --->   "%empty_22 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 8, i64 8, i64 8)"   --->   Operation 298 'speclooptripcount' 'empty_22' <Predicate = true> <Delay = 0.00>
+ST_25 : Operation 299 [1/1] (1.73ns)   --->   "%i_13 = add i4 %i13_0, 1" [sha256.cpp:161]   --->   Operation 299 'add' 'i_13' <Predicate = true> <Delay = 1.73> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_25 : Operation 300 [1/1] (0.00ns)   --->   "br i1 %icmp_ln161, label %10, label %9" [sha256.cpp:161]   --->   Operation 300 'br' <Predicate = true> <Delay = 0.00>
+ST_25 : Operation 301 [1/1] (0.97ns)   --->   "%xor_ln321 = xor i4 %i13_0, -8" [sha256.cpp:162]   --->   Operation 301 'xor' 'xor_ln321' <Predicate = (!icmp_ln161)> <Delay = 0.97> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_25 : Operation 302 [1/1] (0.00ns)   --->   "%zext_ln321_6 = zext i4 %xor_ln321 to i64" [sha256.cpp:162]   --->   Operation 302 'zext' 'zext_ln321_6' <Predicate = (!icmp_ln161)> <Delay = 0.00>
+ST_25 : Operation 303 [1/1] (0.00ns)   --->   "%H_V_addr_9 = getelementptr [256 x i32]* %H_V, i64 0, i64 %zext_ln321_6" [sha256.cpp:162]   --->   Operation 303 'getelementptr' 'H_V_addr_9' <Predicate = (!icmp_ln161)> <Delay = 0.00>
+ST_25 : Operation 304 [2/2] (3.25ns)   --->   "%H_V_load = load i32* %H_V_addr_9, align 4" [sha256.cpp:162]   --->   Operation 304 'load' 'H_V_load' <Predicate = (!icmp_ln161)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_25 : Operation 305 [1/1] (0.00ns)   --->   "ret void" [sha256.cpp:169]   --->   Operation 305 'ret' <Predicate = (icmp_ln161)> <Delay = 0.00>
+
+State 26 <SV = 6> <Delay = 5.57>
+ST_26 : Operation 306 [1/1] (0.00ns)   --->   "%zext_ln162 = zext i4 %i13_0 to i64" [sha256.cpp:162]   --->   Operation 306 'zext' 'zext_ln162' <Predicate = true> <Delay = 0.00>
+ST_26 : Operation 307 [1/2] (3.25ns)   --->   "%H_V_load = load i32* %H_V_addr_9, align 4" [sha256.cpp:162]   --->   Operation 307 'load' 'H_V_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_26 : Operation 308 [1/1] (0.00ns)   --->   "%outputlocation_V_add = getelementptr [8 x i32]* %outputlocation_V, i64 0, i64 %zext_ln162" [sha256.cpp:162]   --->   Operation 308 'getelementptr' 'outputlocation_V_add' <Predicate = true> <Delay = 0.00>
+ST_26 : Operation 309 [1/1] (2.32ns)   --->   "store i32 %H_V_load, i32* %outputlocation_V_add, align 4" [sha256.cpp:162]   --->   Operation 309 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_26 : Operation 310 [1/1] (0.00ns)   --->   "br label %.preheader" [sha256.cpp:161]   --->   Operation 310 'br' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.77ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', sha256.cpp:79) [13]  (1.77 ns)
+
+ <State 2>: 3.25ns
+The critical path consists of the following:
+	'getelementptr' operation ('message_V_addr_1', sha256.cpp:85) [26]  (0 ns)
+	'store' operation ('store_ln85', sha256.cpp:85) of constant 2147483648 on array 'message.V', sha256.cpp:77 [27]  (3.25 ns)
+
+ <State 3>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('input_V_load', sha256.cpp:80) on array 'input_V' [21]  (2.32 ns)
+	'store' operation ('store_ln80', sha256.cpp:80) of variable 'input_V_load', sha256.cpp:80 on array 'message.V', sha256.cpp:77 [23]  (3.25 ns)
+
+ <State 4>: 1.78ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', sha256.cpp:104) [32]  (0 ns)
+	'add' operation ('i', sha256.cpp:104) [35]  (1.78 ns)
+
+ <State 5>: 5.03ns
+The critical path consists of the following:
+	'phi' operation ('j') with incoming values : ('j', sha256.cpp:105) [41]  (0 ns)
+	'add' operation ('add_ln106', sha256.cpp:106) [54]  (1.78 ns)
+	'getelementptr' operation ('message_V_addr_5', sha256.cpp:106) [56]  (0 ns)
+	'load' operation ('message_V_load', sha256.cpp:106) on array 'message.V', sha256.cpp:77 [57]  (3.25 ns)
+
+ <State 6>: 6.51ns
+The critical path consists of the following:
+	'load' operation ('message_V_load', sha256.cpp:106) on array 'message.V', sha256.cpp:77 [57]  (3.25 ns)
+	'store' operation ('store_ln106', sha256.cpp:106) of variable 'message_V_load', sha256.cpp:106 on array 'M.V', sha256.cpp:102 [58]  (3.25 ns)
+
+ <State 7>: 3.25ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', sha256.cpp:110) [65]  (0 ns)
+	'getelementptr' operation ('H_0_V_addr', sha256.cpp:111) [73]  (0 ns)
+	'load' operation ('H_0_V_load', sha256.cpp:111) on array 'H_0_V' [74]  (3.25 ns)
+
+ <State 8>: 6.51ns
+The critical path consists of the following:
+	'load' operation ('H_0_V_load', sha256.cpp:111) on array 'H_0_V' [74]  (3.25 ns)
+	'store' operation ('store_ln111', sha256.cpp:111) of variable 'H_0_V_load', sha256.cpp:111 on array 'H.V', sha256.cpp:108 [75]  (3.25 ns)
+
+ <State 9>: 4.82ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', sha256.cpp:114) [80]  (0 ns)
+	'add' operation ('add_ln116', sha256.cpp:116) [85]  (1.56 ns)
+	'getelementptr' operation ('H_V_addr_1', sha256.cpp:116) [90]  (0 ns)
+	'load' operation ('a.V', sha256.cpp:116) on array 'H.V', sha256.cpp:108 [112]  (3.25 ns)
+
+ <State 10>: 3.25ns
+The critical path consists of the following:
+	'or' operation ('or_ln118', sha256.cpp:118) [94]  (0 ns)
+	'getelementptr' operation ('H_V_addr_3', sha256.cpp:118) [96]  (0 ns)
+	'load' operation ('c.V', sha256.cpp:118) on array 'H.V', sha256.cpp:108 [114]  (3.25 ns)
+
+ <State 11>: 3.25ns
+The critical path consists of the following:
+	'or' operation ('or_ln120', sha256.cpp:120) [100]  (0 ns)
+	'getelementptr' operation ('H_V_addr_5', sha256.cpp:120) [102]  (0 ns)
+	'load' operation ('e.V', sha256.cpp:120) on array 'H.V', sha256.cpp:108 [116]  (3.25 ns)
+
+ <State 12>: 3.25ns
+The critical path consists of the following:
+	'or' operation ('or_ln122', sha256.cpp:122) [106]  (0 ns)
+	'getelementptr' operation ('H_V_addr_7', sha256.cpp:122) [108]  (0 ns)
+	'load' operation ('g.V', sha256.cpp:122) on array 'H.V', sha256.cpp:108 [118]  (3.25 ns)
+
+ <State 13>: 3.25ns
+The critical path consists of the following:
+	'load' operation ('g.V', sha256.cpp:122) on array 'H.V', sha256.cpp:108 [118]  (3.25 ns)
+
+ <State 14>: 5.81ns
+The critical path consists of the following:
+	'phi' operation ('a.V') with incoming values : ('a.V', sha256.cpp:116) ('a.V', sha256.cpp:148) [122]  (0 ns)
+	'add' operation ('add_ln209', sha256.cpp:151) [259]  (2.55 ns)
+	'store' operation ('store_ln151', sha256.cpp:151) of variable 'add_ln209', sha256.cpp:151 on array 'H.V', sha256.cpp:108 [260]  (3.25 ns)
+
+ <State 15>: 5.12ns
+The critical path consists of the following:
+	'add' operation ('add_ln137_2', sha256.cpp:137) [192]  (1.87 ns)
+	'getelementptr' operation ('W_V_addr_3', sha256.cpp:137) [194]  (0 ns)
+	'load' operation ('tempWord.V', sha256.cpp:137) on array 'W.V', sha256.cpp:125 [195]  (3.25 ns)
+
+ <State 16>: 5.81ns
+The critical path consists of the following:
+	'load' operation ('tempWord.V', sha256.cpp:137) on array 'W.V', sha256.cpp:125 [195]  (3.25 ns)
+	'xor' operation ('ret.V', sha256.cpp:46->sha256.cpp:137) [205]  (0 ns)
+	'add' operation ('add_ln209_19', sha256.cpp:137) [211]  (2.55 ns)
+
+ <State 17>: 7.62ns
+The critical path consists of the following:
+	'add' operation ('add_ln209_18', sha256.cpp:137) [210]  (0 ns)
+	'add' operation ('add_ln209_10', sha256.cpp:137) [212]  (4.37 ns)
+	'store' operation ('store_ln137', sha256.cpp:137) of variable 'add_ln209_10', sha256.cpp:137 on array 'W.V', sha256.cpp:125 [214]  (3.25 ns)
+
+ <State 18>: 6.51ns
+The critical path consists of the following:
+	'load' operation ('M_V_load', sha256.cpp:135) on array 'M.V', sha256.cpp:102 [217]  (3.25 ns)
+	'store' operation ('store_ln135', sha256.cpp:135) of variable 'M_V_load', sha256.cpp:135 on array 'W.V', sha256.cpp:125 [219]  (3.25 ns)
+
+ <State 19>: 3.25ns
+The critical path consists of the following:
+	'getelementptr' operation ('K_addr', sha256.cpp:139) [222]  (0 ns)
+	'load' operation ('K_load', sha256.cpp:139) on array 'K' [223]  (3.25 ns)
+
+ <State 20>: 7.62ns
+The critical path consists of the following:
+	'load' operation ('K_load', sha256.cpp:139) on array 'K' [223]  (3.25 ns)
+	'add' operation ('add_ln209_20', sha256.cpp:139) [226]  (0 ns)
+	'add' operation ('T1.V', sha256.cpp:139) [229]  (4.37 ns)
+
+ <State 21>: 4.37ns
+The critical path consists of the following:
+	'add' operation ('add_ln209_25', sha256.cpp:148) [231]  (0 ns)
+	'add' operation ('a.V', sha256.cpp:148) [232]  (4.37 ns)
+
+ <State 22>: 5.81ns
+The critical path consists of the following:
+	'add' operation ('add_ln209_3', sha256.cpp:154) [265]  (2.55 ns)
+	'store' operation ('store_ln154', sha256.cpp:154) of variable 'add_ln209_3', sha256.cpp:154 on array 'H.V', sha256.cpp:108 [266]  (3.25 ns)
+
+ <State 23>: 3.25ns
+The critical path consists of the following:
+	'or' operation ('or_ln321_9', sha256.cpp:155) [247]  (0 ns)
+	'getelementptr' operation ('H_V_addr_14', sha256.cpp:155) [249]  (0 ns)
+	'store' operation ('store_ln155', sha256.cpp:155) of variable 'add_ln209_4', sha256.cpp:155 on array 'H.V', sha256.cpp:108 [268]  (3.25 ns)
+
+ <State 24>: 5.81ns
+The critical path consists of the following:
+	'add' operation ('add_ln209_7', sha256.cpp:158) [273]  (2.55 ns)
+	'store' operation ('store_ln158', sha256.cpp:158) of variable 'add_ln209_7', sha256.cpp:158 on array 'H.V', sha256.cpp:108 [274]  (3.25 ns)
+
+ <State 25>: 4.23ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', sha256.cpp:161) [280]  (0 ns)
+	'xor' operation ('xor_ln321', sha256.cpp:162) [287]  (0.975 ns)
+	'getelementptr' operation ('H_V_addr_9', sha256.cpp:162) [289]  (0 ns)
+	'load' operation ('H_V_load', sha256.cpp:162) on array 'H.V', sha256.cpp:108 [290]  (3.25 ns)
+
+ <State 26>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('H_V_load', sha256.cpp:162) on array 'H.V', sha256.cpp:108 [290]  (3.25 ns)
+	'store' operation ('store_ln162', sha256.cpp:162) of variable 'H_V_load', sha256.cpp:162 on array 'outputlocation_V' [292]  (2.32 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

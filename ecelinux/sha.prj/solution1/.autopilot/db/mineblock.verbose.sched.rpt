@@ -1,0 +1,319 @@
+
+
+================================================================
+== Vivado HLS Report for 'mineblock'
+================================================================
+* Date:           Thu Nov 21 20:50:34 2024
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        sha.prj
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020-clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 7.625 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        ?|        ?|         ?|         ?|    ?|    ?|   none  |
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------+---------+---------+-------------+-----------+-----------+-------+----------+
+        |             |  Latency (cycles) |  Iteration  |  Initiation Interval  |  Trip |          |
+        |  Loop Name  |   min   |   max   |   Latency   |  achieved |   target  | Count | Pipelined|
+        +-------------+---------+---------+-------------+-----------+-----------+-------+----------+
+        |- Loop 1     |       16|       16|            2|          -|          -|      8|    no    |
+        |- Loop 2     |       16|       16|            2|          -|          -|      8|    no    |
+        |- Loop 3     |        ?|        ?| 1545 ~ 1753 |          -|          -|      ?|    no    |
+        | + Loop 3.1  |        2|       17|            2|          -|          -| 1 ~ 8 |    no    |
+        |- Loop 4     |       16|       16|            2|          -|          -|      8|    no    |
+        +-------------+---------+---------+-------------+-----------+-----------+-------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 14
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 4 
+3 --> 2 
+4 --> 5 6 
+5 --> 4 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 10 
+10 --> 11 
+11 --> 12 
+12 --> 11 13 6 
+13 --> 14 
+14 --> 13 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 2.55>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%nbits_0_V_read_1 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %nbits_0_V_read)"   --->   Operation 15 'read' 'nbits_0_V_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%time_0_V_read_1 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %time_0_V_read)"   --->   Operation 16 'read' 'time_0_V_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%version_0_V_read_1 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %version_0_V_read)"   --->   Operation 17 'read' 'version_0_V_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%noncestart_V_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %noncestart_V)"   --->   Operation 18 'read' 'noncestart_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%hash0_V = alloca [8 x i32], align 4" [miner.cpp:125->miner.cpp:204]   --->   Operation 19 'alloca' 'hash0_V' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%blockheader_V = alloca [20 x i32], align 4" [miner.cpp:142]   --->   Operation 20 'alloca' 'blockheader_V' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%result_V_assign = alloca [8 x i32], align 4"   --->   Operation 21 'alloca' 'result_V_assign' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_1 : Operation 22 [1/1] (2.55ns)   --->   "%nonce_V = add i32 %noncestart_V_read, -1" [miner.cpp:139]   --->   Operation 22 'add' 'nonce_V' <Predicate = true> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%blockheader_V_addr = getelementptr [20 x i32]* %blockheader_V, i64 0, i64 0" [miner.cpp:156]   --->   Operation 23 'getelementptr' 'blockheader_V_addr' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (2.32ns)   --->   "store i32 %version_0_V_read_1, i32* %blockheader_V_addr, align 16" [miner.cpp:156]   --->   Operation 24 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_1 : Operation 25 [1/1] (1.76ns)   --->   "br label %1" [miner.cpp:159]   --->   Operation 25 'br' <Predicate = true> <Delay = 1.76>
+
+State 2 <SV = 1> <Delay = 2.32>
+ST_2 : Operation 26 [1/1] (0.00ns)   --->   "%i_0 = phi i4 [ 0, %0 ], [ %i, %2 ]"   --->   Operation 26 'phi' 'i_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 27 [1/1] (1.30ns)   --->   "%icmp_ln159 = icmp eq i4 %i_0, -8" [miner.cpp:159]   --->   Operation 27 'icmp' 'icmp_ln159' <Predicate = true> <Delay = 1.30> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 28 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 8, i64 8, i64 8)"   --->   Operation 28 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 29 [1/1] (1.73ns)   --->   "%i = add i4 %i_0, 1" [miner.cpp:160]   --->   Operation 29 'add' 'i' <Predicate = true> <Delay = 1.73> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 30 [1/1] (0.00ns)   --->   "br i1 %icmp_ln159, label %.preheader.preheader, label %2" [miner.cpp:159]   --->   Operation 30 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 31 [1/1] (0.00ns)   --->   "%zext_ln160_1 = zext i4 %i_0 to i64" [miner.cpp:160]   --->   Operation 31 'zext' 'zext_ln160_1' <Predicate = (!icmp_ln159)> <Delay = 0.00>
+ST_2 : Operation 32 [1/1] (0.00ns)   --->   "%prevhash_V_addr = getelementptr [8 x i32]* %prevhash_V, i64 0, i64 %zext_ln160_1" [miner.cpp:160]   --->   Operation 32 'getelementptr' 'prevhash_V_addr' <Predicate = (!icmp_ln159)> <Delay = 0.00>
+ST_2 : Operation 33 [2/2] (2.32ns)   --->   "%prevhash_V_load = load i32* %prevhash_V_addr, align 4" [miner.cpp:160]   --->   Operation 33 'load' 'prevhash_V_load' <Predicate = (!icmp_ln159)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_2 : Operation 34 [1/1] (1.76ns)   --->   "br label %.preheader" [miner.cpp:164]   --->   Operation 34 'br' <Predicate = (icmp_ln159)> <Delay = 1.76>
+
+State 3 <SV = 2> <Delay = 4.64>
+ST_3 : Operation 35 [1/1] (0.00ns)   --->   "%zext_ln160 = zext i4 %i to i64" [miner.cpp:160]   --->   Operation 35 'zext' 'zext_ln160' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 36 [1/2] (2.32ns)   --->   "%prevhash_V_load = load i32* %prevhash_V_addr, align 4" [miner.cpp:160]   --->   Operation 36 'load' 'prevhash_V_load' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_3 : Operation 37 [1/1] (0.00ns)   --->   "%blockheader_V_addr_1 = getelementptr [20 x i32]* %blockheader_V, i64 0, i64 %zext_ln160" [miner.cpp:160]   --->   Operation 37 'getelementptr' 'blockheader_V_addr_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 38 [1/1] (2.32ns)   --->   "store i32 %prevhash_V_load, i32* %blockheader_V_addr_1, align 4" [miner.cpp:160]   --->   Operation 38 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_3 : Operation 39 [1/1] (0.00ns)   --->   "br label %1" [miner.cpp:159]   --->   Operation 39 'br' <Predicate = true> <Delay = 0.00>
+
+State 4 <SV = 2> <Delay = 2.32>
+ST_4 : Operation 40 [1/1] (0.00ns)   --->   "%i1_0 = phi i4 [ %i_1, %3 ], [ 0, %.preheader.preheader ]"   --->   Operation 40 'phi' 'i1_0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 41 [1/1] (0.00ns)   --->   "%zext_ln164 = zext i4 %i1_0 to i5" [miner.cpp:164]   --->   Operation 41 'zext' 'zext_ln164' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 42 [1/1] (1.30ns)   --->   "%icmp_ln164 = icmp eq i4 %i1_0, -8" [miner.cpp:164]   --->   Operation 42 'icmp' 'icmp_ln164' <Predicate = true> <Delay = 1.30> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 43 [1/1] (0.00ns)   --->   "%empty_8 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 8, i64 8, i64 8)"   --->   Operation 43 'speclooptripcount' 'empty_8' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 44 [1/1] (1.73ns)   --->   "%i_1 = add i4 %i1_0, 1" [miner.cpp:164]   --->   Operation 44 'add' 'i_1' <Predicate = true> <Delay = 1.73> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 45 [1/1] (0.00ns)   --->   "br i1 %icmp_ln164, label %4, label %3" [miner.cpp:164]   --->   Operation 45 'br' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 46 [1/1] (0.00ns)   --->   "%zext_ln165_1 = zext i4 %i1_0 to i64" [miner.cpp:165]   --->   Operation 46 'zext' 'zext_ln165_1' <Predicate = (!icmp_ln164)> <Delay = 0.00>
+ST_4 : Operation 47 [1/1] (0.00ns)   --->   "%merkle_root_V_addr = getelementptr [8 x i32]* %merkle_root_V, i64 0, i64 %zext_ln165_1" [miner.cpp:165]   --->   Operation 47 'getelementptr' 'merkle_root_V_addr' <Predicate = (!icmp_ln164)> <Delay = 0.00>
+ST_4 : Operation 48 [2/2] (2.32ns)   --->   "%merkle_root_V_load = load i32* %merkle_root_V_addr, align 4" [miner.cpp:165]   --->   Operation 48 'load' 'merkle_root_V_load' <Predicate = (!icmp_ln164)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_4 : Operation 49 [1/1] (0.00ns)   --->   "%blockheader_V_addr_2 = getelementptr [20 x i32]* %blockheader_V, i64 0, i64 17" [miner.cpp:169]   --->   Operation 49 'getelementptr' 'blockheader_V_addr_2' <Predicate = (icmp_ln164)> <Delay = 0.00>
+ST_4 : Operation 50 [1/1] (2.32ns)   --->   "store i32 %time_0_V_read_1, i32* %blockheader_V_addr_2, align 4" [miner.cpp:169]   --->   Operation 50 'store' <Predicate = (icmp_ln164)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_4 : Operation 51 [1/1] (0.00ns)   --->   "%blockheader_V_addr_3 = getelementptr [20 x i32]* %blockheader_V, i64 0, i64 18" [miner.cpp:172]   --->   Operation 51 'getelementptr' 'blockheader_V_addr_3' <Predicate = (icmp_ln164)> <Delay = 0.00>
+ST_4 : Operation 52 [1/1] (2.32ns)   --->   "store i32 %nbits_0_V_read_1, i32* %blockheader_V_addr_3, align 8" [miner.cpp:172]   --->   Operation 52 'store' <Predicate = (icmp_ln164)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_4 : Operation 53 [1/1] (0.00ns)   --->   "%blockheader_V_addr_4 = getelementptr [20 x i32]* %blockheader_V, i64 0, i64 19" [miner.cpp:190]   --->   Operation 53 'getelementptr' 'blockheader_V_addr_4' <Predicate = (icmp_ln164)> <Delay = 0.00>
+ST_4 : Operation 54 [1/1] (1.76ns)   --->   "br label %5" [miner.cpp:198]   --->   Operation 54 'br' <Predicate = (icmp_ln164)> <Delay = 1.76>
+
+State 5 <SV = 3> <Delay = 4.64>
+ST_5 : Operation 55 [1/1] (1.78ns)   --->   "%add_ln165 = add i5 %zext_ln164, 9" [miner.cpp:165]   --->   Operation 55 'add' 'add_ln165' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 56 [1/1] (0.00ns)   --->   "%zext_ln165 = zext i5 %add_ln165 to i64" [miner.cpp:165]   --->   Operation 56 'zext' 'zext_ln165' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 57 [1/2] (2.32ns)   --->   "%merkle_root_V_load = load i32* %merkle_root_V_addr, align 4" [miner.cpp:165]   --->   Operation 57 'load' 'merkle_root_V_load' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_5 : Operation 58 [1/1] (0.00ns)   --->   "%blockheader_V_addr_5 = getelementptr [20 x i32]* %blockheader_V, i64 0, i64 %zext_ln165" [miner.cpp:165]   --->   Operation 58 'getelementptr' 'blockheader_V_addr_5' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 59 [1/1] (2.32ns)   --->   "store i32 %merkle_root_V_load, i32* %blockheader_V_addr_5, align 4" [miner.cpp:165]   --->   Operation 59 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_5 : Operation 60 [1/1] (0.00ns)   --->   "br label %.preheader" [miner.cpp:164]   --->   Operation 60 'br' <Predicate = true> <Delay = 0.00>
+
+State 6 <SV = 3> <Delay = 4.87>
+ST_6 : Operation 61 [1/1] (0.00ns)   --->   "%t_V = phi i32 [ %nonce_V, %4 ], [ %final_result_nonce_V, %.loopexit ]"   --->   Operation 61 'phi' 't_V' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 62 [1/1] (2.55ns)   --->   "%final_result_nonce_V = add i32 %t_V, 1" [miner.cpp:200]   --->   Operation 62 'add' 'final_result_nonce_V' <Predicate = true> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 63 [1/1] (2.32ns)   --->   "store i32 %final_result_nonce_V, i32* %blockheader_V_addr_4, align 4" [miner.cpp:201]   --->   Operation 63 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+
+State 7 <SV = 4> <Delay = 0.00>
+ST_7 : Operation 64 [2/2] (0.00ns)   --->   "call fastcc void @hash1.1([20 x i32]* %blockheader_V, [8 x i32]* %hash0_V)" [miner.cpp:126->miner.cpp:204]   --->   Operation 64 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 8 <SV = 5> <Delay = 0.00>
+ST_8 : Operation 65 [1/2] (0.00ns)   --->   "call fastcc void @hash1.1([20 x i32]* %blockheader_V, [8 x i32]* %hash0_V)" [miner.cpp:126->miner.cpp:204]   --->   Operation 65 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 9 <SV = 6> <Delay = 0.00>
+ST_9 : Operation 66 [2/2] (0.00ns)   --->   "call fastcc void @hash1([8 x i32]* %hash0_V, [8 x i32]* %result_V_assign)" [miner.cpp:127->miner.cpp:204]   --->   Operation 66 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 10 <SV = 7> <Delay = 1.76>
+ST_10 : Operation 67 [1/2] (0.00ns)   --->   "call fastcc void @hash1([8 x i32]* %hash0_V, [8 x i32]* %result_V_assign)" [miner.cpp:127->miner.cpp:204]   --->   Operation 67 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_10 : Operation 68 [1/1] (1.76ns)   --->   "br label %6" [miner.cpp:209]   --->   Operation 68 'br' <Predicate = true> <Delay = 1.76>
+
+State 11 <SV = 8> <Delay = 4.05>
+ST_11 : Operation 69 [1/1] (0.00ns)   --->   "%i3_0 = phi i4 [ 0, %5 ], [ %i_2, %10 ]"   --->   Operation 69 'phi' 'i3_0' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 70 [1/1] (1.30ns)   --->   "%icmp_ln209 = icmp eq i4 %i3_0, -8" [miner.cpp:209]   --->   Operation 70 'icmp' 'icmp_ln209' <Predicate = true> <Delay = 1.30> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 71 [1/1] (0.00ns)   --->   "%empty_9 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 1, i64 8, i64 4)"   --->   Operation 71 'speclooptripcount' 'empty_9' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 72 [1/1] (1.73ns)   --->   "%i_2 = add i4 %i3_0, 1" [miner.cpp:209]   --->   Operation 72 'add' 'i_2' <Predicate = true> <Delay = 1.73> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 73 [1/1] (0.00ns)   --->   "br i1 %icmp_ln209, label %.loopexit, label %7" [miner.cpp:209]   --->   Operation 73 'br' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 74 [1/1] (1.73ns)   --->   "%sub_ln210 = sub i4 7, %i3_0" [miner.cpp:210]   --->   Operation 74 'sub' 'sub_ln210' <Predicate = (!icmp_ln209)> <Delay = 1.73> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 75 [1/1] (0.00ns)   --->   "%zext_ln210 = zext i4 %sub_ln210 to i64" [miner.cpp:210]   --->   Operation 75 'zext' 'zext_ln210' <Predicate = (!icmp_ln209)> <Delay = 0.00>
+ST_11 : Operation 76 [1/1] (0.00ns)   --->   "%zext_ln210_1 = zext i4 %i3_0 to i64" [miner.cpp:210]   --->   Operation 76 'zext' 'zext_ln210_1' <Predicate = (!icmp_ln209)> <Delay = 0.00>
+ST_11 : Operation 77 [1/1] (0.00ns)   --->   "%result_V_assign_addr = getelementptr [8 x i32]* %result_V_assign, i64 0, i64 %zext_ln210" [miner.cpp:210]   --->   Operation 77 'getelementptr' 'result_V_assign_addr' <Predicate = (!icmp_ln209)> <Delay = 0.00>
+ST_11 : Operation 78 [2/2] (2.32ns)   --->   "%result_V_assign_load = load i32* %result_V_assign_addr, align 4" [miner.cpp:210]   --->   Operation 78 'load' 'result_V_assign_load' <Predicate = (!icmp_ln209)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_11 : Operation 79 [1/1] (0.00ns)   --->   "%difficulty_V_addr = getelementptr [8 x i1]* @difficulty_V, i64 0, i64 %zext_ln210_1" [miner.cpp:210]   --->   Operation 79 'getelementptr' 'difficulty_V_addr' <Predicate = (!icmp_ln209)> <Delay = 0.00>
+ST_11 : Operation 80 [2/2] (3.25ns)   --->   "%difficulty_V_load = load i1* %difficulty_V_addr, align 1" [miner.cpp:210]   --->   Operation 80 'load' 'difficulty_V_load' <Predicate = (!icmp_ln209)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 1> <Depth = 8> <ROM>
+
+State 12 <SV = 9> <Delay = 6.50>
+ST_12 : Operation 81 [1/2] (2.32ns)   --->   "%result_V_assign_load = load i32* %result_V_assign_addr, align 4" [miner.cpp:210]   --->   Operation 81 'load' 'result_V_assign_load' <Predicate = (!icmp_ln209)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_12 : Operation 82 [1/2] (3.25ns)   --->   "%difficulty_V_load = load i1* %difficulty_V_addr, align 1" [miner.cpp:210]   --->   Operation 82 'load' 'difficulty_V_load' <Predicate = (!icmp_ln209)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 1> <Depth = 8> <ROM>
+ST_12 : Operation 83 [1/1] (0.78ns)   --->   "%select_ln887 = select i1 %difficulty_V_load, i32 65535, i32 0" [miner.cpp:210]   --->   Operation 83 'select' 'select_ln887' <Predicate = (!icmp_ln209)> <Delay = 0.78> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.78> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_12 : Operation 84 [1/1] (2.47ns)   --->   "%icmp_ln887 = icmp ult i32 %result_V_assign_load, %select_ln887" [miner.cpp:210]   --->   Operation 84 'icmp' 'icmp_ln887' <Predicate = (!icmp_ln209)> <Delay = 2.47> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 85 [1/1] (0.00ns)   --->   "br i1 %icmp_ln887, label %.preheader1.preheader, label %10" [miner.cpp:210]   --->   Operation 85 'br' <Predicate = (!icmp_ln209)> <Delay = 0.00>
+ST_12 : Operation 86 [1/1] (2.47ns)   --->   "%icmp_ln895 = icmp ugt i32 %result_V_assign_load, %select_ln887" [miner.cpp:218]   --->   Operation 86 'icmp' 'icmp_ln895' <Predicate = (!icmp_ln209 & !icmp_ln887)> <Delay = 2.47> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 87 [1/1] (0.00ns)   --->   "br i1 %icmp_ln895, label %.loopexit, label %6" [miner.cpp:218]   --->   Operation 87 'br' <Predicate = (!icmp_ln209 & !icmp_ln887)> <Delay = 0.00>
+ST_12 : Operation 88 [1/1] (1.76ns)   --->   "br label %.preheader1" [miner.cpp:213]   --->   Operation 88 'br' <Predicate = (!icmp_ln209 & icmp_ln887)> <Delay = 1.76>
+ST_12 : Operation 89 [1/1] (0.00ns)   --->   "br label %5" [miner.cpp:231]   --->   Operation 89 'br' <Predicate = (!icmp_ln887 & icmp_ln895) | (icmp_ln209)> <Delay = 0.00>
+
+State 13 <SV = 10> <Delay = 2.32>
+ST_13 : Operation 90 [1/1] (0.00ns)   --->   "%j_0 = phi i4 [ %j, %8 ], [ 0, %.preheader1.preheader ]"   --->   Operation 90 'phi' 'j_0' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 91 [1/1] (1.30ns)   --->   "%icmp_ln213 = icmp eq i4 %j_0, -8" [miner.cpp:213]   --->   Operation 91 'icmp' 'icmp_ln213' <Predicate = true> <Delay = 1.30> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 92 [1/1] (0.00ns)   --->   "%empty_10 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 8, i64 8, i64 8)"   --->   Operation 92 'speclooptripcount' 'empty_10' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 93 [1/1] (1.73ns)   --->   "%j = add i4 %j_0, 1" [miner.cpp:213]   --->   Operation 93 'add' 'j' <Predicate = true> <Delay = 1.73> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 94 [1/1] (0.00ns)   --->   "br i1 %icmp_ln213, label %9, label %8" [miner.cpp:213]   --->   Operation 94 'br' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 95 [1/1] (0.00ns)   --->   "%zext_ln214 = zext i4 %j_0 to i64" [miner.cpp:214]   --->   Operation 95 'zext' 'zext_ln214' <Predicate = (!icmp_ln213)> <Delay = 0.00>
+ST_13 : Operation 96 [1/1] (0.00ns)   --->   "%result_V_assign_addr_1 = getelementptr [8 x i32]* %result_V_assign, i64 0, i64 %zext_ln214" [miner.cpp:214]   --->   Operation 96 'getelementptr' 'result_V_assign_addr_1' <Predicate = (!icmp_ln213)> <Delay = 0.00>
+ST_13 : Operation 97 [2/2] (2.32ns)   --->   "%result_V_assign_load_1 = load i32* %result_V_assign_addr_1, align 4" [miner.cpp:214]   --->   Operation 97 'load' 'result_V_assign_load_1' <Predicate = (!icmp_ln213)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_13 : Operation 98 [1/1] (0.00ns)   --->   "ret i32 %final_result_nonce_V" [miner.cpp:216]   --->   Operation 98 'ret' <Predicate = (icmp_ln213)> <Delay = 0.00>
+
+State 14 <SV = 11> <Delay = 4.64>
+ST_14 : Operation 99 [1/2] (2.32ns)   --->   "%result_V_assign_load_1 = load i32* %result_V_assign_addr_1, align 4" [miner.cpp:214]   --->   Operation 99 'load' 'result_V_assign_load_1' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_14 : Operation 100 [1/1] (0.00ns)   --->   "%agg_result_hash_V_ad = getelementptr [8 x i32]* %agg_result_hash_V, i64 0, i64 %zext_ln214" [miner.cpp:214]   --->   Operation 100 'getelementptr' 'agg_result_hash_V_ad' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 101 [1/1] (2.32ns)   --->   "store i32 %result_V_assign_load_1, i32* %agg_result_hash_V_ad, align 4" [miner.cpp:214]   --->   Operation 101 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_14 : Operation 102 [1/1] (0.00ns)   --->   "br label %.preheader1" [miner.cpp:213]   --->   Operation 102 'br' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 2.55ns
+The critical path consists of the following:
+	wire read on port 'noncestart_V' [17]  (0 ns)
+	'add' operation ('nonce.V', miner.cpp:139) [21]  (2.55 ns)
+
+ <State 2>: 2.32ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', miner.cpp:160) [26]  (0 ns)
+	'getelementptr' operation ('prevhash_V_addr', miner.cpp:160) [34]  (0 ns)
+	'load' operation ('prevhash_V_load', miner.cpp:160) on array 'prevhash_V' [35]  (2.32 ns)
+
+ <State 3>: 4.64ns
+The critical path consists of the following:
+	'load' operation ('prevhash_V_load', miner.cpp:160) on array 'prevhash_V' [35]  (2.32 ns)
+	'store' operation ('store_ln160', miner.cpp:160) of variable 'prevhash_V_load', miner.cpp:160 on array 'blockheader.V', miner.cpp:142 [37]  (2.32 ns)
+
+ <State 4>: 2.32ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', miner.cpp:164) [42]  (0 ns)
+	'getelementptr' operation ('merkle_root_V_addr', miner.cpp:165) [52]  (0 ns)
+	'load' operation ('merkle_root_V_load', miner.cpp:165) on array 'merkle_root_V' [53]  (2.32 ns)
+
+ <State 5>: 4.64ns
+The critical path consists of the following:
+	'load' operation ('merkle_root_V_load', miner.cpp:165) on array 'merkle_root_V' [53]  (2.32 ns)
+	'store' operation ('store_ln165', miner.cpp:165) of variable 'merkle_root_V_load', miner.cpp:165 on array 'blockheader.V', miner.cpp:142 [55]  (2.32 ns)
+
+ <State 6>: 4.87ns
+The critical path consists of the following:
+	'phi' operation ('nonce.V') with incoming values : ('nonce.V', miner.cpp:139) ('final_result.nonce.V', miner.cpp:200) [65]  (0 ns)
+	'add' operation ('final_result.nonce.V', miner.cpp:200) [66]  (2.55 ns)
+	'store' operation ('store_ln201', miner.cpp:201) of variable 'final_result.nonce.V', miner.cpp:200 on array 'blockheader.V', miner.cpp:142 [67]  (2.32 ns)
+
+ <State 7>: 0ns
+The critical path consists of the following:
+
+ <State 8>: 0ns
+The critical path consists of the following:
+
+ <State 9>: 0ns
+The critical path consists of the following:
+
+ <State 10>: 1.77ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', miner.cpp:209) [72]  (1.77 ns)
+
+ <State 11>: 4.06ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', miner.cpp:209) [72]  (0 ns)
+	'sub' operation ('sub_ln210', miner.cpp:210) [78]  (1.74 ns)
+	'getelementptr' operation ('result_V_assign_addr', miner.cpp:210) [81]  (0 ns)
+	'load' operation ('result_V_assign_load', miner.cpp:210) on array 'result_V_assign' [82]  (2.32 ns)
+
+ <State 12>: 6.51ns
+The critical path consists of the following:
+	'load' operation ('difficulty_V_load', miner.cpp:210) on array 'difficulty_V' [84]  (3.25 ns)
+	'select' operation ('select_ln887', miner.cpp:210) [85]  (0.781 ns)
+	'icmp' operation ('icmp_ln895', miner.cpp:218) [89]  (2.47 ns)
+
+ <State 13>: 2.32ns
+The critical path consists of the following:
+	'phi' operation ('j') with incoming values : ('j', miner.cpp:213) [94]  (0 ns)
+	'getelementptr' operation ('result_V_assign_addr_1', miner.cpp:214) [101]  (0 ns)
+	'load' operation ('result_V_assign_load_1', miner.cpp:214) on array 'result_V_assign' [102]  (2.32 ns)
+
+ <State 14>: 4.64ns
+The critical path consists of the following:
+	'load' operation ('result_V_assign_load_1', miner.cpp:214) on array 'result_V_assign' [102]  (2.32 ns)
+	'store' operation ('store_ln214', miner.cpp:214) of variable 'result_V_assign_load_1', miner.cpp:214 on array 'agg_result_hash_V' [104]  (2.32 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A
