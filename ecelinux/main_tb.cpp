@@ -34,44 +34,68 @@ using namespace std;
 float correct = 0.0;
 int main()
 {
-    // Genesis Block info
-    // char version[] = "01000000";
-    // char prevhash[] = "0000000000000000000000000000000000000000000000000000000000000000";
-    // char merkle_root[] = "3BA3EDFD7A7B12B27AC72C3E67768F617FC81BC3888A51323A9FB8AA4B1E5E4A";
-    // char time[] = "29AB5F49";
-    // char nbits[] = "007FFFFF"; //"FFFF001D";
-    uint32_t version[] = {0x01000000}; // Single 32-bit number
-    
-    // uint32_t prevhash[] = {  0x08000000, 0x000000FF, 0x00000000, 0x00000700, 
-    //                         0x0B000000, 0x000F0000, 0x00A00000, 0x0F000000}; // 8 x 32-bit numbers
+    hls::stream<uint32_t> dut_in;
+    hls::stream<uint32_t> dut_out;
 
-    uint32_t prevhash[] = {  0x00000000, 0x00000000, 0x00000000, 0x00000000, 
+    // Timer
+    Timer timer("SHA-256 Test");
+    timer.start();
+
+
+    float temp = 0.0;
+
+    uint32_t shit[20];
+
+    uint32_t version[] = {10};//{0x01000000}; // Single 32-bit number
+
+    uint32_t prevhash[] = {0x00000000, 0x00000000, 0x00000000, 0x00000000, 
                             0x00000000, 0x00000000, 0x00000000, 0x00000000}; // 8 x 32-bit numbers
-    
-    uint32_t merkle_root[] = {   0x3BA3EDFD, 0x7A7B12B2, 0x7AC72C3E, 0x67768F61,
+
+    uint32_t merkle_root[] = {0x3BA3EDFD, 0x7A7B12B2, 0x7AC72C3E, 0x67768F61,
                                 0x7FC81BC3, 0x888A5132, 0x3A9FB8AA, 0x4B1E5E4A}; // 8 x 32-bit numbers
-    // uint32_t merkle_root[] = {
-    //     0xFDED3A3B, 0xB2127B7A, 0x3E2CC77A, 0x618F7667,
-    //     0xC31BC87F, 0x32518A88, 0xAAB89F3A, 0x4A5E1E4B
-    // };
 
     uint32_t time[] = {0x29AB5F49}; // Single 32-bit number
     
     uint32_t nbits[] = {0xFFFF7F00};//{0x007FFFFF}; // Single 32-bit number
 
-    // Use the `new_hash_pow` struct returned by `mineblock`
+    shit[0] = version[0];
+    shit[1] = prevhash[0];
+    for(int i=2; i<10; i++){
+        shit[i] = merkle_root[i-2];
+    }
+    shit[11] = time[0];
+    shit[12] = nbits[0];
+   
+   // Write two 32-bit words to the input stream
+    for(int i = 0; i<20; i++){
+        dut_in.write(shit[i]);
+    }
+    
+    dut(dut_in, dut_out);
+    
+    // Read out 8 32-bit hashes + nonce
+    uint32_t nonce_out = dut_out.read();
+    uint32_t hash_out[8];
+    for(int i =0; i<8; i++)
+    {
+        hash_out[i] = dut_out.read();
+    }
 
-    uint32_t results[8];
-    new_hash_pow result = mineblock(10, version, prevhash, merkle_root, time, nbits);
+
+    // // Use the `new_hash_pow` struct returned by `mineblock`
+    // uint32_t results[8];
+    // new_hash_pow result = mineblock(10, version, prevhash, merkle_root, time, nbits);
     
     // Access the nonce via `result.nonce`
-    std::cout << "Block solved! Nonce: "<< result.nonce << std::endl;
+    std::cout << "Block solved! Nonce: "<< std::hex << nonce_out << std::endl;
     std::cout << "Block hash:" << std::endl;
     
     // Print the hash from `result.hash`
     for (int i = 7; i >= 0; i--) {
-        std::cout << i+1 << " hash : " << std::hex << result.hash[i] << std::endl;
+        std::cout << i+1 << " hash : " << std::hex << hash_out[i] << std::endl;
     }
+    
+    timer.stop();
     
     return 0;
 }

@@ -12,57 +12,59 @@ using namespace std;
 
 // typedef ap_uint<32> uint32_t;
 
-void dut(hls::stream<uint32_t> &strm_in, hls::stream<uint32_t> &strm_out) {
-
-
-
-
-}
-
-
-
 // void dut(hls::stream<uint32_t> &strm_in, hls::stream<uint32_t> &strm_out) {
-//     const int I_WIDTH1 = 64; // Total width of the input block in bits
-//     uint32_t input[6];       // 64-bit input buffer split into two 32-bit elements
+    
 
-//     // Read two 32-bit words from the input stream to form a 64-bit block
-//     uint32_t nonce = strm_in.read();
-//     uint32_t version = strm_in.read();
-//     uint32_t prevhash = strm_in.read();
-//     uint32_t merkle_root = strm_in.read();
-//     uint32_t time_s = strm_in.read();
-//     uint32_t nbits = strm_in.read();
-
-
-//     // Combine the lower and higher parts into a single input array
-//     // input[0] = nonce.to_uint();         
-//     // input[1] = version.to_uint();    
-//     // input[2] = prevhash.to_uint();  
-//     // input[3] = merkle_root.to_uint();  
-//     // input[4] = time_s.to_uint();  
-//     // input[5] = nbits.to_uint();      
-
-//     // Set bit length as 64 since we’re using 64 bits of data
-//     // int bitlength = I_WIDTH1;
-
-//     // Output buffer for the SHA-256 hash result (8 words of 32 bits each)
-//     new_hash_pow output;
-
-//     // // Call the hash function
-//     // hash1(input, bitlength, outputlocation);
-//     output = mineblock( nonce, version, prevhash, merkle_root, time_s, nbits);
-
-//     // Write result to ouput
-//     strm_out.write(output.nonce);
-//     strm_out.write(output.hash[7]);
-//     strm_out.write(output.hash[6]);
-//     strm_out.write(output.hash[5]);
-//     strm_out.write(output.hash[4]);
-//     strm_out.write(output.hash[3]);
-//     strm_out.write(output.hash[2]);
-//     strm_out.write(output.hash[1]);
-//     strm_out.write(output.hash[0]);
 // }
+
+
+
+void dut(hls::stream<uint32_t> &strm_in, hls::stream<uint32_t> &strm_out) {
+    const int I_WIDTH1 = 64; // Total width of the input block in bits
+    uint32_t input[6];       // 64-bit input buffer split into two 32-bit elements
+
+    // Read 32-bit words from the input stream to form a 64-bit block
+    uint32_t nonce = strm_in.read();
+    uint32_t version[] = {strm_in.read()};
+
+    std::cout << "version "<< std::hex << version << std::endl;
+
+    uint32_t prevhash[8];
+    for(int i = 0; i<7; i++){
+        prevhash[i] = strm_in.read();
+        std::cout << "prevhash "<< std::hex << prevhash[i] << std::endl;
+    }
+
+    uint32_t merkle_root[8];
+    for(int i = 0; i<7; i++){
+        merkle_root[i] = strm_in.read();
+        std::cout << "merkle_root "<< std::hex << merkle_root[i] << std::endl;
+    }
+  
+    uint32_t time[] = {strm_in.read()};
+    std::cout << "time "<< std::hex << time << std::endl;
+    
+    uint32_t nbits[] = {strm_in.read()};
+    std::cout << "nbits "<< std::hex << nbits << std::endl;
+
+    // Output buffer for the SHA-256 hash result (8 words of 32 bits each)
+    new_hash_pow output;
+
+    // // Call the hash function
+    // hash1(input, bitlength, outputlocation);
+    output = mineblock( nonce, version, prevhash, merkle_root, time, nbits);
+
+    // Write result to ouput
+    strm_out.write(output.nonce);
+    strm_out.write(output.hash[7]);
+    strm_out.write(output.hash[6]);
+    strm_out.write(output.hash[5]);
+    strm_out.write(output.hash[4]);
+    strm_out.write(output.hash[3]);
+    strm_out.write(output.hash[2]);
+    strm_out.write(output.hash[1]);
+    strm_out.write(output.hash[0]);
+}
 
 
 // // void dut(hls::stream<uint32_t> &strm_in, hls::stream<uint32_t> &strm_out) {
