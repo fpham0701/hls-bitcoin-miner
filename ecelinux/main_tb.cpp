@@ -44,9 +44,9 @@ int main()
 
     float temp = 0.0;
 
-    uint32_t shit[20];
+    uint32_t nonce[] = {10};
 
-    uint32_t version[] = {10};//{0x01000000}; // Single 32-bit number
+    uint32_t version[] = {0x01000000}; // Single 32-bit number
 
     uint32_t prevhash[] = {0x00000000, 0x00000000, 0x00000000, 0x00000000, 
                             0x00000000, 0x00000000, 0x00000000, 0x00000000}; // 8 x 32-bit numbers
@@ -57,14 +57,19 @@ int main()
     uint32_t time[] = {0x29AB5F49}; // Single 32-bit number
     
     uint32_t nbits[] = {0xFFFF7F00};//{0x007FFFFF}; // Single 32-bit number
-
-    shit[0] = version[0];
-    shit[1] = prevhash[0];
+    
+    // Partitioned total array for dut input stream
+    uint32_t shit[20];
+    shit[0] = nonce[0];
+    shit[1] = version[0];
     for(int i=2; i<10; i++){
-        shit[i] = merkle_root[i-2];
+        shit[i] = prevhash[i-2];
     }
-    shit[11] = time[0];
-    shit[12] = nbits[0];
+    for(int i=10; i<18; i++){
+        shit[i] = merkle_root[i-10];
+    }
+    shit[18] = time[0];
+    shit[19] = nbits[0];
    
    // Write two 32-bit words to the input stream
     for(int i = 0; i<20; i++){
