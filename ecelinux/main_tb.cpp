@@ -59,21 +59,21 @@ int main()
     bit32_t nbits[] = {0xFFFF7F00};//{0x007FFFFF}; // Single 32-bit number
     
     // Partitioned total array for dut input stream
-    bit32_t shit[20];
-    shit[0] = nonce[0];
-    shit[1] = version[0];
+    bit32_t data_in[20];
+    data_in[0] = nonce[0];
+    data_in[1] = version[0];
     for(int i=2; i<10; i++){
-        shit[i] = prevhash[i-2];
+        data_in[i] = prevhash[i-2];
     }
     for(int i=10; i<18; i++){
-        shit[i] = merkle_root[i-10];
+        data_in[i] = merkle_root[i-10];
     }
-    shit[18] = time[0];
-    shit[19] = nbits[0];
+    data_in[18] = time[0];
+    data_in[19] = nbits[0];
    
    // Write two 32-bit words to the input stream
     for(int i = 0; i<20; i++){
-        dut_in.write(shit[i]);
+        dut_in.write(data_in[i]);
     }
     
     dut(dut_in, dut_out);

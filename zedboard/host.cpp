@@ -131,7 +131,7 @@ int main(int arc, char **argv) {
         num_test_insts++;
     }
 
-    cout << "Numeber of test instances: " << num_test_insts << endl;
+    cout << "Number of test instances: " << num_test_insts << endl;
     cout << "Overall Error Rate = " << setprecision(4) 
               << ((double)error / num_test_insts) * 100 << "%" << endl;
     
