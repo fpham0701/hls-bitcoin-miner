@@ -1,4 +1,0 @@
-#!/bin/sh
-lli=${LLVMINTERP-lli}
-exec $lli \
-    /home/fdp25/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/a.g.bc ${1+"$@"}
