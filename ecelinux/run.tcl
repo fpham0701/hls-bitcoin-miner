@@ -13,9 +13,10 @@ open_project ${hls_prj} -reset
 set_top dut
 
 # Add design and testbench files
+add_files miner.cpp -cflags "-std=c++11"
 add_files util.cpp -cflags "-std=c++11"
 add_files sha256.cpp -cflags "-std=c++11"
-add_files main.cpp -cflags "-std=c++11"
+add_files dut.cpp -cflags "-std=c++11"
 add_files main_tb.cpp -tb -cflags "-std=c++11"
 
 open_solution "solution1"
@@ -34,5 +35,5 @@ csim_design -O
 # Synthesize the design
 csynth_design
 # Co-simulate the design
-#cosim_design
+cosim_design
 exit

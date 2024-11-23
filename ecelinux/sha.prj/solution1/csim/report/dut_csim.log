@@ -1,0 +1,11 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../main_tb.cpp in release mode
+   Compiling ../../../../main.cpp in release mode
+   Compiling ../../../../sha256.cpp in release mode
+   Compiling ../../../../util.cpp in release mode
+   Generating csim.exe
+Accuracy: 1
+SHA-256 Test        :      1 calls;   3.919 msecs total time
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

@@ -70,4 +70,3 @@ else
   printf "\n**** There were errors creating the bitstream!\n\n"
   grep --color=always -i error $LOGFILE
 fi
-

@@ -107,7 +107,7 @@ int main(int arc, char **argv) {
             assert(nbytes == sizeof(input));
         }
     }
-    // TODO: Need to fix stream of 2 input, stream of 8 output
+
     // receive data through read channel
     for (int i = 0; i < TEST_SIZE; i++) {
         for (int j = 0; j < OUTPUT_SIZE; j++) {

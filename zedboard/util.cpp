@@ -1,5 +1,4 @@
 #include <iostream>
-#include <stdlib.h>
 #include "util.h"
 
 void print_bytes(const unsigned char *data, size_t dataLen){//}, bool format = true) {
@@ -22,7 +21,7 @@ void print_bytes_reversed(const unsigned char *data, size_t dataLen){//}, bool f
     std::cout << std::endl;
 }
 
-uint32_t Reverse32(uint32_t value)
+bit32_t Reverse32(bit32_t value)
 {
     return (((value & 0x000000FF) << 24) |
             ((value & 0x0000FF00) <<  8) |
@@ -41,7 +40,7 @@ unsigned char* hexstr_to_char(const char* hexstr)
     return chars;
 }
 
-void hexstr_to_intarray(const char* hexstr, uint32_t* outputloc)
+void hexstr_to_intarray(const char* hexstr, bit32_t* outputloc)
 {
     size_t len = strlen(hexstr);
     size_t intlen = (len + 7) / 8; // +7 ensures that we do a ceiling divide
@@ -49,10 +48,10 @@ void hexstr_to_intarray(const char* hexstr, uint32_t* outputloc)
 
     for(size_t i = 0; i < intlen; i++)
     {
-        uint32_t a = (uint32_t)bytes[i * 4 + 3] << 24;
-        *(outputloc + i) = ((uint32_t)bytes[i * 4])
-            + ((uint32_t)bytes[i * 4 + 1] << 8)
-            + ((uint32_t)bytes[i * 4 + 2] << 16)
-            + ((uint32_t)bytes[i * 4 + 3] << 24);
+        bit32_t a = (bit32_t)bytes[i * 4 + 3] << 24;
+        *(outputloc + i) = ((bit32_t)bytes[i * 4])
+            + ((bit32_t)bytes[i * 4 + 1] << 8)
+            + ((bit32_t)bytes[i * 4 + 2] << 16)
+            + ((bit32_t)bytes[i * 4 + 3] << 24);
     }
 }

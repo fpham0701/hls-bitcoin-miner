@@ -1,0 +1,100 @@
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [HLS 200-10] Setting target device to 'xc7z020-clg484-1'
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file 'main.cpp' ... 
+INFO: [HLS 200-10] Analyzing design file 'sha256.cpp' ... 
+INFO: [HLS 200-10] Analyzing design file 'util.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:21 ; elapsed = 00:00:24 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 29185 ; free virtual = 34823
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:21 ; elapsed = 00:00:24 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 29185 ; free virtual = 34823
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:21 ; elapsed = 00:00:25 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 29165 ; free virtual = 34812
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'Ch' into 'hash1' (sha256.cpp:129) automatically.
+INFO: [XFORM 203-602] Inlining function 'Maj' into 'hash1' (sha256.cpp:130) automatically.
+INFO: [XFORM 203-602] Inlining function 'Sig0f' into 'hash1' (sha256.cpp:131) automatically.
+INFO: [XFORM 203-602] Inlining function 'Sig1f' into 'hash1' (sha256.cpp:132) automatically.
+INFO: [XFORM 203-602] Inlining function 'sig1' into 'hash1' (sha256.cpp:137) automatically.
+INFO: [XFORM 203-602] Inlining function 'sig0' into 'hash1' (sha256.cpp:137) automatically.
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:22 ; elapsed = 00:00:25 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 29157 ; free virtual = 34804
+INFO: [XFORM 203-502] Unrolling small iteration loop 'Loop-4' (sha256.cpp:114) in function 'hash1' automatically.
+INFO: [HLS 200-489] Unrolling loop 'Loop-4' (sha256.cpp:114) in function 'hash1' completely with a factor of 1.
+INFO: [XFORM 203-102] Partitioning array 'H.V' (sha256.cpp:108) in dimension 1 automatically.
+INFO: [XFORM 203-102] Automatically partitioning small array 'input.V' (main.cpp:19) completely based on array size.
+INFO: [XFORM 203-101] Partitioning array 'input.V' (main.cpp:19) in dimension 1 completely.
+INFO: [XFORM 203-602] Inlining function 'rotateInt' into 'sig1' (sha256.cpp:51) automatically.
+INFO: [XFORM 203-602] Inlining function 'rotateInt' into 'sig0' (sha256.cpp:46) automatically.
+INFO: [XFORM 203-602] Inlining function 'Ch' into 'hash1' (sha256.cpp:129) automatically.
+INFO: [XFORM 203-602] Inlining function 'Maj' into 'hash1' (sha256.cpp:130) automatically.
+INFO: [XFORM 203-602] Inlining function 'Sig0f' into 'hash1' (sha256.cpp:131) automatically.
+INFO: [XFORM 203-602] Inlining function 'Sig1f' into 'hash1' (sha256.cpp:132) automatically.
+INFO: [XFORM 203-602] Inlining function 'sig1' into 'hash1' (sha256.cpp:137) automatically.
+INFO: [XFORM 203-602] Inlining function 'sig0' into 'hash1' (sha256.cpp:137) automatically.
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'M.V' in function 'hash1' (sha256.cpp:135:17).
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (sha256.cpp:21:12) in function 'rotateInt'... converting 4 basic blocks.
+INFO: [XFORM 203-602] Inlining function 'rotateInt' into 'hash1' (sha256.cpp:36->sha256.cpp:131) automatically.
+INFO: [XFORM 203-11] Balancing expressions in function 'hash1' (sha256.cpp:54)...10 expression(s) balanced.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:22 ; elapsed = 00:00:25 . Memory (MB): peak = 1168.605 ; gain = 530.582 ; free physical = 29122 ; free virtual = 34771
+INFO: [HLS 200-472] Inferring partial write operation for 'message.V' (sha256.cpp:80:9)
+INFO: [HLS 200-472] Inferring partial write operation for 'message.V' (sha256.cpp:85:9)
+INFO: [HLS 200-472] Inferring partial write operation for 'message.V' (sha256.cpp:98:9)
+INFO: [HLS 200-472] Inferring partial write operation for 'M.V' (sha256.cpp:106:13)
+INFO: [HLS 200-472] Inferring partial write operation for 'H[1].V' (sha256.cpp:151:19)
+INFO: [HLS 200-472] Inferring partial write operation for 'H[1].V' (sha256.cpp:152:19)
+INFO: [HLS 200-472] Inferring partial write operation for 'H[1].V' (sha256.cpp:153:19)
+INFO: [HLS 200-472] Inferring partial write operation for 'H[1].V' (sha256.cpp:154:19)
+INFO: [HLS 200-472] Inferring partial write operation for 'H[1].V' (sha256.cpp:155:19)
+INFO: [HLS 200-472] Inferring partial write operation for 'H[1].V' (sha256.cpp:156:19)
+INFO: [HLS 200-472] Inferring partial write operation for 'H[1].V' (sha256.cpp:157:19)
+INFO: [HLS 200-472] Inferring partial write operation for 'H[1].V' (sha256.cpp:158:19)
+INFO: [HLS 200-472] Inferring partial write operation for 'W.V' (sha256.cpp:135:17)
+INFO: [HLS 200-472] Inferring partial write operation for 'W.V' (sha256.cpp:137:48)
+INFO: [HLS 200-472] Inferring partial write operation for 'outputlocation.V' (sha256.cpp:162:31)
+INFO: [HLS 200-472] Inferring partial write operation for 'outputlocation.V' (main.cpp:33:36)
+WARNING: [XFORM 203-561] Updating loop upper bound from 8 to 9 for loop 'Loop-2' in function 'hash1'.
+WARNING: [XFORM 203-561] Updating loop lower bound from 8 to 9 for loop 'Loop-2' in function 'hash1'.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:22 ; elapsed = 00:00:25 . Memory (MB): peak = 1168.605 ; gain = 530.582 ; free physical = 29111 ; free virtual = 34761
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'dut' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'hash1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 25.37 seconds; current allocated memory: 162.923 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.08 seconds; current allocated memory: 163.698 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'dut' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.2 seconds; current allocated memory: 164.030 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 164.172 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'hash1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'hash1'.
+INFO: [HLS 200-111]  Elapsed time: 0.09 seconds; current allocated memory: 165.404 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'dut' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'dut/strm_in_V_V' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dut/strm_out_V_V' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'dut' to 'ap_ctrl_hs'.
