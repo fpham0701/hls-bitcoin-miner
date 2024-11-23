@@ -18,9 +18,9 @@
 
 using namespace std;
 
-const int TEST_SIZE = 10; // PLACEHOLDER TEST SIZE
-const int INPUT_SIZE = 2;
-const int OUTPUT_SIZE = 8;
+const int TEST_SIZE = 1; // PLACEHOLDER TEST SIZE
+const int INPUT_SIZE = 20;
+const int OUTPUT_SIZE = 9;
 
 //------------------------------------------------------------------------
 // helper function to parse testing data
@@ -127,8 +127,8 @@ int main(int arc, char **argv) {
             if (expected_hashes[i][j] != results[i][j]) {
                 error++;
             }
-            num_test_insts++;
         }
+        num_test_insts++;
     }
 
     cout << "Number of test instances: " << num_test_insts << endl;
