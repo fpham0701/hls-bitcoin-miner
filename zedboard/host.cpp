@@ -25,7 +25,7 @@ const int OUTPUT_SIZE = 9;
 //------------------------------------------------------------------------
 // helper function to parse testing data
 //------------------------------------------------------------------------
-void parseLine(const string &line, bit64_t inputs[TEST_SIZE][INPUT_SIZE], bit64_t expected_hashes[TEST_SIZE][OUTPUT_SIZE], int i) {
+void parseLine(const string &line, bit32_t inputs[TEST_SIZE][INPUT_SIZE], bit32_t expected_hashes[TEST_SIZE][OUTPUT_SIZE], int i) {
     stringstream ss(line);
     string hex;
 
@@ -62,9 +62,9 @@ int main(int arc, char **argv) {
     ifstream myfile("data/testing_set.dat");
 
     // data instantiation
-    bit64_t inputs[TEST_SIZE][INPUT_SIZE];
-    bit64_t expected_hashes[TEST_SIZE][OUTPUT_SIZE];
-    bit64_t results[TEST_SIZE][OUTPUT_SIZE];
+    bit32_t inputs[TEST_SIZE][INPUT_SIZE];
+    bit32_t expected_hashes[TEST_SIZE][OUTPUT_SIZE];
+    bit32_t results[TEST_SIZE][OUTPUT_SIZE];
 
     // Timer
     Timer timer("SHA-256 Test");
@@ -99,7 +99,7 @@ int main(int arc, char **argv) {
     for (int i = 0; i < TEST_SIZE; i++) {
         for (int j = 0; j < INPUT_SIZE; j++) {
             // send 32-bit value through the write channel
-            bit64_t test_inst;
+            bit32_t test_inst;
 
             test_inst(inputs[i][j].length()-1, 0) = inputs[i][j](inputs[i][j].length()-1,0);
             int64_t input = test_inst;
@@ -112,7 +112,7 @@ int main(int arc, char **argv) {
     // receive data through read channel
     for (int i = 0; i < TEST_SIZE; i++) {
         for (int j = 0; j < OUTPUT_SIZE; j++) {
-            bit64_t result_hash;
+            bit32_t result_hash;
 
             int nbytes = read(fdr, (void *)&result_hash, sizeof(result_hash));
             assert(nbytes == sizeof(result_hash));
