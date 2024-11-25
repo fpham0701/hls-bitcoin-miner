@@ -74,7 +74,7 @@ void hash1(bit32_t *input, int bitlength, bit32_t *outputlocation)
 
     int wordlength = bitlength / 32 + 1;
     int k = (512 * 512 - bitlength - 1) % 512;
-    bit32_t message[10000] = {};
+    bit32_t message[10000] = {0};
 
     for(int i = 0; i < wordlength; i++)
         message[i] = input[i];
@@ -99,13 +99,13 @@ void hash1(bit32_t *input, int bitlength, bit32_t *outputlocation)
         rounds = wordlength / 16 + 1;
     }
         
-    bit32_t M[32][16];
+    bit32_t M[32][16] = {0};
 
     for(int i = 0; i < 16; i++)
         for(int j = 0; j <= rounds; j++)
             M[j][i] = message[i + j * 16];
     
-    bit32_t H[32][8];
+    bit32_t H[32][8] = {0};
 
     for(int i = 0; i < 8; i++)
         H[0][i] = H_0[i];

@@ -39,5 +39,6 @@ util.o: miner.cpp #util.h # typedefs.h
 clean:
 	@echo "Clean up output files"
 	rm -rf main.exe vivado_hls.log *.prj result out.dat *~
+	rm xillydemo.bit
 	rm *.o
 	

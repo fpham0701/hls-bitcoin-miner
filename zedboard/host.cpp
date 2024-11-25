@@ -99,10 +99,16 @@ int main(int arc, char **argv) {
     for (int i = 0; i < TEST_SIZE; i++) {
         for (int j = 0; j < INPUT_SIZE; j++) {
             // send 32-bit value through the write channel
+
+            
             bit32_t test_inst;
+
+      
 
             test_inst(inputs[i][j].length()-1, 0) = inputs[i][j](inputs[i][j].length()-1,0);
             int64_t input = test_inst;
+
+            cout << "Sending Input[" << i << "][" << j << "] = " << hex << inputs[i][j] << endl;
 
             int nbytes = write(fdw, (void *)&input, sizeof(input));
             assert(nbytes == sizeof(input));
@@ -117,6 +123,7 @@ int main(int arc, char **argv) {
             int nbytes = read(fdr, (void *)&result_hash, sizeof(result_hash));
             assert(nbytes == sizeof(result_hash));
             results[i][j] = result_hash;
+            cout << "Received from FPGA: Result[" << i << "][" << j << "] = " << hex << results[i][j] << endl;
 
 
         }
@@ -145,3 +152,4 @@ int main(int arc, char **argv) {
     
     return 0;
 }
+

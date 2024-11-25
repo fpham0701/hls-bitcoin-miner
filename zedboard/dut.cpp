@@ -27,31 +27,31 @@ void dut(hls::stream<bit32_t> &strm_in, hls::stream<bit32_t> &strm_out) {
     bit32_t nonce = strm_in.read();
     // std::cout << "nonce "<< std::hex << nonce << std::endl;
     
-    bit32_t version[1];
+    bit32_t version[1];// = {0};
     for(int i = 0; i<1; i++){
         version[i] = strm_in.read();
         // std::cout << "version "<< std::hex << version[i] << std::endl;
     }
 
-    bit32_t prevhash[8];
+    bit32_t prevhash[8];// = {0};
     for(int i = 0; i<8; i++){
         prevhash[i] = strm_in.read();
         // std::cout << "prevhash "<< std::hex << prevhash[i] << std::endl;
     }
 
-    bit32_t merkle_root[8];
+    bit32_t merkle_root[8];// = {0};
     for(int i = 0; i<8; i++){
         merkle_root[i] = strm_in.read();
         // std::cout << "merkle_root "<< std::hex << merkle_root[i] << std::endl;
     }
   
-    bit32_t time[1];
+    bit32_t time[1];// = {0};
     for(int i = 0; i<1; i++){
         time[i] = strm_in.read();
         // std::cout << "time "<< std::hex << time[i] << std::endl;
     }
     
-    bit32_t nbits[1];
+    bit32_t nbits[1];// = {0};
     for(int i = 0; i<1; i++){
         nbits[i] = strm_in.read();
         // std::cout << "nbits "<< std::hex << nbits[i] << std::endl;
@@ -59,6 +59,8 @@ void dut(hls::stream<bit32_t> &strm_in, hls::stream<bit32_t> &strm_out) {
 
     // Output buffer for the SHA-256 hash result (8 words of 32 bits each)
     new_hash_pow output;
+    // output.nonce = 0;
+    // output.hash = {0, 0, 0, 0, 0, 0, 0, 0};
 
     // // Call the hash function
     // hash1(input, bitlength, outputlocation);
