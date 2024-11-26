@@ -112,8 +112,6 @@ int main(int arc, char **argv) {
             test_inst(inputs[i][j].length()-1, 0) = inputs[i][j](inputs[i][j].length()-1,0);
             int64_t input = test_inst;
 
-          // cout << "Sending Input[" << i << "][" << j << "] = " << hex << inputs[i][j] << endl;
-
             nbytes = write(fdw, (void *)&input, sizeof(input));
             assert(nbytes == sizeof(input));
         }
@@ -128,7 +126,6 @@ int main(int arc, char **argv) {
             nbytes = read(fdr, (void *)&result_hash, sizeof(result_hash));
             assert(nbytes == sizeof(result_hash));
             results[i][j] = result_hash;
-            //cout << "Received from FPGA: Result[" << i << "][" << j << "] = " << hex << results[i][j] << endl;
         }
     }
 
@@ -138,9 +135,9 @@ int main(int arc, char **argv) {
     for (int i = 0; i < TEST_SIZE; i++) {
         for (int j = 0; j < OUTPUT_SIZE; j++) {
             if (expected_hashes[i][j] != results[i][j]) {
-                cout << "Expected: " << expected_hashes[i][j] << endl;
-                cout << "Actual: " << results[i][j] << endl;
                 error++;
+                cout << "Error on Test " << i+1 << endl;
+                break;
             }
         }
         num_test_insts++;
@@ -149,7 +146,6 @@ int main(int arc, char **argv) {
     cout << "Number of test instances: " << num_test_insts << endl;
     cout << "Overall Error Rate = " << setprecision(4) 
               << ((double)error / num_test_insts) * 100 << "%" << endl;
-
 
     myfile.close();
     
