@@ -11,6 +11,7 @@ open_project ${hls_prj} -reset
 
 # Top function of the design is "dut"
 set_top dut
+# set_top hash1
 
 # Add design and testbench files
 add_files miner.cpp -cflags "-std=c++11"
@@ -18,6 +19,7 @@ add_files util.cpp -cflags "-std=c++11"
 add_files sha256.cpp -cflags "-std=c++11"
 add_files dut.cpp -cflags "-std=c++11"
 add_files main_tb.cpp -tb -cflags "-std=c++11"
+# add_files tb_sha256.cpp -tb -cflags "-std=c++11"
 
 open_solution "solution1"
 # Use Zynq device
@@ -35,5 +37,5 @@ csim_design -O
 # Synthesize the design
 csynth_design
 # Co-simulate the design
-# cosim_design
+cosim_design
 exit
