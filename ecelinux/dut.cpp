@@ -76,7 +76,7 @@ void dut(hls::stream<bit32_t> &strm_in, hls::stream<bit32_t> &strm_out) {
     strm_out.write(output.hash[0]);
 }
 
-
+//WORKING SHA DUT
 // // void dut(hls::stream<bit32_t> &strm_in, hls::stream<bit32_t> &strm_out) {
 // //     const int I_WIDTH1 = 64; // Total width of the input block in bits
 // //     bit32_t input[2];       // 64-bit input buffer split into two 32-bit elements
