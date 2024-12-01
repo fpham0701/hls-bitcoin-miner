@@ -1,4 +1,3 @@
-
 //165 LATENCY - 113% utilization 
 // //V2, based on v1, but fully unroll
 #include <iostream>

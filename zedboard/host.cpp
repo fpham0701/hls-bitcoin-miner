@@ -25,19 +25,27 @@ const int OUTPUT_SIZE = 9;
 //------------------------------------------------------------------------
 // helper function to parse testing data
 //------------------------------------------------------------------------
-void parseLine(const string &line, bit32_t inputs[TEST_SIZE][INPUT_SIZE], bit32_t expected_hashes[TEST_SIZE][OUTPUT_SIZE], int i) {
+void parseLine(const string &line, bit32_t inputs[TEST_SIZE][INPUT_SIZE], int64_t expected_hashes[TEST_SIZE][OUTPUT_SIZE], int i) {
     stringstream ss(line);
     string hex;
 
+    // Parse input values
     for (int j = 0; j < INPUT_SIZE; j++) {
         if (getline(ss, hex, ',')) {
-            inputs[i][j]= strtol(hex.c_str(), NULL, 16);
+            int64_t value = strtol(hex.c_str(), NULL, 16);
+            inputs[i][j]= value;
+            cout << "Input " << j << ": " << hex << " -> " << inputs[i][j] << endl;
         }
     }
 
+    // Parse expected output values
     for (int j = 0; j < OUTPUT_SIZE; j++) {
         if (getline(ss, hex, ',')) {
-            expected_hashes[i][j] = strtol(hex.c_str(), NULL, 16);
+
+            int64_t value = strtoul(hex.c_str(), NULL, 16);
+            cout << value << endl;
+            expected_hashes[i][j] = value;
+            cout << "Expected " << j << ": " << hex << " -> " << expected_hashes[i][j] << endl;
         }
     }
 }
@@ -63,7 +71,7 @@ int main(int arc, char **argv) {
 
     // data instantiation
     bit32_t inputs[TEST_SIZE][INPUT_SIZE];
-    bit32_t expected_hashes[TEST_SIZE][OUTPUT_SIZE];
+    int64_t expected_hashes[TEST_SIZE][OUTPUT_SIZE];
     bit32_t results[TEST_SIZE][OUTPUT_SIZE];
 
     // Timer
@@ -99,33 +107,25 @@ int main(int arc, char **argv) {
     for (int i = 0; i < TEST_SIZE; i++) {
         for (int j = 0; j < INPUT_SIZE; j++) {
             // send 32-bit value through the write channel
-
-            
             bit32_t test_inst;
-
-      
 
             test_inst(inputs[i][j].length()-1, 0) = inputs[i][j](inputs[i][j].length()-1,0);
             int64_t input = test_inst;
 
-            cout << "Sending Input[" << i << "][" << j << "] = " << hex << inputs[i][j] << endl;
-
-            int nbytes = write(fdw, (void *)&input, sizeof(input));
+            nbytes = write(fdw, (void *)&input, sizeof(input));
             assert(nbytes == sizeof(input));
         }
     }
+    cout << endl;
 
     // receive data through read channel
     for (int i = 0; i < TEST_SIZE; i++) {
         for (int j = 0; j < OUTPUT_SIZE; j++) {
             bit32_t result_hash;
 
-            int nbytes = read(fdr, (void *)&result_hash, sizeof(result_hash));
+            nbytes = read(fdr, (void *)&result_hash, sizeof(result_hash));
             assert(nbytes == sizeof(result_hash));
             results[i][j] = result_hash;
-            cout << "Received from FPGA: Result[" << i << "][" << j << "] = " << hex << results[i][j] << endl;
-
-
         }
     }
 
@@ -135,9 +135,9 @@ int main(int arc, char **argv) {
     for (int i = 0; i < TEST_SIZE; i++) {
         for (int j = 0; j < OUTPUT_SIZE; j++) {
             if (expected_hashes[i][j] != results[i][j]) {
-                cout << "Expected: " << expected_hashes[i][j] << endl;
-                cout << "Actual: " << results[i][j] << endl;
                 error++;
+                cout << "Error on Test " << i+1 << endl;
+                break;
             }
         }
         num_test_insts++;
@@ -147,9 +147,7 @@ int main(int arc, char **argv) {
     cout << "Overall Error Rate = " << setprecision(4) 
               << ((double)error / num_test_insts) * 100 << "%" << endl;
 
-
     myfile.close();
     
     return 0;
 }
-

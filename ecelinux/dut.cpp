@@ -43,5 +43,3 @@ void dut(const bit32_t data_in[20], bit32_t data_out[9]) {
     data_out[7] = output.hash[1];
     data_out[8] = output.hash[0];
 }
-
-
