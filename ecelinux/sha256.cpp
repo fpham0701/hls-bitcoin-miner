@@ -3,6 +3,10 @@
 #include <iostream>
 #include "typedefs.h"
 #include "sha256.h"
+#include "ap_int.h"
+
+#define INPUT_SIZE 20
+#define OUTPUT_SIZE 9
 
 // Rotate function optimized with inlining
 bit32_t rotateInt(bit32_t inputWord, int numberOfBitsToRotate) {
@@ -49,8 +53,17 @@ bit32_t sig1(bit32_t x) {
 }
 
 // Helper function to prepare the message schedule
-void prepareMessage(bit32_t *input, int bitlength, bit32_t M[32][16]) {
+void prepareMessage(bit32_t input[INPUT_SIZE], int bitlength, bit32_t M[32][16]) {
     #pragma HLS array_partition variable=M complete dim=2
+
+    for (int i = 0; i < 32; i++) {
+        for (int j = 0; j < 16; j++) {
+            #pragma HLS unroll
+            M[i][j] = 0;
+        }
+    }
+
+
 
     bit32_t message[10000] = {};
     int wordlength = bitlength / 32 + 1;
@@ -85,7 +98,7 @@ void computeHashRound(bit32_t H_prev[8], bit32_t M[16], bit32_t K[64], bit32_t H
     #pragma HLS array_partition variable=M complete
     #pragma HLS array_partition variable=K complete dim =1
 
-    bit32_t W[64];
+    bit32_t W[64] = {0};
     #pragma HLS array_partition variable=W complete
 
     // #pragma pipeline II=2
@@ -139,7 +152,7 @@ void computeHashRound(bit32_t H_prev[8], bit32_t M[16], bit32_t K[64], bit32_t H
 }
 
 // Main SHA-256 function
-void hash1(bit32_t *input, int bitlength, bit32_t *outputlocation) {
+void hash1(bit32_t input[INPUT_SIZE], int bitlength, bit32_t outputlocation[OUTPUT_SIZE]) {
     #pragma HLS dataflow
 
     bit32_t H_0[8] = {0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 
@@ -162,10 +175,10 @@ void hash1(bit32_t *input, int bitlength, bit32_t *outputlocation) {
                      0x90befffa, 0xa4506ceb, 0xbef9a3f7, 0xc67178f2};
 
 
-    bit32_t M[32][16];
+    bit32_t M[32][16] = {};
     #pragma HLS array_partition variable=M complete dim=2
 
-    bit32_t H[8];
+    bit32_t H[8] = {};
     #pragma HLS array_partition variable=H complete dim = 1
 
     for (int i = 0; i < 8; i++) {
