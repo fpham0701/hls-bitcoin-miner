@@ -1,8 +1,0 @@
-   Build using "/opt/xilinx/Vivado/2019.2/tps/lnx64/gcc-6.2.0/bin/g++"
-   Compiling apatb_hash1.cpp
-   Compiling util.cpp_pre.cpp.tb.cpp
-   Compiling main_tb.cpp_pre.cpp.tb.cpp
-   Compiling sha256.cpp_pre.cpp.tb.cpp
-   Compiling dut.cpp_pre.cpp.tb.cpp
-   Compiling miner.cpp_pre.cpp.tb.cpp
-   Generating cosim.tv.exe

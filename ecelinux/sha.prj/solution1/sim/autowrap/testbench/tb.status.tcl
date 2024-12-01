@@ -1,1 +1,0 @@
-set ::AESL_AUTOSIM::gTopFileName /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/./sim/autowrap/testbench/sha256.cpp_pre.cpp.tb.cpp

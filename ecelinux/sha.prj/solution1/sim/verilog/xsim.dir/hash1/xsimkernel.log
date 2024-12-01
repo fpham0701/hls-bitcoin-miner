@@ -1,7 +1,0 @@
-Running: xsim.dir/hash1/xsimk -simmode gui -wdb hash1.wdb -simrunnum 0 -socket 52909
-Design successfully loaded
-Design Loading Memory Usage: 41516 KB (Peak: 41516 KB)
-Design Loading CPU Usage: 0 ms
-Simulation completed
-Simulation Memory Usage: 127684 KB (Peak: 180784 KB)
-Simulation CPU Usage: 280 ms
