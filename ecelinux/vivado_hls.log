@@ -1,0 +1,567 @@
+
+****** Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+  **** SW Build 2708876 on Wed Nov  6 21:39:14 MST 2019
+  **** IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source /opt/xilinx/Vivado/2019.2/scripts/vivado_hls/hls.tcl -notrace
+INFO: Applying HLS Y2K22 patch v1.2 for IP revision
+INFO: [HLS 200-10] Running '/opt/xilinx/Vivado/2019.2/bin/unwrapped/lnx64.o/vivado_hls'
+INFO: [HLS 200-10] For user 'ayl47' on host 'en-ec-rhel-ecelinux-16.coecis.cornell.edu' (Linux_x86_64 version 4.18.0-553.27.1.el8_10.x86_64) on Sun Dec 01 12:22:41 EST 2024
+INFO: [HLS 200-10] On os "Red Hat Enterprise Linux release 8.10 (Ootpa)"
+INFO: [HLS 200-10] In directory '/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux'
+Sourcing Tcl script 'run.tcl'
+INFO: [HLS 200-10] Opening and resetting project '/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj'.
+INFO: [HLS 200-10] Adding design file 'miner.cpp' to the project
+INFO: [HLS 200-10] Adding design file 'util.cpp' to the project
+INFO: [HLS 200-10] Adding design file 'sha256.cpp' to the project
+INFO: [HLS 200-10] Adding design file 'dut.cpp' to the project
+INFO: [HLS 200-10] Adding test bench file 'main_tb.cpp' to the project
+INFO: [HLS 200-10] Opening and resetting solution '/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1'.
+INFO: [HLS 200-10] Cleaning up the solution database.
+INFO: [HLS 200-10] Setting target device to 'xc7z020-clg484-1'
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../main_tb.cpp in release mode
+   Compiling ../../../../dut.cpp in release mode
+   Compiling ../../../../sha256.cpp in release mode
+   Compiling ../../../../util.cpp in release mode
+   Compiling ../../../../miner.cpp in release mode
+   Generating csim.exe
+hash0 = 0x7ffd9ad0b780
+hash = 0x7ffd9ad0b880
+hash0 = 0x7ffd9ad0b780
+hash = 0x7ffd9ad0b880
+hash0 = 0x7ffd9ad0b780
+hash = 0x7ffd9ad0b880
+hash0 = 0x7ffd9ad0b780
+hash = 0x7ffd9ad0b880
+hash0 = 0x7ffd9ad0b780
+hash = 0x7ffd9ad0b880
+hash0 = 0x7ffd9ad0b780
+hash = 0x7ffd9ad0b880
+blockheader = 0x7ffd9ad0b8a0
+hash = 0x7ffd9ad0b880
+count = 1
+blockheader = 0x7ffd9ad0b8a0
+hash = 0x7ffd9ad0b880
+count = 2
+blockheader = 0x7ffd9ad0b8a0
+hash = 0x7ffd9ad0b880
+count = 3
+blockheader = 0x7ffd9ad0b8a0
+hash = 0x7ffd9ad0b880
+count = 4
+blockheader = 0x7ffd9ad0b8a0
+hash = 0x7ffd9ad0b880
+count = 5
+blockheader = 0x7ffd9ad0b8a0
+hash = 0x7ffd9ad0b880
+count = 6
+blockheader = 0x7ffd9ad0b8a0
+hash = 0x7ffd9ad0b880
+count = 7
+blockheader = 0x7ffd9ad0b8a0
+hash = 0x7ffd9ad0b880
+count = 8
+Block solved! Nonce: 0x613
+Block hash:
+8 hash : 0x1291b9f1
+7 hash : 0x430405fc
+6 hash : 0x5778c53b
+5 hash : 0x3d147396
+4 hash : 0x372fbe74
+3 hash : 0x2b33de61
+2 hash : 0x2c73ea4
+1 hash : 0x40abe49
+SHA-256 Test        :      1 calls;   6.486 msecs total time
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file 'dut.cpp' ... 
+INFO: [HLS 200-10] Analyzing design file 'sha256.cpp' ... 
+WARNING: [HLS 214-114] Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region: sha256.cpp:182:2
+WARNING: [HLS 214-114] Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region: sha256.cpp:190:5
+WARNING: [HLS 214-114] Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region: sha256.cpp:195:5
+WARNING: [HLS 200-471] Dataflow form checks found 3 issue(s) in file sha256.cpp
+INFO: [HLS 200-10] Analyzing design file 'util.cpp' ... 
+INFO: [HLS 200-10] Analyzing design file 'miner.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:34 ; elapsed = 00:00:39 . Memory (MB): peak = 1168.156 ; gain = 530.125 ; free physical = 4848 ; free virtual = 14025
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:34 ; elapsed = 00:00:39 . Memory (MB): peak = 1168.156 ; gain = 530.125 ; free physical = 4848 ; free virtual = 14025
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [XFORM 203-603] Inlining function 'rotateInt' into 'sig1' (sha256.cpp:52).
+INFO: [XFORM 203-603] Inlining function 'rotateInt' into 'sig1' (sha256.cpp:52).
+INFO: [XFORM 203-603] Inlining function 'rotateInt' into 'sig0' (sha256.cpp:47).
+INFO: [XFORM 203-603] Inlining function 'rotateInt' into 'sig0' (sha256.cpp:47).
+INFO: [XFORM 203-603] Inlining function 'rotateInt' into 'Sig1f' (sha256.cpp:42).
+INFO: [XFORM 203-603] Inlining function 'rotateInt' into 'Sig1f' (sha256.cpp:42).
+INFO: [XFORM 203-603] Inlining function 'rotateInt' into 'Sig1f' (sha256.cpp:42).
+INFO: [XFORM 203-603] Inlining function 'rotateInt' into 'Sig0f' (sha256.cpp:37).
+INFO: [XFORM 203-603] Inlining function 'rotateInt' into 'Sig0f' (sha256.cpp:37).
+INFO: [XFORM 203-603] Inlining function 'rotateInt' into 'Sig0f' (sha256.cpp:37).
+INFO: [XFORM 203-603] Inlining function 'sig1' into 'computeHashRound' (sha256.cpp:108).
+INFO: [XFORM 203-603] Inlining function 'sig0' into 'computeHashRound' (sha256.cpp:108).
+INFO: [XFORM 203-603] Inlining function 'Ch' into 'computeHashRound' (sha256.cpp:124).
+INFO: [XFORM 203-603] Inlining function 'Maj' into 'computeHashRound' (sha256.cpp:125).
+INFO: [XFORM 203-603] Inlining function 'Sig0f' into 'computeHashRound' (sha256.cpp:126).
+INFO: [XFORM 203-603] Inlining function 'Sig1f' into 'computeHashRound' (sha256.cpp:127).
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:35 ; elapsed = 00:00:40 . Memory (MB): peak = 1168.156 ; gain = 530.125 ; free physical = 4830 ; free virtual = 14010
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:35 ; elapsed = 00:00:40 . Memory (MB): peak = 1168.824 ; gain = 530.793 ; free physical = 4811 ; free virtual = 13993
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'computeHashRound' (sha256.cpp:93).
+INFO: [HLS 200-489] Unrolling loop 'Loop-1' (sha256.cpp:182) in function 'hash1' completely with a factor of 8.
+INFO: [HLS 200-489] Unrolling loop 'Loop-3' (sha256.cpp:195) in function 'hash1' completely with a factor of 8.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1' (sha256.cpp:60) in function 'prepareMessage' completely with a factor of 16.
+WARNING: [XFORM 203-503] Cannot unroll loop 'Loop-3.1' (sha256.cpp:85) in function 'prepareMessage' completely: variable loop bound.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1' (sha256.cpp:103) in function 'computeHashRound' completely with a factor of 64.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2' (sha256.cpp:122) in function 'computeHashRound' completely with a factor of 64.
+INFO: [XFORM 203-101] Partitioning array 'M.V' (sha256.cpp:176) in dimension 2 completely.
+INFO: [XFORM 203-101] Partitioning array 'H.V' (sha256.cpp:179) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'K'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'W.V' (sha256.cpp:99) in dimension 1 completely.
+INFO: [XFORM 203-721] Changing loop 'Loop_1_proc' (sha256.cpp:190) to a process function for dataflow in function 'hash1'.
+WARNING: [XFORM 203-713] All the elements of global array 'M[0].V' should be updated in process function 'prepareMessage', otherwise it may not be synthesized correctly.
+WARNING: [XFORM 203-713] All the elements of global array 'M[1].V' should be updated in process function 'prepareMessage', otherwise it may not be synthesized correctly.
+WARNING: [XFORM 203-713] All the elements of global array 'M[2].V' should be updated in process function 'prepareMessage', otherwise it may not be synthesized correctly.
+WARNING: [XFORM 203-713] All the elements of global array 'M[3].V' should be updated in process function 'prepareMessage', otherwise it may not be synthesized correctly.
+WARNING: [XFORM 203-713] All the elements of global array 'M[4].V' should be updated in process function 'prepareMessage', otherwise it may not be synthesized correctly.
+WARNING: [XFORM 203-713] All the elements of global array 'M[5].V' should be updated in process function 'prepareMessage', otherwise it may not be synthesized correctly.
+WARNING: [XFORM 203-713] All the elements of global array 'M[6].V' should be updated in process function 'prepareMessage', otherwise it may not be synthesized correctly.
+WARNING: [XFORM 203-713] All the elements of global array 'M[7].V' should be updated in process function 'prepareMessage', otherwise it may not be synthesized correctly.
+WARNING: [XFORM 203-713] All the elements of global array 'M[8].V' should be updated in process function 'prepareMessage', otherwise it may not be synthesized correctly.
+WARNING: [XFORM 203-713] All the elements of global array 'M[9].V' should be updated in process function 'prepareMessage', otherwise it may not be synthesized correctly.
+WARNING: [XFORM 203-713] All the elements of global array 'M[10].V' should be updated in process function 'prepareMessage', otherwise it may not be synthesized correctly.
+WARNING: [XFORM 203-713] All the elements of global array 'M[11].V' should be updated in process function 'prepareMessage', otherwise it may not be synthesized correctly.
+WARNING: [XFORM 203-713] All the elements of global array 'M[12].V' should be updated in process function 'prepareMessage', otherwise it may not be synthesized correctly.
+WARNING: [XFORM 203-713] All the elements of global array 'M[13].V' should be updated in process function 'prepareMessage', otherwise it may not be synthesized correctly.
+WARNING: [XFORM 203-713] All the elements of global array 'M[14].V' should be updated in process function 'prepareMessage', otherwise it may not be synthesized correctly.
+WARNING: [XFORM 203-713] All the elements of global array 'M[15].V' should be updated in process function 'prepareMessage', otherwise it may not be synthesized correctly.
+WARNING: [XFORM 203-713] All the elements of global array 'outputlocation.V' should be updated in process function 'Block_.preheader.0_proc', otherwise it may not be synthesized correctly.
+INFO: [XFORM 203-712] Applying dataflow to function 'hash1', detected/extracted 3 process function(s): 
+	 'prepareMessage'
+	 'Loop_1_proc'
+	 'Block_.preheader.0_proc'.
+INFO: [XFORM 203-11] Balancing expressions in function 'computeHashRound' (sha256.cpp:93)...601 expression(s) balanced.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:38 ; elapsed = 00:00:43 . Memory (MB): peak = 1168.824 ; gain = 530.793 ; free physical = 4750 ; free virtual = 13933
+WARNING: [XFORM 203-631] Renaming function 'Block_.preheader.0_proc' to 'Block_.preheader.0_p' (sha256.cpp:197:2)
+INFO: [HLS 200-472] Inferring partial write operation for 'M[0].V' (sha256.cpp:62:2)
+INFO: [HLS 200-472] Inferring partial write operation for 'message.V' (sha256.cpp:71:2)
+INFO: [HLS 200-472] Inferring partial write operation for 'message.V' (sha256.cpp:75:9)
+INFO: [HLS 200-472] Inferring partial write operation for 'message.V' (sha256.cpp:77:9)
+INFO: [HLS 200-472] Inferring partial write operation for 'message.V' (sha256.cpp:80:9)
+INFO: [HLS 200-472] Inferring partial write operation for 'message.V' (sha256.cpp:82:9)
+INFO: [HLS 200-472] Inferring partial write operation for 'M[0].V' (sha256.cpp:87:2)
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:46 ; elapsed = 00:00:51 . Memory (MB): peak = 1232.156 ; gain = 594.125 ; free physical = 4681 ; free virtual = 13867
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'hash1' ...
+WARNING: [SYN 201-103] Legalizing function name 'Block_.preheader.0_p' to 'Block_preheader_0_p'.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'prepareMessage' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'Loop 2'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 51.08 seconds; current allocated memory: 238.715 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.12 seconds; current allocated memory: 239.547 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'computeHashRound' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'computeHashRound'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 82.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 2.64 seconds; current allocated memory: 249.173 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 1.69 seconds; current allocated memory: 261.774 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Loop_1_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'Loop 1'.
+WARNING: [SCHED 204-68] The II Violation in module 'Loop_1_proc' (Loop: Loop 1): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0)
+   between 'extractvalue' operation ('H[7].V', sha256.cpp:192->sha256.cpp:153) and 'call' operation ('call_ret_i', sha256.cpp:192->sha256.cpp:153) to 'computeHashRound'.
+WARNING: [SCHED 204-68] The II Violation in module 'Loop_1_proc' (Loop: Loop 1): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 0)
+   between 'extractvalue' operation ('H[7].V', sha256.cpp:192->sha256.cpp:153) and 'call' operation ('call_ret_i', sha256.cpp:192->sha256.cpp:153) to 'computeHashRound'.
+WARNING: [SCHED 204-68] The II Violation in module 'Loop_1_proc' (Loop: Loop 1): Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 0)
+   between 'extractvalue' operation ('H[7].V', sha256.cpp:192->sha256.cpp:153) and 'call' operation ('call_ret_i', sha256.cpp:192->sha256.cpp:153) to 'computeHashRound'.
+WARNING: [SCHED 204-68] The II Violation in module 'Loop_1_proc' (Loop: Loop 1): Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 0)
+   between 'extractvalue' operation ('H[7].V', sha256.cpp:192->sha256.cpp:153) and 'call' operation ('call_ret_i', sha256.cpp:192->sha256.cpp:153) to 'computeHashRound'.
+WARNING: [SCHED 204-68] The II Violation in module 'Loop_1_proc' (Loop: Loop 1): Unable to enforce a carried dependence constraint (II = 67, distance = 1, offset = 0)
+   between 'extractvalue' operation ('H[7].V', sha256.cpp:192->sha256.cpp:153) and 'call' operation ('call_ret_i', sha256.cpp:192->sha256.cpp:153) to 'computeHashRound'.
+WARNING: [SCHED 204-68] The II Violation in module 'Loop_1_proc' (Loop: Loop 1): Unable to enforce a carried dependence constraint (II = 74, distance = 1, offset = 0)
+   between 'extractvalue' operation ('H[7].V', sha256.cpp:192->sha256.cpp:153) and 'call' operation ('call_ret_i', sha256.cpp:192->sha256.cpp:153) to 'computeHashRound'.
+WARNING: [SCHED 204-68] The II Violation in module 'Loop_1_proc' (Loop: Loop 1): Unable to enforce a carried dependence constraint (II = 78, distance = 1, offset = 0)
+   between 'extractvalue' operation ('H[7].V', sha256.cpp:192->sha256.cpp:153) and 'call' operation ('call_ret_i', sha256.cpp:192->sha256.cpp:153) to 'computeHashRound'.
+WARNING: [SCHED 204-68] The II Violation in module 'Loop_1_proc' (Loop: Loop 1): Unable to enforce a carried dependence constraint (II = 80, distance = 1, offset = 0)
+   between 'extractvalue' operation ('H[7].V', sha256.cpp:192->sha256.cpp:153) and 'call' operation ('call_ret_i', sha256.cpp:192->sha256.cpp:153) to 'computeHashRound'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 81, Depth = 83.
+WARNING: [SCHED 204-21] Estimated clock period (10.177ns) exceeds the target (target clock period: 10ns, clock uncertainty: 1.25ns, effective delay budget: 8.75ns).
+WARNING: [SCHED 204-21] The critical path in module 'Loop_1_proc' consists of the following:
+	'call' operation ('call_ret_i', sha256.cpp:192->sha256.cpp:153) to 'computeHashRound' [48]  (6.92 ns)
+	'phi' operation ('H[5].V') with incoming values : ('H[5].V', sha256.cpp:192->sha256.cpp:153) [34]  (0 ns)
+	'call' operation ('call_ret_i', sha256.cpp:192->sha256.cpp:153) to 'computeHashRound' [48]  (3.25 ns)
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 1.94 seconds; current allocated memory: 263.303 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.63 seconds; current allocated memory: 264.766 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Block_preheader_0_p' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.75 seconds; current allocated memory: 265.875 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 265.983 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'hash1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.04 seconds; current allocated memory: 266.160 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.54 seconds; current allocated memory: 266.981 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'prepareMessage' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'prepareMessage_message_V' to 'prepareMessage_mebkb' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'prepareMessage'.
+INFO: [HLS 200-111]  Elapsed time: 0.78 seconds; current allocated memory: 269.021 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'computeHashRound' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-104] Estimated max fanout for 'computeHashRound' is 91456 from HDL expression: (1'b0 == ap_block_pp0_stage0_11001)
+INFO: [RTGEN 206-100] Finished creating RTL model for 'computeHashRound'.
+INFO: [HLS 200-111]  Elapsed time: 0.69 seconds; current allocated memory: 297.973 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Loop_1_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Loop_1_proc'.
+INFO: [HLS 200-111]  Elapsed time: 5.89 seconds; current allocated memory: 354.315 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Block_preheader_0_p' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Block_preheader_0_p'.
+INFO: [HLS 200-111]  Elapsed time: 1.51 seconds; current allocated memory: 356.498 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'hash1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'hash1/input_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'hash1/bitlength' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'hash1/outputlocation_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'hash1' to 'ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'hash1'.
+INFO: [HLS 200-111]  Elapsed time: 0.72 seconds; current allocated memory: 359.035 MB.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were NOT satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 98.26 MHz
+INFO: [RTMG 210-278] Implementing memory 'prepareMessage_mebkb_ram (RAM)' using block RAMs.
+INFO: [HLS 200-741] Implementing PIPO hash1_M_0_V_memcore using a single memory for all blocks
+INFO: [RTMG 210-278] Implementing memory 'hash1_M_0_V_memcore_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'bitlength_c_U(fifo_w32_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'H_V_7_0_loc_channel_U(fifo_w32_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'H_V_6_0_loc_channel_U(fifo_w32_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'H_V_5_0_loc_channel_U(fifo_w32_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'H_V_4_0_loc_channel_U(fifo_w32_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'H_V_3_0_loc_channel_U(fifo_w32_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'H_V_2_0_loc_channel_U(fifo_w32_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'H_V_1_0_loc_channel_U(fifo_w32_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'H_V_0_0_loc_channel_U(fifo_w32_d2_A)' using Shift Registers.
+INFO: [HLS 200-741] Implementing PIPO hash1_M_0_V_memcore using a single memory for all blocks
+INFO: [HLS 200-741] Implementing PIPO hash1_M_0_V_memcore using a single memory for all blocks
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:59 ; elapsed = 00:01:13 . Memory (MB): peak = 1381.207 ; gain = 743.176 ; free physical = 4803 ; free virtual = 14067
+INFO: [VHDL 208-304] Generating VHDL RTL for hash1.
+INFO: [VLOG 209-307] Generating Verilog RTL for hash1.
+INFO: [COSIM 212-47] Using XSIM for RTL simulation.
+INFO: [COSIM 212-14] Instrumenting C test bench ...
+   Build using "/opt/xilinx/Vivado/2019.2/tps/lnx64/gcc-6.2.0/bin/g++"
+   Compiling apatb_hash1.cpp
+   Compiling util.cpp_pre.cpp.tb.cpp
+   Compiling main_tb.cpp_pre.cpp.tb.cpp
+   Compiling sha256.cpp_pre.cpp.tb.cpp
+   Compiling dut.cpp_pre.cpp.tb.cpp
+   Compiling miner.cpp_pre.cpp.tb.cpp
+   Generating cosim.tv.exe
+INFO: [COSIM 212-302] Starting C TB testing ... 
+hash0 = 0x7fff39b21ab0
+hash = 0x7fff39b21bb0
+hash0 = 0x7fff39b21ab0
+hash = 0x7fff39b21bb0
+hash0 = 0x7fff39b21ab0
+hash = 0x7fff39b21bb0
+hash0 = 0x7fff39b21ab0
+hash = 0x7fff39b21bb0
+hash0 = 0x7fff39b21ab0
+hash = 0x7fff39b21bb0
+hash0 = 0x7fff39b21ab0
+hash = 0x7fff39b21bb0
+blockheader = 0x7fff39b21bd0
+hash = 0x7fff39b21bb0
+count = 1
+blockheader = 0x7fff39b21bd0
+hash = 0x7fff39b21bb0
+count = 2
+blockheader = 0x7fff39b21bd0
+hash = 0x7fff39b21bb0
+count = 3
+blockheader = 0x7fff39b21bd0
+hash = 0x7fff39b21bb0
+count = 4
+blockheader = 0x7fff39b21bd0
+hash = 0x7fff39b21bb0
+count = 5
+blockheader = 0x7fff39b21bd0
+hash = 0x7fff39b21bb0
+count = 6
+blockheader = 0x7fff39b21bd0
+hash = 0x7fff39b21bb0
+count = 7
+blockheader = 0x7fff39b21bd0
+hash = 0x7fff39b21bb0
+count = 8
+Block solved! Nonce: 0x613
+Block hash:
+8 hash : 0x1291b9f1
+7 hash : 0x430405fc
+6 hash : 0x5778c53b
+5 hash : 0x3d147396
+4 hash : 0x372fbe74
+3 hash : 0x2b33de61
+2 hash : 0x2c73ea4
+1 hash : 0x40abe49
+SHA-256 Test        :      1 calls;  10.156 msecs total time
+INFO: [COSIM 212-333] Generating C post check test bench ...
+INFO: [COSIM 212-12] Generating RTL test bench ...
+INFO: [COSIM 212-1] *** C/RTL co-simulation file generation completed. ***
+INFO: [COSIM 212-323] Starting verilog simulation. 
+INFO: [COSIM 212-15] Starting XSIM ...
+INFO: [XSIM 43-3496] Using init file passed via -initfile option "/opt/xilinx/Vivado/2019.2/data/xsim/ip/xsim_ip.ini".
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: /opt/xilinx/Vivado/2019.2/bin/unwrapped/lnx64.o/xelab xil_defaultlib.apatb_hash1_top glbl -prj hash1.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm --initfile /opt/xilinx/Vivado/2019.2/data/xsim/ip/xsim_ip.ini --lib ieee_proposed=./ieee_proposed -s hash1 
+Multi-threading is on. Using 6 slave threads.
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/sim/verilog/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/sim/verilog/hash1.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_hash1_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/sim/verilog/AESL_automem_input_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_input_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/sim/verilog/AESL_automem_outputlocation_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_outputlocation_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/sim/verilog/AESL_deadlock_detection_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_detect_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/sim/verilog/AESL_deadlock_report_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_report_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/sim/verilog/AESL_deadlock_detector.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_detector
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/sim/verilog/prepareMessage.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module prepareMessage
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/sim/verilog/computeHashRound.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module computeHashRound
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/sim/verilog/Loop_1_proc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Loop_1_proc
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/sim/verilog/Block_preheader_0_p.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Block_preheader_0_p
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/sim/verilog/hash1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module hash1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/sim/verilog/prepareMessage_mebkb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module prepareMessage_mebkb_ram
+INFO: [VRFC 10-311] analyzing module prepareMessage_mebkb
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/sim/verilog/hash1_M_0_V_memcore.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module hash1_M_0_V_memcore_ram
+INFO: [VRFC 10-311] analyzing module hash1_M_0_V_memcore
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/sim/verilog/hash1_M_0_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module hash1_M_0_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/sim/verilog/fifo_w32_d2_A.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fifo_w32_d2_A_shiftReg
+INFO: [VRFC 10-311] analyzing module fifo_w32_d2_A
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.hash1_M_0_V_memcore_ram
+Compiling module xil_defaultlib.hash1_M_0_V_memcore
+Compiling module xil_defaultlib.hash1_M_0_V
+Compiling module xil_defaultlib.prepareMessage_mebkb_ram
+Compiling module xil_defaultlib.prepareMessage_mebkb(DataWidth=3...
+Compiling module xil_defaultlib.prepareMessage
+Compiling module xil_defaultlib.computeHashRound
+Compiling module xil_defaultlib.Loop_1_proc
+Compiling module xil_defaultlib.Block_preheader_0_p
+Compiling module xil_defaultlib.fifo_w32_d2_A_shiftReg
+Compiling module xil_defaultlib.fifo_w32_d2_A
+Compiling module xil_defaultlib.hash1
+Compiling module xil_defaultlib.AESL_automem_input_V
+Compiling module xil_defaultlib.AESL_automem_outputlocation_V
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_report_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_detector_1
+Compiling module xil_defaultlib.apatb_hash1_top
+Compiling module work.glbl
+Built simulation snapshot hash1
+
+****** Webtalk v2019.2 (64-bit)
+  **** SW Build 2708876 on Wed Nov  6 21:39:14 MST 2019
+  **** IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/sim/verilog/xsim.dir/hash1/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Sun Dec  1 12:24:16 2024...
+
+****** xsim v2019.2 (64-bit)
+  **** SW Build 2708876 on Wed Nov  6 21:39:14 MST 2019
+  **** IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source xsim.dir/hash1/xsim_script.tcl
+# xsim {hash1} -autoloadwcfg -tclbatch {hash1.tcl}
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+source hash1.tcl
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 12 [n/a] @ "125000"
+// RTL Simulation : 1 / 12 [n/a] @ "3725000"
+// RTL Simulation : 2 / 12 [n/a] @ "4595000"
+// RTL Simulation : 3 / 12 [n/a] @ "7285000"
+// RTL Simulation : 4 / 12 [n/a] @ "8155000"
+// RTL Simulation : 5 / 12 [n/a] @ "10845000"
+// RTL Simulation : 6 / 12 [n/a] @ "11715000"
+// RTL Simulation : 7 / 12 [n/a] @ "14405000"
+// RTL Simulation : 8 / 12 [n/a] @ "15275000"
+// RTL Simulation : 9 / 12 [n/a] @ "17965000"
+// RTL Simulation : 10 / 12 [n/a] @ "18835000"
+// RTL Simulation : 11 / 12 [n/a] @ "21525000"
+// RTL Simulation : 12 / 12 [n/a] @ "22395000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 22435 ns : File "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/sim/verilog/hash1.autotb.v" Line 353
+## quit
+INFO: [Common 17-206] Exiting xsim at Sun Dec  1 12:24:23 2024...
+INFO: [COSIM 212-316] Starting C post checking ...
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+hash0 = 0x7ffc236bf1f0
+hash = 0x7ffc236bf2f0
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+hash0 = 0x7ffc236bf1f0
+hash = 0x7ffc236bf2f0
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+hash0 = 0x7ffc236bf1f0
+hash = 0x7ffc236bf2f0
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+hash0 = 0x7ffc236bf1f0
+hash = 0x7ffc236bf2f0
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+hash0 = 0x7ffc236bf1f0
+hash = 0x7ffc236bf2f0
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+hash0 = 0x7ffc236bf1f0
+hash = 0x7ffc236bf2f0
+blockheader = 0x7ffc236bf310
+hash = 0x7ffc236bf2f0
+count = 1
+blockheader = 0x7ffc236bf310
+hash = 0x7ffc236bf2f0
+count = 2
+blockheader = 0x7ffc236bf310
+hash = 0x7ffc236bf2f0
+count = 3
+blockheader = 0x7ffc236bf310
+hash = 0x7ffc236bf2f0
+count = 4
+blockheader = 0x7ffc236bf310
+hash = 0x7ffc236bf2f0
+count = 5
+blockheader = 0x7ffc236bf310
+hash = 0x7ffc236bf2f0
+count = 6
+blockheader = 0x7ffc236bf310
+hash = 0x7ffc236bf2f0
+count = 7
+blockheader = 0x7ffc236bf310
+hash = 0x7ffc236bf2f0
+count = 8
+Block solved! Nonce: 0x613
+Block hash:
+8 hash : 0x1291b9f1
+7 hash : 0x430405fc
+6 hash : 0x5778c53b
+5 hash : 0x3d147396
+4 hash : 0x372fbe74
+3 hash : 0x2b33de61
+2 hash : 0x2c73ea4
+1 hash : 0x40abe49
+SHA-256 Test        :      1 calls;   4.894 msecs total time
+INFO: [COSIM 212-1000] *** C/RTL co-simulation finished: PASS ***
+INFO: [HLS 200-112] Total elapsed time: 103.02 seconds; peak allocated memory: 359.035 MB.
+INFO: [Common 17-206] Exiting vivado_hls at Sun Dec  1 12:24:24 2024...

@@ -63,8 +63,6 @@ void prepareMessage(bit32_t input[INPUT_SIZE], int bitlength, bit32_t M[32][16])
         }
     }
 
-
-
     bit32_t message[10000] = {};
     int wordlength = bitlength / 32 + 1;
 
@@ -85,7 +83,7 @@ void prepareMessage(bit32_t input[INPUT_SIZE], int bitlength, bit32_t M[32][16])
     
     for (int i = 0; i < 16; i++) {
         for (int j = 0; j <= (bitlength / 512 + 1); j++) {
-            #pragma HLS unroll factor = 2
+            #pragma HLS unroll 
             M[j][i] = message[i + j * 16];
         }
     }

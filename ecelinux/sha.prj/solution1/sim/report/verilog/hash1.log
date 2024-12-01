@@ -1,0 +1,270 @@
+INFO: [COSIM-47] Using XSIM for RTL simulation.
+INFO: [COSIM-14] Instrumenting C test bench ...
+   Build using "/opt/xilinx/Vivado/2019.2/tps/lnx64/gcc-6.2.0/bin/g++"
+   Compiling apatb_hash1.cpp
+   Compiling util.cpp_pre.cpp.tb.cpp
+   Compiling main_tb.cpp_pre.cpp.tb.cpp
+   Compiling sha256.cpp_pre.cpp.tb.cpp
+   Compiling dut.cpp_pre.cpp.tb.cpp
+   Compiling miner.cpp_pre.cpp.tb.cpp
+   Generating cosim.tv.exe
+INFO: [COSIM-302] Starting C TB testing ... 
+INFO: [COSIM-333] Generating C post check test bench ...
+INFO: [COSIM-12] Generating RTL test bench ...
+INFO: [COSIM-1] *** C/RTL co-simulation file generation completed. ***
+INFO: [COSIM-323] Starting verilog simulation. 
+INFO: [COSIM-15] Starting XSIM ...
+INFO: [COSIM-316] Starting C post checking ...
+hash0 = 0x7fff39b21ab0
+hash = 0x7fff39b21bb0
+hash0 = 0x7fff39b21ab0
+hash = 0x7fff39b21bb0
+hash0 = 0x7fff39b21ab0
+hash = 0x7fff39b21bb0
+hash0 = 0x7fff39b21ab0
+hash = 0x7fff39b21bb0
+hash0 = 0x7fff39b21ab0
+hash = 0x7fff39b21bb0
+hash0 = 0x7fff39b21ab0
+hash = 0x7fff39b21bb0
+blockheader = 0x7fff39b21bd0
+hash = 0x7fff39b21bb0
+count = 1
+blockheader = 0x7fff39b21bd0
+hash = 0x7fff39b21bb0
+count = 2
+blockheader = 0x7fff39b21bd0
+hash = 0x7fff39b21bb0
+count = 3
+blockheader = 0x7fff39b21bd0
+hash = 0x7fff39b21bb0
+count = 4
+blockheader = 0x7fff39b21bd0
+hash = 0x7fff39b21bb0
+count = 5
+blockheader = 0x7fff39b21bd0
+hash = 0x7fff39b21bb0
+count = 6
+blockheader = 0x7fff39b21bd0
+hash = 0x7fff39b21bb0
+count = 7
+blockheader = 0x7fff39b21bd0
+hash = 0x7fff39b21bb0
+count = 8
+Block solved! Nonce: 0x613
+Block hash:
+8 hash : 0x1291b9f1
+7 hash : 0x430405fc
+6 hash : 0x5778c53b
+5 hash : 0x3d147396
+4 hash : 0x372fbe74
+3 hash : 0x2b33de61
+2 hash : 0x2c73ea4
+1 hash : 0x40abe49
+SHA-256 Test        :      1 calls;  10.156 msecs total time
+INFO: [XSIM 43-3496] Using init file passed via -initfile option "/opt/xilinx/Vivado/2019.2/data/xsim/ip/xsim_ip.ini".
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: /opt/xilinx/Vivado/2019.2/bin/unwrapped/lnx64.o/xelab xil_defaultlib.apatb_hash1_top glbl -prj hash1.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm --initfile /opt/xilinx/Vivado/2019.2/data/xsim/ip/xsim_ip.ini --lib ieee_proposed=./ieee_proposed -s hash1 
+Multi-threading is on. Using 6 slave threads.
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/sim/verilog/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/sim/verilog/hash1.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_hash1_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/sim/verilog/AESL_automem_input_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_input_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/sim/verilog/AESL_automem_outputlocation_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_outputlocation_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/sim/verilog/AESL_deadlock_detection_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_detect_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/sim/verilog/AESL_deadlock_report_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_report_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/sim/verilog/AESL_deadlock_detector.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_detector
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/sim/verilog/prepareMessage.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module prepareMessage
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/sim/verilog/computeHashRound.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module computeHashRound
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/sim/verilog/Loop_1_proc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Loop_1_proc
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/sim/verilog/Block_preheader_0_p.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Block_preheader_0_p
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/sim/verilog/hash1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module hash1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/sim/verilog/prepareMessage_mebkb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module prepareMessage_mebkb_ram
+INFO: [VRFC 10-311] analyzing module prepareMessage_mebkb
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/sim/verilog/hash1_M_0_V_memcore.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module hash1_M_0_V_memcore_ram
+INFO: [VRFC 10-311] analyzing module hash1_M_0_V_memcore
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/sim/verilog/hash1_M_0_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module hash1_M_0_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/sim/verilog/fifo_w32_d2_A.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fifo_w32_d2_A_shiftReg
+INFO: [VRFC 10-311] analyzing module fifo_w32_d2_A
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.hash1_M_0_V_memcore_ram
+Compiling module xil_defaultlib.hash1_M_0_V_memcore
+Compiling module xil_defaultlib.hash1_M_0_V
+Compiling module xil_defaultlib.prepareMessage_mebkb_ram
+Compiling module xil_defaultlib.prepareMessage_mebkb(DataWidth=3...
+Compiling module xil_defaultlib.prepareMessage
+Compiling module xil_defaultlib.computeHashRound
+Compiling module xil_defaultlib.Loop_1_proc
+Compiling module xil_defaultlib.Block_preheader_0_p
+Compiling module xil_defaultlib.fifo_w32_d2_A_shiftReg
+Compiling module xil_defaultlib.fifo_w32_d2_A
+Compiling module xil_defaultlib.hash1
+Compiling module xil_defaultlib.AESL_automem_input_V
+Compiling module xil_defaultlib.AESL_automem_outputlocation_V
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_report_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_detector_1
+Compiling module xil_defaultlib.apatb_hash1_top
+Compiling module work.glbl
+Built simulation snapshot hash1
+
+****** Webtalk v2019.2 (64-bit)
+  **** SW Build 2708876 on Wed Nov  6 21:39:14 MST 2019
+  **** IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/sim/verilog/xsim.dir/hash1/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Sun Dec  1 12:24:16 2024...
+
+****** xsim v2019.2 (64-bit)
+  **** SW Build 2708876 on Wed Nov  6 21:39:14 MST 2019
+  **** IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source xsim.dir/hash1/xsim_script.tcl
+# xsim {hash1} -autoloadwcfg -tclbatch {hash1.tcl}
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+source hash1.tcl
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 12 [n/a] @ "125000"
+// RTL Simulation : 1 / 12 [n/a] @ "3725000"
+// RTL Simulation : 2 / 12 [n/a] @ "4595000"
+// RTL Simulation : 3 / 12 [n/a] @ "7285000"
+// RTL Simulation : 4 / 12 [n/a] @ "8155000"
+// RTL Simulation : 5 / 12 [n/a] @ "10845000"
+// RTL Simulation : 6 / 12 [n/a] @ "11715000"
+// RTL Simulation : 7 / 12 [n/a] @ "14405000"
+// RTL Simulation : 8 / 12 [n/a] @ "15275000"
+// RTL Simulation : 9 / 12 [n/a] @ "17965000"
+// RTL Simulation : 10 / 12 [n/a] @ "18835000"
+// RTL Simulation : 11 / 12 [n/a] @ "21525000"
+// RTL Simulation : 12 / 12 [n/a] @ "22395000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 22435 ns : File "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/sim/verilog/hash1.autotb.v" Line 353
+## quit
+INFO: [Common 17-206] Exiting xsim at Sun Dec  1 12:24:23 2024...
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+hash0 = 0x7ffc236bf1f0
+hash = 0x7ffc236bf2f0
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+hash0 = 0x7ffc236bf1f0
+hash = 0x7ffc236bf2f0
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+hash0 = 0x7ffc236bf1f0
+hash = 0x7ffc236bf2f0
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+hash0 = 0x7ffc236bf1f0
+hash = 0x7ffc236bf2f0
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+hash0 = 0x7ffc236bf1f0
+hash = 0x7ffc236bf2f0
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'outputlocation_V', possible cause: There are uninitialized variables in the C design.
+hash0 = 0x7ffc236bf1f0
+hash = 0x7ffc236bf2f0
+blockheader = 0x7ffc236bf310
+hash = 0x7ffc236bf2f0
+count = 1
+blockheader = 0x7ffc236bf310
+hash = 0x7ffc236bf2f0
+count = 2
+blockheader = 0x7ffc236bf310
+hash = 0x7ffc236bf2f0
+count = 3
+blockheader = 0x7ffc236bf310
+hash = 0x7ffc236bf2f0
+count = 4
+blockheader = 0x7ffc236bf310
+hash = 0x7ffc236bf2f0
+count = 5
+blockheader = 0x7ffc236bf310
+hash = 0x7ffc236bf2f0
+count = 6
+blockheader = 0x7ffc236bf310
+hash = 0x7ffc236bf2f0
+count = 7
+blockheader = 0x7ffc236bf310
+hash = 0x7ffc236bf2f0
+count = 8
+Block solved! Nonce: 0x613
+Block hash:
+8 hash : 0x1291b9f1
+7 hash : 0x430405fc
+6 hash : 0x5778c53b
+5 hash : 0x3d147396
+4 hash : 0x372fbe74
+3 hash : 0x2b33de61
+2 hash : 0x2c73ea4
+1 hash : 0x40abe49
+SHA-256 Test        :      1 calls;   4.894 msecs total time
+INFO: [COSIM-1000] *** C/RTL co-simulation finished: PASS ***

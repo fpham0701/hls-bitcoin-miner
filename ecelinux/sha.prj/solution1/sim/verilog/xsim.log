@@ -1,0 +1,40 @@
+#-----------------------------------------------------------
+# xsim v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:39:14 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Sun Dec  1 12:24:17 2024
+# Process ID: 1638804
+# Current directory: /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/sim/verilog
+# Command line: xsim -mode tcl -source {xsim.dir/hash1/xsim_script.tcl}
+# Log file: /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/sim/verilog/xsim.log
+# Journal file: /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/sim/verilog/xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/hash1/xsim_script.tcl
+# xsim {hash1} -autoloadwcfg -tclbatch {hash1.tcl}
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+source hash1.tcl
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 12 [n/a] @ "125000"
+// RTL Simulation : 1 / 12 [n/a] @ "3725000"
+// RTL Simulation : 2 / 12 [n/a] @ "4595000"
+// RTL Simulation : 3 / 12 [n/a] @ "7285000"
+// RTL Simulation : 4 / 12 [n/a] @ "8155000"
+// RTL Simulation : 5 / 12 [n/a] @ "10845000"
+// RTL Simulation : 6 / 12 [n/a] @ "11715000"
+// RTL Simulation : 7 / 12 [n/a] @ "14405000"
+// RTL Simulation : 8 / 12 [n/a] @ "15275000"
+// RTL Simulation : 9 / 12 [n/a] @ "17965000"
+// RTL Simulation : 10 / 12 [n/a] @ "18835000"
+// RTL Simulation : 11 / 12 [n/a] @ "21525000"
+// RTL Simulation : 12 / 12 [n/a] @ "22395000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 22435 ns : File "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/sim/verilog/hash1.autotb.v" Line 353
+## quit
+INFO: [Common 17-206] Exiting xsim at Sun Dec  1 12:24:23 2024...

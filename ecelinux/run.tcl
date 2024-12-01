@@ -12,6 +12,8 @@ open_project ${hls_prj} -reset
 # Top function of the design is "dut"
 # set_top dut
 set_top hash1
+# set_top hashblock
+# set_top mineblock
 
 # Add design and testbench files
 add_files miner.cpp -cflags "-std=c++11"

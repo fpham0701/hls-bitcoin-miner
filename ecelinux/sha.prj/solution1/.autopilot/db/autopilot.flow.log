@@ -1,0 +1,1138 @@
+INFO-FLOW: Workspace /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1 opened at Sun Dec 01 12:22:42 EST 2024
+Command     open_solution done; 0.77 sec.
+Execute     set_part xc7z020clg484-1 
+Execute       ap_part_info -name xc7z020clg484-1 -data single -quiet 
+Command       ap_part_info done; 1.49 sec.
+Execute       ap_part_info -name xc7z020clg484-1 -data info 
+Execute       add_library xilinx/zynq/zynq:xc7z020:-clg484:-1 
+Execute         get_default_platform 
+Execute         open_platform DefaultPlatform 
+Execute         import_lib /opt/xilinx/Vivado/2019.2/common/technology/xilinx/zynq/zynq 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/xilinx.lib 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/xilinx_interface.lib 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/plb46.lib 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/fsl.lib 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/axi4.lib 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/maxi.lib 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/saxilite.lib 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/dsp48.lib 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/xfft.lib 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/xfir.lib 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/dds_compiler.lib 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/xilinx.hlp 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/target_info.tcl 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/maxi.hlp 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/saxilite.hlp 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/dsp48.hlp 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/zynq/dsp48e1.hlp 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/xilinx.hlp 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/target_info.tcl 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/maxi.hlp 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/saxilite.hlp 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/dsp48.hlp 
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/zynq/zynq.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/xilinx.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/plb46.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/fsl.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/axi4.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/saxilite.gen 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/maxi.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/util.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/xfft.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/xfir.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/dsp48.gen 
+Execute         ap_part_info -data single -name xc7z020-clg484-1 
+Execute         ap_part_info -name xc7z020-clg484-1 -data resources 
+Execute         ap_part_info -name xc7z020-clg484-1 -data info 
+Execute         ap_part_info -name xc7z020-clg484-1 -data info 
+Execute         config_chip_info -quiet -resource {SLICE 13300} {LUT 53200} {FF 106400} {DSP48E 220} {BRAM 280} {URAM 0} 
+Execute         ap_part_info -name xc7z020-clg484-1 -data info 
+Execute         config_chip_info -quiet -speed slow 
+Command       add_library done; 0.14 sec.
+Execute       add_library xilinx/zynq/zynq_fpv6 
+Execute         get_default_platform 
+Execute         open_platform DefaultPlatform 
+Execute         import_lib /opt/xilinx/Vivado/2019.2/common/technology/xilinx/zynq/zynq_fpv6 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/xilinx_fp.lib 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/xilinx_fp.hlp 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/xilinx.hlp 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/target_info.tcl 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute                 source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/maxi.hlp 
+Execute                 source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/saxilite.hlp 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/dsp48.hlp 
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/xilinx_fp.gen 
+INFO: [HLS 200-10] Setting target device to 'xc7z020-clg484-1'
+Execute       ap_part_info -name xc7z020-clg484-1 -data info 
+Execute       get_default_platform 
+Command     set_part done; 1.71 sec.
+Execute     create_clock -period 10 
+Execute       config_clock -quiet -name default -period 10 -default=false 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+Execute     csim_design -O 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+Execute       is_encrypted /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/main_tb.cpp 
+Execute       is_xip /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/main_tb.cpp 
+Execute       is_encrypted /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/dut.cpp 
+Execute       is_xip /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/dut.cpp 
+Execute       is_encrypted /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha256.cpp 
+Execute       is_xip /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha256.cpp 
+Execute       is_encrypted /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/util.cpp 
+Execute       is_xip /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/util.cpp 
+Execute       is_encrypted /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/miner.cpp 
+Execute       is_xip /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/miner.cpp 
+Execute       ap_part_info -name xc7z020-clg484-1 -data info 
+Execute       source run_sim.tcl 
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+Command     csim_design done; 3.84 sec.
+Execute     csynth_design 
+Execute       get_config_compile -dump_cfg 
+Execute       get_config_compile -effort 
+Execute       get_config_compile -enable_clang39 
+Execute       get_config_compile -g 
+Execute       get_config_compile -ng 
+Execute       get_config_compile -opt_fp 
+Execute       get_config_compile -skip_cdt 
+Execute       get_config_compile -skip_syncheck 
+Execute       get_config_compile -skip_transform 
+Execute       get_config_compile -keep_printf 
+Execute       elaborate -effort=medium -skip_syncheck=0 -keep_printf=0 -skip_cdt=0 -skip_transform=0 -ng=0 -g=0 -opt_fp=0 -from_csynth_design=1 
+Execute         get_config_schedule -relax_ii_for_timing 
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+Execute         get_config_schedule -suppress_dependence_error_break 
+INFO: [HLS 200-10] Analyzing design file 'dut.cpp' ... 
+INFO-FLOW: Compiling one TU...
+Execute         is_m_axi_addr64 
+INFO-FLOW: Handling dut.cpp as C++
+Execute         ap_part_info -name xc7z020-clg484-1 -data info 
+Execute         is_encrypted dut.cpp 
+Execute         ap_part_info -name xc7z020-clg484-1 -data info 
+INFO-FLOW: Running: GCC PP
+INFO-FLOW: Source preprocessing
+Execute         clang  -fno-limit-debug-info -gcc-toolchain "/opt/xilinx/Vivado/2019.2/lnx64/tools/gcc" -hls  -fno-exceptions  -D__llvm__  -E "dut.cpp"   -std=c++11  -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__  -o "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/dut.pp.0.cpp" 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -fno-exceptions -D__llvm__ -E dut.cpp -std=c++11 -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/dut.pp.0.cpp
+Command         clang done; 1.15 sec.
+Execute         tidy_31 xilinx-xfmat-array-geometry /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/dut.pp.0.cpp std=c++11 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-xfmat-array-geometry -quiet -fix /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/dut.pp.0.cpp -- -std=c++11 -fhls -ferror-limit=0
+Command         tidy_31 done; 0.45 sec.
+INFO-FLOW: Syntax Checking before pre-processing...
+Execute         clang -syntaxcheck -src /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/dut.pp.0.cpp  -fno-limit-debug-info -gcc-toolchain "/opt/xilinx/Vivado/2019.2/lnx64/tools/gcc" -hls  -std=c++11  -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__  "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/dut.pp.0.cpp"  -o "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/useless.bc"  
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -std=c++11 -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/dut.pp.0.cpp -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/useless.bc
+Command         clang done; 1.33 sec.
+INFO-FLOW: Done: GCC PP time: 2.9 seconds per iteration
+Execute         source /opt/xilinx/Vivado/2019.2/tps/tcl/tcllib1.11.1/yaml/huddle.tcl 
+Execute         source /opt/xilinx/Vivado/2019.2/tps/tcl/tcllib1.11.1/yaml/json2huddle.tcl 
+Execute           source /opt/xilinx/Vivado/2019.2/tps/tcl/tcllib1.11.1/try/try.tcl 
+Execute         list_core -type functional_unit 
+Execute         tidy_31 xilinx-systemc-detector /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/dut.pp.0.cpp std=c++11 -directive=/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/.systemc_flag 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-systemc-detector -import-directive=/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/.systemc_flag -quiet -fix-errors /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/dut.pp.0.cpp -- -std=c++11 -fhls -ferror-limit=0
+Command         tidy_31 done; 0.45 sec.
+INFO-FLOW: Running: tidy-3.1 CDT preprocess
+Execute         tidy_31 xilinx-directive2pragma /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/dut.pp.0.cpp std=c++11 -directive=/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/all.directive.json 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-directive2pragma -import-directive=/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/all.directive.json -quiet -fix-errors /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/dut.pp.0.cpp -- -std=c++11 -fhls -ferror-limit=0
+Command         tidy_31 done; 0.38 sec.
+Execute         get_config_dataflow -strict_mode 
+Execute         ap_eval exec -ignorestderr /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/xilinx-dataflow-lawyer -export-fixes=/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/xilinx-dataflow-lawyer.dut.pp.0.cpp.diag.yml /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/dut.pp.0.cpp -- -std=c++11 -fhls -ferror-limit=0 -fstrict-dataflow > /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/xilinx-dataflow-lawyer.dut.pp.0.cpp.out.log 2> /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/xilinx-dataflow-lawyer.dut.pp.0.cpp.err.log 
+Command         ap_eval done; 0.43 sec.
+Execute         tidy_31 -errorcheck xilinx-constantarray-param,xilinx-resource-pragma-transformer,xilinx-xfmat-array-geometry /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/dut.pp.0.cpp std=c++11 
+Execute           ap_eval exec -ignorestderr /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -export-fixes=/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/tidy-3.1.dut.pp.0.cpp.diag.yml -header-filter=.* -checks=-*,xilinx-constantarray-param,xilinx-resource-pragma-transformer,xilinx-xfmat-array-geometry -quiet -fix-errors /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/dut.pp.0.cpp -- -std=c++11 -fhls -ferror-limit=0 > /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/tidy-3.1.dut.pp.0.cpp.out.log 2> /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/tidy-3.1.dut.pp.0.cpp.err.log 
+Command           ap_eval done; 0.91 sec.
+Execute           source /opt/xilinx/Vivado/2019.2/tps/tcl/tcllib1.11.1/yaml/yaml.tcl 
+Execute             source /opt/xilinx/Vivado/2019.2/tps/tcl/tcllib1.11.1/cmdline/cmdline.tcl 
+Execute           ap_eval exec -ignorestderr /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/xilinx-legacy-rewriter /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/dut.pp.0.cpp -- -std=c++11 -fhls -ferror-limit=0 > /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/xilinx-legacy-rewriter.dut.pp.0.cpp.out.log 2> /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/xilinx-legacy-rewriter.dut.pp.0.cpp.err.log 
+Command           ap_eval done; 0.34 sec.
+Command         tidy_31 done; 1.27 sec.
+INFO-FLOW: Done: tidy-3.1 CDT preprocess time: 2.1 seconds per iteration
+INFO-FLOW: Pragma Handling...
+Execute         tidy_31 xilinx-ssdm-intrinsics-arguments /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/dut.pragma.1.cpp std=c++11 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-ssdm-intrinsics-arguments -quiet -fix-errors /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/dut.pragma.1.cpp -- -std=c++11 -fhls -ferror-limit=0
+Command         tidy_31 done; 0.55 sec.
+Execute         ap_part_info -name xc7z020-clg484-1 -data info 
+INFO-FLOW: Processing labels
+Execute         clang -src /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/dut.pragma.2.cpp  -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions  -D__llvm__  -w  "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/dut.pragma.2.cpp"  -std=c++11  -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -g -o "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/dut.bc" 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions -D__llvm__ -w /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/dut.pragma.2.cpp -std=c++11 -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -g -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/dut.bc
+Command         clang done; 1.34 sec.
+INFO: [HLS 200-10] Analyzing design file 'sha256.cpp' ... 
+INFO-FLOW: Compiling one TU...
+Execute         is_m_axi_addr64 
+INFO-FLOW: Handling sha256.cpp as C++
+Execute         ap_part_info -name xc7z020-clg484-1 -data info 
+Execute         is_encrypted sha256.cpp 
+Execute         ap_part_info -name xc7z020-clg484-1 -data info 
+INFO-FLOW: Running: GCC PP
+INFO-FLOW: Source preprocessing
+Execute         clang  -fno-limit-debug-info -gcc-toolchain "/opt/xilinx/Vivado/2019.2/lnx64/tools/gcc" -hls  -fno-exceptions  -D__llvm__  -E "sha256.cpp"   -std=c++11  -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__  -o "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/sha256.pp.0.cpp" 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -fno-exceptions -D__llvm__ -E sha256.cpp -std=c++11 -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/sha256.pp.0.cpp
+Command         clang done; 1.12 sec.
+Execute         tidy_31 xilinx-xfmat-array-geometry /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/sha256.pp.0.cpp std=c++11 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-xfmat-array-geometry -quiet -fix /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/sha256.pp.0.cpp -- -std=c++11 -fhls -ferror-limit=0
+Command         tidy_31 done; 0.5 sec.
+INFO-FLOW: Syntax Checking before pre-processing...
+Execute         clang -syntaxcheck -src /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/sha256.pp.0.cpp  -fno-limit-debug-info -gcc-toolchain "/opt/xilinx/Vivado/2019.2/lnx64/tools/gcc" -hls  -std=c++11  -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__  "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/sha256.pp.0.cpp"  -o "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/useless.bc"  
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -std=c++11 -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/sha256.pp.0.cpp -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/useless.bc
+Command         clang done; 1.33 sec.
+INFO-FLOW: Done: GCC PP time: 3 seconds per iteration
+Execute         list_core -type functional_unit 
+Execute         tidy_31 xilinx-systemc-detector /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/sha256.pp.0.cpp std=c++11 -directive=/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/.systemc_flag 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-systemc-detector -import-directive=/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/.systemc_flag -quiet -fix-errors /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/sha256.pp.0.cpp -- -std=c++11 -fhls -ferror-limit=0
+Command         tidy_31 done; 0.8 sec.
+INFO-FLOW: Running: tidy-3.1 CDT preprocess
+Execute         tidy_31 xilinx-directive2pragma /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/sha256.pp.0.cpp std=c++11 -directive=/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/all.directive.json 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-directive2pragma -import-directive=/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/all.directive.json -quiet -fix-errors /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/sha256.pp.0.cpp -- -std=c++11 -fhls -ferror-limit=0
+Command         tidy_31 done; 0.42 sec.
+Execute         get_config_dataflow -strict_mode 
+Execute         ap_eval exec -ignorestderr /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/xilinx-dataflow-lawyer -export-fixes=/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/xilinx-dataflow-lawyer.sha256.pp.0.cpp.diag.yml /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/sha256.pp.0.cpp -- -std=c++11 -fhls -ferror-limit=0 -fstrict-dataflow > /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/xilinx-dataflow-lawyer.sha256.pp.0.cpp.out.log 2> /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/xilinx-dataflow-lawyer.sha256.pp.0.cpp.err.log 
+Command         ap_eval done; 0.45 sec.
+WARNING: [HLS 214-114] Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region: sha256.cpp:182:2
+WARNING: [HLS 214-114] Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region: sha256.cpp:190:5
+WARNING: [HLS 214-114] Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region: sha256.cpp:195:5
+Execute         send_msg_by_id WARNING @200-471@%s%s 3 sha256.cpp 
+WARNING: [HLS 200-471] Dataflow form checks found 3 issue(s) in file sha256.cpp
+Execute         tidy_31 -errorcheck xilinx-constantarray-param,xilinx-resource-pragma-transformer,xilinx-xfmat-array-geometry /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/sha256.pp.0.cpp std=c++11 
+Execute           ap_eval exec -ignorestderr /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -export-fixes=/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/tidy-3.1.sha256.pp.0.cpp.diag.yml -header-filter=.* -checks=-*,xilinx-constantarray-param,xilinx-resource-pragma-transformer,xilinx-xfmat-array-geometry -quiet -fix-errors /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/sha256.pp.0.cpp -- -std=c++11 -fhls -ferror-limit=0 > /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/tidy-3.1.sha256.pp.0.cpp.out.log 2> /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/tidy-3.1.sha256.pp.0.cpp.err.log 
+Command           ap_eval done; 0.96 sec.
+Execute           ap_eval exec -ignorestderr /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/xilinx-legacy-rewriter /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/sha256.pp.0.cpp -- -std=c++11 -fhls -ferror-limit=0 > /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/xilinx-legacy-rewriter.sha256.pp.0.cpp.out.log 2> /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/xilinx-legacy-rewriter.sha256.pp.0.cpp.err.log 
+Command           ap_eval done; 0.37 sec.
+Command         tidy_31 done; 1.35 sec.
+INFO-FLOW: Done: tidy-3.1 CDT preprocess time: 2.3 seconds per iteration
+INFO-FLOW: Pragma Handling...
+Execute         tidy_31 xilinx-ssdm-intrinsics-arguments /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/sha256.pragma.1.cpp std=c++11 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-ssdm-intrinsics-arguments -quiet -fix-errors /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/sha256.pragma.1.cpp -- -std=c++11 -fhls -ferror-limit=0
+Command         tidy_31 done; 0.98 sec.
+Execute         ap_part_info -name xc7z020-clg484-1 -data info 
+INFO-FLOW: Processing labels
+Execute         clang -src /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/sha256.pragma.2.cpp  -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions  -D__llvm__  -w  "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/sha256.pragma.2.cpp"  -std=c++11  -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -g -o "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/sha256.bc" 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions -D__llvm__ -w /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/sha256.pragma.2.cpp -std=c++11 -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -g -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/sha256.bc
+Command         clang done; 1.37 sec.
+INFO: [HLS 200-10] Analyzing design file 'util.cpp' ... 
+INFO-FLOW: Compiling one TU...
+Execute         is_m_axi_addr64 
+INFO-FLOW: Handling util.cpp as C++
+Execute         ap_part_info -name xc7z020-clg484-1 -data info 
+Execute         is_encrypted util.cpp 
+Execute         ap_part_info -name xc7z020-clg484-1 -data info 
+INFO-FLOW: Running: GCC PP
+INFO-FLOW: Source preprocessing
+Execute         clang  -fno-limit-debug-info -gcc-toolchain "/opt/xilinx/Vivado/2019.2/lnx64/tools/gcc" -hls  -fno-exceptions  -D__llvm__  -E "util.cpp"   -std=c++11  -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__  -o "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/util.pp.0.cpp" 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -fno-exceptions -D__llvm__ -E util.cpp -std=c++11 -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/util.pp.0.cpp
+Command         clang done; 1.14 sec.
+Execute         tidy_31 xilinx-xfmat-array-geometry /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/util.pp.0.cpp std=c++11 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-xfmat-array-geometry -quiet -fix /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/util.pp.0.cpp -- -std=c++11 -fhls -ferror-limit=0
+Command         tidy_31 done; 0.47 sec.
+INFO-FLOW: Syntax Checking before pre-processing...
+Execute         clang -syntaxcheck -src /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/util.pp.0.cpp  -fno-limit-debug-info -gcc-toolchain "/opt/xilinx/Vivado/2019.2/lnx64/tools/gcc" -hls  -std=c++11  -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__  "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/util.pp.0.cpp"  -o "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/useless.bc"  
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -std=c++11 -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/util.pp.0.cpp -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/useless.bc
+Command         clang done; 1.35 sec.
+INFO-FLOW: Done: GCC PP time: 3 seconds per iteration
+Execute         list_core -type functional_unit 
+Execute         tidy_31 xilinx-systemc-detector /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/util.pp.0.cpp std=c++11 -directive=/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/.systemc_flag 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-systemc-detector -import-directive=/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/.systemc_flag -quiet -fix-errors /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/util.pp.0.cpp -- -std=c++11 -fhls -ferror-limit=0
+Command         tidy_31 done; 0.42 sec.
+INFO-FLOW: Running: tidy-3.1 CDT preprocess
+Execute         tidy_31 xilinx-directive2pragma /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/util.pp.0.cpp std=c++11 -directive=/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/all.directive.json 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-directive2pragma -import-directive=/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/all.directive.json -quiet -fix-errors /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/util.pp.0.cpp -- -std=c++11 -fhls -ferror-limit=0
+Command         tidy_31 done; 0.41 sec.
+Execute         get_config_dataflow -strict_mode 
+Execute         ap_eval exec -ignorestderr /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/xilinx-dataflow-lawyer -export-fixes=/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/xilinx-dataflow-lawyer.util.pp.0.cpp.diag.yml /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/util.pp.0.cpp -- -std=c++11 -fhls -ferror-limit=0 -fstrict-dataflow > /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/xilinx-dataflow-lawyer.util.pp.0.cpp.out.log 2> /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/xilinx-dataflow-lawyer.util.pp.0.cpp.err.log 
+Command         ap_eval done; 0.46 sec.
+Execute         tidy_31 -errorcheck xilinx-constantarray-param,xilinx-resource-pragma-transformer,xilinx-xfmat-array-geometry /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/util.pp.0.cpp std=c++11 
+Execute           ap_eval exec -ignorestderr /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -export-fixes=/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/tidy-3.1.util.pp.0.cpp.diag.yml -header-filter=.* -checks=-*,xilinx-constantarray-param,xilinx-resource-pragma-transformer,xilinx-xfmat-array-geometry -quiet -fix-errors /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/util.pp.0.cpp -- -std=c++11 -fhls -ferror-limit=0 > /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/tidy-3.1.util.pp.0.cpp.out.log 2> /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/tidy-3.1.util.pp.0.cpp.err.log 
+Command           ap_eval done; 0.59 sec.
+Execute           ap_eval exec -ignorestderr /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/xilinx-legacy-rewriter /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/util.pp.0.cpp -- -std=c++11 -fhls -ferror-limit=0 > /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/xilinx-legacy-rewriter.util.pp.0.cpp.out.log 2> /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/xilinx-legacy-rewriter.util.pp.0.cpp.err.log 
+Command           ap_eval done; 0.37 sec.
+Command         tidy_31 done; 0.98 sec.
+INFO-FLOW: Done: tidy-3.1 CDT preprocess time: 1.9 seconds per iteration
+INFO-FLOW: Pragma Handling...
+Execute         tidy_31 xilinx-ssdm-intrinsics-arguments /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/util.pragma.1.cpp std=c++11 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-ssdm-intrinsics-arguments -quiet -fix-errors /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/util.pragma.1.cpp -- -std=c++11 -fhls -ferror-limit=0
+Command         tidy_31 done; 0.6 sec.
+Execute         ap_part_info -name xc7z020-clg484-1 -data info 
+INFO-FLOW: Processing labels
+Execute         clang -src /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/util.pragma.2.cpp  -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions  -D__llvm__  -w  "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/util.pragma.2.cpp"  -std=c++11  -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -g -o "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/util.bc" 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions -D__llvm__ -w /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/util.pragma.2.cpp -std=c++11 -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -g -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/util.bc
+Command         clang done; 1.37 sec.
+INFO: [HLS 200-10] Analyzing design file 'miner.cpp' ... 
+INFO-FLOW: Compiling one TU...
+Execute         is_m_axi_addr64 
+INFO-FLOW: Handling miner.cpp as C++
+Execute         ap_part_info -name xc7z020-clg484-1 -data info 
+Execute         is_encrypted miner.cpp 
+Execute         ap_part_info -name xc7z020-clg484-1 -data info 
+INFO-FLOW: Running: GCC PP
+INFO-FLOW: Source preprocessing
+Execute         clang  -fno-limit-debug-info -gcc-toolchain "/opt/xilinx/Vivado/2019.2/lnx64/tools/gcc" -hls  -fno-exceptions  -D__llvm__  -E "miner.cpp"   -std=c++11  -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__  -o "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/miner.pp.0.cpp" 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -fno-exceptions -D__llvm__ -E miner.cpp -std=c++11 -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/miner.pp.0.cpp
+Command         clang done; 1.15 sec.
+Execute         tidy_31 xilinx-xfmat-array-geometry /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/miner.pp.0.cpp std=c++11 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-xfmat-array-geometry -quiet -fix /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/miner.pp.0.cpp -- -std=c++11 -fhls -ferror-limit=0
+Command         tidy_31 done; 0.48 sec.
+INFO-FLOW: Syntax Checking before pre-processing...
+Execute         clang -syntaxcheck -src /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/miner.pp.0.cpp  -fno-limit-debug-info -gcc-toolchain "/opt/xilinx/Vivado/2019.2/lnx64/tools/gcc" -hls  -std=c++11  -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__  "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/miner.pp.0.cpp"  -o "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/useless.bc"  
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -std=c++11 -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/miner.pp.0.cpp -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/useless.bc
+Command         clang done; 1.39 sec.
+INFO-FLOW: Done: GCC PP time: 3 seconds per iteration
+Execute         list_core -type functional_unit 
+Execute         tidy_31 xilinx-systemc-detector /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/miner.pp.0.cpp std=c++11 -directive=/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/.systemc_flag 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-systemc-detector -import-directive=/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/.systemc_flag -quiet -fix-errors /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/miner.pp.0.cpp -- -std=c++11 -fhls -ferror-limit=0
+Command         tidy_31 done; 0.43 sec.
+INFO-FLOW: Running: tidy-3.1 CDT preprocess
+Execute         tidy_31 xilinx-directive2pragma /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/miner.pp.0.cpp std=c++11 -directive=/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/all.directive.json 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-directive2pragma -import-directive=/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/all.directive.json -quiet -fix-errors /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/miner.pp.0.cpp -- -std=c++11 -fhls -ferror-limit=0
+Command         tidy_31 done; 0.42 sec.
+Execute         get_config_dataflow -strict_mode 
+Execute         ap_eval exec -ignorestderr /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/xilinx-dataflow-lawyer -export-fixes=/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/xilinx-dataflow-lawyer.miner.pp.0.cpp.diag.yml /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/miner.pp.0.cpp -- -std=c++11 -fhls -ferror-limit=0 -fstrict-dataflow > /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/xilinx-dataflow-lawyer.miner.pp.0.cpp.out.log 2> /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/xilinx-dataflow-lawyer.miner.pp.0.cpp.err.log 
+Command         ap_eval done; 0.45 sec.
+Execute         tidy_31 -errorcheck xilinx-constantarray-param,xilinx-resource-pragma-transformer,xilinx-xfmat-array-geometry /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/miner.pp.0.cpp std=c++11 
+Execute           ap_eval exec -ignorestderr /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -export-fixes=/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/tidy-3.1.miner.pp.0.cpp.diag.yml -header-filter=.* -checks=-*,xilinx-constantarray-param,xilinx-resource-pragma-transformer,xilinx-xfmat-array-geometry -quiet -fix-errors /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/miner.pp.0.cpp -- -std=c++11 -fhls -ferror-limit=0 > /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/tidy-3.1.miner.pp.0.cpp.out.log 2> /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/tidy-3.1.miner.pp.0.cpp.err.log 
+Command           ap_eval done; 0.97 sec.
+Execute           ap_eval exec -ignorestderr /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/xilinx-legacy-rewriter /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/miner.pp.0.cpp -- -std=c++11 -fhls -ferror-limit=0 > /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/xilinx-legacy-rewriter.miner.pp.0.cpp.out.log 2> /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/xilinx-legacy-rewriter.miner.pp.0.cpp.err.log 
+Command           ap_eval done; 0.36 sec.
+Command         tidy_31 done; 1.35 sec.
+INFO-FLOW: Done: tidy-3.1 CDT preprocess time: 2.2 seconds per iteration
+INFO-FLOW: Pragma Handling...
+Execute         tidy_31 xilinx-ssdm-intrinsics-arguments /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/miner.pragma.1.cpp std=c++11 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-ssdm-intrinsics-arguments -quiet -fix-errors /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/miner.pragma.1.cpp -- -std=c++11 -fhls -ferror-limit=0
+Command         tidy_31 done; 0.59 sec.
+Execute         ap_part_info -name xc7z020-clg484-1 -data info 
+INFO-FLOW: Processing labels
+Execute         clang -src /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/miner.pragma.2.cpp  -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions  -D__llvm__  -w  "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/miner.pragma.2.cpp"  -std=c++11  -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -g -o "/home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/miner.bc" 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions -D__llvm__ -w /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/miner.pragma.2.cpp -std=c++11 -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -g -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/miner.bc
+Command         clang done; 1.38 sec.
+INFO-FLOW: Linking Debug ...
+Execute         llvm-ld /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/dut.g.bc /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/sha256.g.bc /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/util.g.bc /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/miner.g.bc -hls-opt -except-internalize hash1 -L/opt/xilinx/Vivado/2019.2/lnx64/lib -lhlsm -lhlsmc++ -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/a.g 
+Command         llvm-ld done; 0.69 sec.
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:34 ; elapsed = 00:00:39 . Memory (MB): peak = 1168.156 ; gain = 530.125 ; free physical = 4848 ; free virtual = 14025
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:34 ; elapsed = 00:00:39 . Memory (MB): peak = 1168.156 ; gain = 530.125 ; free physical = 4848 ; free virtual = 14025
+Execute         get_config_sdx -target 
+Execute         opt_and_import_c a -opt_level=2 -skip_syncheck=0 -ng=0 -keep_printf=0 
+Execute           cleanup_all_models 
+INFO: [HLS 200-10] Starting code transformations ...
+Execute           transform -promote-dbg-pointer /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/a.pp.bc -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/a.pp.0.bc -f 
+Execute           llvm-ld /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/a.pp.0.bc -disable-opt -L/opt/xilinx/Vivado/2019.2/lnx64/lib -lfloatconversion -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/a.g.0 
+Command           llvm-ld done; 0.64 sec.
+INFO-FLOW: Running Standard Transforms...
+Execute           transform -hls -share-std-xform -demangle-name -inline-byval-memcpy -always-inline -promote-dbg-pointer -interface-preproc -mem2reg -scalarrepl -mem2reg -keep-read-access -instcombine -dce -promote-dbg-pointer -bitop-raise -loop-simplify -indvarspre -indvars -loop-simplify -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -simplifycfg -mem2reg -globalopt -global-constprop -deadargelim -instcombine -simplifycfg -prune-eh -simplifycfg -scalarrepl -instcombine -reassociate -licm -simplifycfg -loop-simplify -indvars -instcombine -simplifycfg -mem2reg -loop-simplify -indvars -instcombine -gvn -gvn -instcombine -adce -break-crit-edges -simplifycfg -loop-delete -global-array-opt -dce -dse -adce -find-syn-modules -top hash1 -deadargelim -mem2reg -instcombine -dce -presyn-prepare -auto-rom-infer -interface-preproc -syn-check -check-rec-only -find-region -simplifycfg -func-extr -function-inline -globaldce -mem2reg -instcombine -dce -gvn -globaldce -adce -adse -constprop -instcombine -bit-constprop -instcombine -dce -simplifycfg -bitop-raise -simplifycfg -dce -loop-delete -reassociate -globalopt -global-privatize -mem2reg -dce -global-constprop -pointer-simplify -constprop -dce -func-inst -deadargelim -auto-shift-reg-idiom -promote-dbg-pointer -norm-name /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/a.g.0.bc -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/a.g.1.bc -f -phase std-opt 
+INFO: [XFORM 203-603] Inlining function 'rotateInt' into 'sig1' (sha256.cpp:52).
+INFO: [XFORM 203-603] Inlining function 'rotateInt' into 'sig1' (sha256.cpp:52).
+INFO: [XFORM 203-603] Inlining function 'rotateInt' into 'sig0' (sha256.cpp:47).
+INFO: [XFORM 203-603] Inlining function 'rotateInt' into 'sig0' (sha256.cpp:47).
+INFO: [XFORM 203-603] Inlining function 'rotateInt' into 'Sig1f' (sha256.cpp:42).
+INFO: [XFORM 203-603] Inlining function 'rotateInt' into 'Sig1f' (sha256.cpp:42).
+INFO: [XFORM 203-603] Inlining function 'rotateInt' into 'Sig1f' (sha256.cpp:42).
+INFO: [XFORM 203-603] Inlining function 'rotateInt' into 'Sig0f' (sha256.cpp:37).
+INFO: [XFORM 203-603] Inlining function 'rotateInt' into 'Sig0f' (sha256.cpp:37).
+INFO: [XFORM 203-603] Inlining function 'rotateInt' into 'Sig0f' (sha256.cpp:37).
+INFO: [XFORM 203-603] Inlining function 'sig1' into 'computeHashRound' (sha256.cpp:108).
+INFO: [XFORM 203-603] Inlining function 'sig0' into 'computeHashRound' (sha256.cpp:108).
+INFO: [XFORM 203-603] Inlining function 'Ch' into 'computeHashRound' (sha256.cpp:124).
+INFO: [XFORM 203-603] Inlining function 'Maj' into 'computeHashRound' (sha256.cpp:125).
+INFO: [XFORM 203-603] Inlining function 'Sig0f' into 'computeHashRound' (sha256.cpp:126).
+INFO: [XFORM 203-603] Inlining function 'Sig1f' into 'computeHashRound' (sha256.cpp:127).
+Command           transform done; 0.14 sec.
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:35 ; elapsed = 00:00:40 . Memory (MB): peak = 1168.156 ; gain = 530.125 ; free physical = 4830 ; free virtual = 14010
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO-FLOW: Checking Synthesizability 1/2..
+Execute           transform -hls -syn-check -check-rec-only -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -function-uniquify -directive-preproc -mem2reg -dse -dce -auto-rom-infer -dce -pag -array-normalize -instcombine -dce -warn-fifo-pointer -array-seg-normalize -instcombine -dce -array-flatten -instcombine -dce -array-burst -dce -deadargelim -promote-global-argument -simplifycfg -mem2reg -globaldce -dce -deadargelim -dce -instcombine -function-inline -globaldce -dce -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -dse -adse -instcombine -ptrLegalization -simplifycfg -dce -instcombine -pointer-simplify -ptrArgReplace -dce -instcombine -resolve-double-ptr -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -ptrLegalization -simplifycfg -deadargelim -instcombine -dce -inst-simplify -function-uniquify -directive-preproc -mem2reg -dse -dce -globaldce -check-dspbuiltin /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/a.g.1.bc -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/a.g.2.prechk.bc -f 
+INFO-FLOW: Checking Synthesizability 2/2..
+Execute           transform -syn-check /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/a.g.2.prechk.bc -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/a.g.2.bc -f -phase syn-check 
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:35 ; elapsed = 00:00:40 . Memory (MB): peak = 1168.824 ; gain = 530.793 ; free physical = 4811 ; free virtual = 13993
+INFO-FLOW: Compiler optimizing ...
+INFO-FLOW: Share syncheck's 1.bc for syn flow: copy /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/a.g.1.bc to /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/a.o.1.bc
+INFO-FLOW: Presyn 1...
+Execute           transform -hls -tmp /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db -interface-port-rename -type-info -function-uniquify -directive-preproc -mem2reg -dse -dce -disaggr -scalarrepl -norm-name -deadargelim -mem2reg -instcombine -dce -simplifycfg -auto-rom-infer -dce -function-uniquify -resource-proc -clib-intrinsic-prepare -dce -func-buffer -dce -pag -array-normalize -func-legal -instcombine -gvn -constprop -dce -simplifycfg -mem2reg -globaldce -resolve-double-ptr -dce -deadargelim -dce -instcombine -ptrArgReplace -mem2reg -dce -array-seg-normalize -deadargelim -instcombine -dce -pointer-simplify -dce -port-alignment -dce -interface-preproc -data-pack -instcombine -dce -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -loop-simplify -indvars -instcombine -gvn -loop-simplify -mem2reg -dce -find-region -instcombine -auto-loop-pipeline -inst-simplify -interface-preproc -cfgopt -instcombine -indvars -auto-loop-unroll -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -clean-region -attach-range -gvn -inst-simplify -constprop -simplifycfg -dce -pointer-simplify -dce -globalopt -constprop -dce -array-promote -constprop -dce -ptrArgReplace -mem2reg -simplifycfg -dce -auto-par -instcombine -dce -array-transform-check -array-reshape -instcombine -simplifycfg -dce -ptrArgReplace -deadargelim -mem2reg -instcombine -simplifycfg -dce -indvars -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -duplicate-dataflow-processes -globaldce -instcombine -array-partition -instcombine -simplifycfg -dce -ptrArgReplace -global-constprop -deadargelim -mem2reg -func-legal -dce -global-constprop -deadargelim -mem2reg -simplifycfg -dce -merge-param -deadargelim -globalopt -constprop -dce -array-promote -constprop -dce -ptrArgReplace -mem2reg -simplifycfg -dce -mem-intrinsic-preproc -dce -global-internalize -global-privatize -mem2reg -globaldce -promote-global-argument -ptrArgReplace -mem2reg -dce -globalopt -mergereturn -simplify-global-access -mem2reg -dce -pointer-simplify -dce -functionattrs -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -dce -norm-name -function-inline -complex-op-raise -inst-simplify -globaldce -func-inst -constprop -instcombine -simplifycfg -dce -func-legal -dce -loop-bound -arraycheck -bitwidthmin -on-by-dataflow -loop-delete -instcombine -simplifycfg -globaldce -dce -gvn -deadargelim -dce -loop-simplify -clean-region -simplifycfg -propagate-stable-arguments -loop-stream -instcombine -simplifycfg -dce -globaldce -duplicate-dataflow-processes -stream-intrinsic-preproc -dce -check-ap-stream -loop-simplify -eliminate-keepreads -extract-dataflow-in-loop -loop-simplify -dce -gvn -deadargelim -dse -check-dataflow-syntax -legalize-stream-variable -legalize-global -extract-subproc -dce -dead-channel-elimination -canonicalize-gep -globaldce -dce -gvn -deadargelim -annotate-dataflow-channels -scalar-propagation -deadargelim -globaldce -mem2reg -check-dataflow-channels -function-stream -dce -globaldce -prop-fifo-spec -internal-stream-gen -canonicalize-gep -globaldce -dce -gvn -deadargelim -mergereturn -indvars -loop-simplify -instcombine -array-stream -array-seg-normalize -array-partition -func-legal -instcombine -simplifycfg -dce -bundle-memfifo-ops -deadargelim -function-uniquify -directive-preproc -mem2reg -dse -dce -group-axi-access -licm -simplifycfg -dce -loop-delete -norm-name /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/a.o.1.bc -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/a.o.1.tmp.bc -f 
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'computeHashRound' (sha256.cpp:93).
+INFO: [HLS 200-489] Unrolling loop 'Loop-1' (sha256.cpp:182) in function 'hash1' completely with a factor of 8.
+INFO: [HLS 200-489] Unrolling loop 'Loop-3' (sha256.cpp:195) in function 'hash1' completely with a factor of 8.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1' (sha256.cpp:60) in function 'prepareMessage' completely with a factor of 16.
+WARNING: [XFORM 203-503] Cannot unroll loop 'Loop-3.1' (sha256.cpp:85) in function 'prepareMessage' completely: variable loop bound.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1' (sha256.cpp:103) in function 'computeHashRound' completely with a factor of 64.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2' (sha256.cpp:122) in function 'computeHashRound' completely with a factor of 64.
+INFO: [XFORM 203-101] Partitioning array 'M.V' (sha256.cpp:176) in dimension 2 completely.
+INFO: [XFORM 203-101] Partitioning array 'H.V' (sha256.cpp:179) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'K'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'W.V' (sha256.cpp:99) in dimension 1 completely.
+INFO: [XFORM 203-721] Changing loop 'Loop_1_proc' (sha256.cpp:190) to a process function for dataflow in function 'hash1'.
+WARNING: [XFORM 203-713] All the elements of global array 'M[0].V' should be updated in process function 'prepareMessage', otherwise it may not be synthesized correctly.
+WARNING: [XFORM 203-713] All the elements of global array 'M[1].V' should be updated in process function 'prepareMessage', otherwise it may not be synthesized correctly.
+WARNING: [XFORM 203-713] All the elements of global array 'M[2].V' should be updated in process function 'prepareMessage', otherwise it may not be synthesized correctly.
+WARNING: [XFORM 203-713] All the elements of global array 'M[3].V' should be updated in process function 'prepareMessage', otherwise it may not be synthesized correctly.
+WARNING: [XFORM 203-713] All the elements of global array 'M[4].V' should be updated in process function 'prepareMessage', otherwise it may not be synthesized correctly.
+WARNING: [XFORM 203-713] All the elements of global array 'M[5].V' should be updated in process function 'prepareMessage', otherwise it may not be synthesized correctly.
+WARNING: [XFORM 203-713] All the elements of global array 'M[6].V' should be updated in process function 'prepareMessage', otherwise it may not be synthesized correctly.
+WARNING: [XFORM 203-713] All the elements of global array 'M[7].V' should be updated in process function 'prepareMessage', otherwise it may not be synthesized correctly.
+WARNING: [XFORM 203-713] All the elements of global array 'M[8].V' should be updated in process function 'prepareMessage', otherwise it may not be synthesized correctly.
+WARNING: [XFORM 203-713] All the elements of global array 'M[9].V' should be updated in process function 'prepareMessage', otherwise it may not be synthesized correctly.
+WARNING: [XFORM 203-713] All the elements of global array 'M[10].V' should be updated in process function 'prepareMessage', otherwise it may not be synthesized correctly.
+WARNING: [XFORM 203-713] All the elements of global array 'M[11].V' should be updated in process function 'prepareMessage', otherwise it may not be synthesized correctly.
+WARNING: [XFORM 203-713] All the elements of global array 'M[12].V' should be updated in process function 'prepareMessage', otherwise it may not be synthesized correctly.
+WARNING: [XFORM 203-713] All the elements of global array 'M[13].V' should be updated in process function 'prepareMessage', otherwise it may not be synthesized correctly.
+WARNING: [XFORM 203-713] All the elements of global array 'M[14].V' should be updated in process function 'prepareMessage', otherwise it may not be synthesized correctly.
+WARNING: [XFORM 203-713] All the elements of global array 'M[15].V' should be updated in process function 'prepareMessage', otherwise it may not be synthesized correctly.
+WARNING: [XFORM 203-713] All the elements of global array 'outputlocation.V' should be updated in process function 'Block_.preheader.0_proc', otherwise it may not be synthesized correctly.
+INFO: [XFORM 203-712] Applying dataflow to function 'hash1', detected/extracted 3 process function(s): 
+	 'prepareMessage'
+	 'Loop_1_proc'
+	 'Block_.preheader.0_proc'.
+Command           transform done; 1.72 sec.
+INFO-FLOW: Presyn 2...
+Execute           transform -hls -keep-callgraph -scalarrepl -mem2reg -port-alignment -attach-range -dce -pipe-mux-gen -indvars -loop-bound -inst-simplify -instcombine -dce -merge-array-access -mem2reg -dce -clean-region -mergereturn -if-conv -instcombine -dce -constprop -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -scalarrepl -mem2reg -global-constprop -deadargelim -deadargelim -instcombine -dce -simplifycfg -ptrArgReplace -mem2reg -function-inline -globaldce -mem2reg -instcombine -dce -expr-balance -instcombine -dce -bitwidthmin -interface-preproc -directive-preproc -inst-rectify -instcombine -dce -functionattrs -constprop -instcombine -bit-constprop -simplify-global-access -globalopt -globaldce -inst-simplify -instcombine -elimdeaddata -dce -loop-delete -simplifycfg -loop-simplify -auto-burst -norm-name /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/a.o.1.tmp.bc -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/a.o.2.bc -f -phase presyn 
+INFO: [XFORM 203-11] Balancing expressions in function 'computeHashRound' (sha256.cpp:93)...601 expression(s) balanced.
+Command           transform done; 1.32 sec.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:38 ; elapsed = 00:00:43 . Memory (MB): peak = 1168.824 ; gain = 530.793 ; free physical = 4750 ; free virtual = 13933
+INFO-FLOW: Building ssdm...
+Execute           transform -hls -function-uniquify -auto-function-inline -globaldce -ptrArgReplace -mem2reg -dce -reset-lda -loop-simplify -indvars -licm -loop-dep -loop-bound -licm -loop-simplify -flattenloopnest -array-flatten -gvn -instcombine -dce -array-map -dce -func-legal -gvn -adce -instcombine -cfgopt -simplifycfg -loop-simplify -array-burst -promote-global-argument -dce -ptrLegalization -axi4-lower -array-seg-normalize -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -gvn -gvn -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -dse -adse -adce -licm -inst-simplify -dce -globaldce -instcombine -array-stream -eliminate-keepreads -instcombine -dce -deadargelim -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -mem2reg -disaggr -norm-name -mem2reg -instcombine -dse -adse -adce -ptrLegalization -dce -auto-rom-infer -array-flatten -dce -instcombine -check-doubleptr -loop-rot -constprop -cfgopt -simplifycfg -loop-simplify -indvars -pointer-simplify -dce -loop-bound -loop-simplify -loop-preproc -constprop -global-constprop -gvn -mem2reg -instcombine -dce -loop-bound -loop-merge -dce -bitwidthmin -deadargelim -dce -canonicalize-dataflow -dce -scalar-propagation -deadargelim -globaldce -mem2reg -read-loop-dep -interface-preproc -directive-preproc -interface-gen -bram-byte-enable -deadargelim -inst-simplify -dce -gvn -mem2reg -instcombine -dce -adse -loop-bound -instcombine -cfgopt -simplifycfg -loop-simplify -clean-region -io-protocol -find-region -mem2reg -bitop-raise -complex-op-raise -inst-simplify -inst-rectify -instcombine -adce -deadargelim -loop-simplify -phi-opt -bitop-raise -cfgopt -simplifycfg -strip-dead-prototypes -interface-lower -bitop-lower -intrinsic-lower -auto-function-inline -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -inst-simplify -simplifycfg -loop-simplify -mergereturn -inst-simplify -inst-rectify -dce -load-elim -bitop-lower -loop-rewind -pointer-simplify -dce -cfgopt -dce -loop-bound -loop-dep -read-loop-dep -dce -check-stream -norm-name -legalize -validate-dataflow -inst-clarity -bitwidth -dump-loop-dep-to-ir -check-all-ssdm -cdfg-build /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/a.o.2.bc -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/a.o.3.bc -f -phase build-ssdm 
+WARNING: [XFORM 203-631] Renaming function 'Block_.preheader.0_proc' to 'Block_.preheader.0_p' (sha256.cpp:197:2)
+INFO: [HLS 200-472] Inferring partial write operation for 'M[0].V' (sha256.cpp:62:2)
+INFO: [HLS 200-472] Inferring partial write operation for 'message.V' (sha256.cpp:71:2)
+INFO: [HLS 200-472] Inferring partial write operation for 'message.V' (sha256.cpp:75:9)
+INFO: [HLS 200-472] Inferring partial write operation for 'message.V' (sha256.cpp:77:9)
+INFO: [HLS 200-472] Inferring partial write operation for 'message.V' (sha256.cpp:80:9)
+INFO: [HLS 200-472] Inferring partial write operation for 'message.V' (sha256.cpp:82:9)
+INFO: [HLS 200-472] Inferring partial write operation for 'M[0].V' (sha256.cpp:87:2)
+Command           transform done; 7.95 sec.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:46 ; elapsed = 00:00:51 . Memory (MB): peak = 1232.156 ; gain = 594.125 ; free physical = 4681 ; free virtual = 13867
+INFO-FLOW: Finish building internal data model.
+Command         opt_and_import_c done; 12.02 sec.
+Command       elaborate done; 44.24 sec.
+Execute       autosyn -from_csynth_design=1 
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO-FLOW: Synthesizing C/C++ design ...
+INFO: [HLS 200-10] Synthesizing 'hash1' ...
+Execute         ap_set_top_model hash1 
+WARNING: [SYN 201-103] Legalizing function name 'Block_.preheader.0_p' to 'Block_preheader_0_p'.
+Execute         get_model_list hash1 -filter all-wo-channel -topdown 
+Execute         preproc_iomode -model hash1 
+Execute         preproc_iomode -model Block_.preheader.0_p 
+Execute         preproc_iomode -model Loop_1_proc 
+Execute         preproc_iomode -model computeHashRound 
+Execute         preproc_iomode -model prepareMessage 
+Execute         get_model_list hash1 -filter all-wo-channel 
+INFO-FLOW: Model list for configure: prepareMessage computeHashRound Loop_1_proc Block_.preheader.0_p hash1
+INFO-FLOW: Configuring Module : prepareMessage ...
+Execute         set_default_model prepareMessage 
+Execute         apply_spec_resource_limit prepareMessage 
+INFO-FLOW: Configuring Module : computeHashRound ...
+Execute         set_default_model computeHashRound 
+Execute         apply_spec_resource_limit computeHashRound 
+INFO-FLOW: Configuring Module : Loop_1_proc ...
+Execute         set_default_model Loop_1_proc 
+Execute         apply_spec_resource_limit Loop_1_proc 
+INFO-FLOW: Configuring Module : Block_.preheader.0_p ...
+Execute         set_default_model Block_.preheader.0_p 
+Execute         apply_spec_resource_limit Block_.preheader.0_p 
+INFO-FLOW: Configuring Module : hash1 ...
+Execute         set_default_model hash1 
+Execute         apply_spec_resource_limit hash1 
+INFO-FLOW: Model list for preprocess: prepareMessage computeHashRound Loop_1_proc Block_.preheader.0_p hash1
+INFO-FLOW: Preprocessing Module: prepareMessage ...
+Execute         set_default_model prepareMessage 
+Execute         cdfg_preprocess -model prepareMessage 
+Execute         rtl_gen_preprocess prepareMessage 
+INFO-FLOW: Preprocessing Module: computeHashRound ...
+Execute         set_default_model computeHashRound 
+Execute         cdfg_preprocess -model computeHashRound 
+Execute         rtl_gen_preprocess computeHashRound 
+INFO-FLOW: Preprocessing Module: Loop_1_proc ...
+Execute         set_default_model Loop_1_proc 
+Execute         cdfg_preprocess -model Loop_1_proc 
+Execute         rtl_gen_preprocess Loop_1_proc 
+INFO-FLOW: Preprocessing Module: Block_.preheader.0_p ...
+Execute         set_default_model Block_.preheader.0_p 
+Execute         cdfg_preprocess -model Block_.preheader.0_p 
+Execute         rtl_gen_preprocess Block_.preheader.0_p 
+INFO-FLOW: Preprocessing Module: hash1 ...
+Execute         set_default_model hash1 
+Execute         cdfg_preprocess -model hash1 
+Execute         rtl_gen_preprocess hash1 
+INFO-FLOW: Model list for synthesis: prepareMessage computeHashRound Loop_1_proc Block_.preheader.0_p hash1
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'prepareMessage' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model prepareMessage 
+Execute         schedule -model prepareMessage 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'Loop 2'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 51.08 seconds; current allocated memory: 238.715 MB.
+Execute         syn_report -verbosereport -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/prepareMessage.verbose.sched.rpt 
+Execute         db_write -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/prepareMessage.sched.adb -f 
+INFO-FLOW: Finish scheduling prepareMessage.
+Execute         set_default_model prepareMessage 
+Execute         bind -model prepareMessage 
+BIND OPTION: model=prepareMessage
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.12 seconds; current allocated memory: 239.547 MB.
+Execute         syn_report -verbosereport -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/prepareMessage.verbose.bind.rpt 
+Execute         db_write -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/prepareMessage.bind.adb -f 
+INFO-FLOW: Finish binding prepareMessage.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'computeHashRound' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model computeHashRound 
+Execute         schedule -model computeHashRound 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'computeHashRound'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 82.
+INFO: [SCHED 204-11] Finished scheduling.
+Command         schedule done; 2.51 sec.
+INFO: [HLS 200-111]  Elapsed time: 2.64 seconds; current allocated memory: 249.173 MB.
+Execute         syn_report -verbosereport -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/computeHashRound.verbose.sched.rpt 
+Command         syn_report done; 0.46 sec.
+Execute         db_write -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/computeHashRound.sched.adb -f 
+Command         db_write done; 0.74 sec.
+INFO-FLOW: Finish scheduling computeHashRound.
+Execute         set_default_model computeHashRound 
+Execute         bind -model computeHashRound 
+BIND OPTION: model=computeHashRound
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+Command         bind done; 0.49 sec.
+INFO: [HLS 200-111]  Elapsed time: 1.69 seconds; current allocated memory: 261.774 MB.
+Execute         syn_report -verbosereport -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/computeHashRound.verbose.bind.rpt 
+Command         syn_report done; 1.04 sec.
+Execute         db_write -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/computeHashRound.bind.adb -f 
+Command         db_write done; 0.8 sec.
+INFO-FLOW: Finish binding computeHashRound.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Loop_1_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model Loop_1_proc 
+Execute         schedule -model Loop_1_proc 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'Loop 1'.
+WARNING: [SCHED 204-68] The II Violation in module 'Loop_1_proc' (Loop: Loop 1): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0)
+   between 'extractvalue' operation ('H[7].V', sha256.cpp:192->sha256.cpp:153) and 'call' operation ('call_ret_i', sha256.cpp:192->sha256.cpp:153) to 'computeHashRound'.
+WARNING: [SCHED 204-68] The II Violation in module 'Loop_1_proc' (Loop: Loop 1): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 0)
+   between 'extractvalue' operation ('H[7].V', sha256.cpp:192->sha256.cpp:153) and 'call' operation ('call_ret_i', sha256.cpp:192->sha256.cpp:153) to 'computeHashRound'.
+WARNING: [SCHED 204-68] The II Violation in module 'Loop_1_proc' (Loop: Loop 1): Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 0)
+   between 'extractvalue' operation ('H[7].V', sha256.cpp:192->sha256.cpp:153) and 'call' operation ('call_ret_i', sha256.cpp:192->sha256.cpp:153) to 'computeHashRound'.
+WARNING: [SCHED 204-68] The II Violation in module 'Loop_1_proc' (Loop: Loop 1): Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 0)
+   between 'extractvalue' operation ('H[7].V', sha256.cpp:192->sha256.cpp:153) and 'call' operation ('call_ret_i', sha256.cpp:192->sha256.cpp:153) to 'computeHashRound'.
+WARNING: [SCHED 204-68] The II Violation in module 'Loop_1_proc' (Loop: Loop 1): Unable to enforce a carried dependence constraint (II = 67, distance = 1, offset = 0)
+   between 'extractvalue' operation ('H[7].V', sha256.cpp:192->sha256.cpp:153) and 'call' operation ('call_ret_i', sha256.cpp:192->sha256.cpp:153) to 'computeHashRound'.
+WARNING: [SCHED 204-68] The II Violation in module 'Loop_1_proc' (Loop: Loop 1): Unable to enforce a carried dependence constraint (II = 74, distance = 1, offset = 0)
+   between 'extractvalue' operation ('H[7].V', sha256.cpp:192->sha256.cpp:153) and 'call' operation ('call_ret_i', sha256.cpp:192->sha256.cpp:153) to 'computeHashRound'.
+WARNING: [SCHED 204-68] The II Violation in module 'Loop_1_proc' (Loop: Loop 1): Unable to enforce a carried dependence constraint (II = 78, distance = 1, offset = 0)
+   between 'extractvalue' operation ('H[7].V', sha256.cpp:192->sha256.cpp:153) and 'call' operation ('call_ret_i', sha256.cpp:192->sha256.cpp:153) to 'computeHashRound'.
+WARNING: [SCHED 204-68] The II Violation in module 'Loop_1_proc' (Loop: Loop 1): Unable to enforce a carried dependence constraint (II = 80, distance = 1, offset = 0)
+   between 'extractvalue' operation ('H[7].V', sha256.cpp:192->sha256.cpp:153) and 'call' operation ('call_ret_i', sha256.cpp:192->sha256.cpp:153) to 'computeHashRound'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 81, Depth = 83.
+WARNING: [SCHED 204-21] Estimated clock period (10.177ns) exceeds the target (target clock period: 10ns, clock uncertainty: 1.25ns, effective delay budget: 8.75ns).
+WARNING: [SCHED 204-21] The critical path in module 'Loop_1_proc' consists of the following:
+	'call' operation ('call_ret_i', sha256.cpp:192->sha256.cpp:153) to 'computeHashRound' [48]  (6.92 ns)
+	'phi' operation ('H[5].V') with incoming values : ('H[5].V', sha256.cpp:192->sha256.cpp:153) [34]  (0 ns)
+	'call' operation ('call_ret_i', sha256.cpp:192->sha256.cpp:153) to 'computeHashRound' [48]  (3.25 ns)
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 1.94 seconds; current allocated memory: 263.303 MB.
+Execute         syn_report -verbosereport -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/Loop_1_proc.verbose.sched.rpt 
+Execute         db_write -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/Loop_1_proc.sched.adb -f 
+INFO-FLOW: Finish scheduling Loop_1_proc.
+Execute         set_default_model Loop_1_proc 
+Execute         bind -model Loop_1_proc 
+BIND OPTION: model=Loop_1_proc
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+Command         bind done; 0.55 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.63 seconds; current allocated memory: 264.766 MB.
+Execute         syn_report -verbosereport -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/Loop_1_proc.verbose.bind.rpt 
+Command         syn_report done; 0.68 sec.
+Execute         db_write -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/Loop_1_proc.bind.adb -f 
+INFO-FLOW: Finish binding Loop_1_proc.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Block_preheader_0_p' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model Block_.preheader.0_p 
+Execute         schedule -model Block_.preheader.0_p 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.75 seconds; current allocated memory: 265.875 MB.
+Execute         syn_report -verbosereport -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/Block_preheader_0_p.verbose.sched.rpt 
+Execute         db_write -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/Block_preheader_0_p.sched.adb -f 
+INFO-FLOW: Finish scheduling Block_.preheader.0_p.
+Execute         set_default_model Block_.preheader.0_p 
+Execute         bind -model Block_.preheader.0_p 
+BIND OPTION: model=Block_.preheader.0_p
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 265.983 MB.
+Execute         syn_report -verbosereport -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/Block_preheader_0_p.verbose.bind.rpt 
+Execute         db_write -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/Block_preheader_0_p.bind.adb -f 
+INFO-FLOW: Finish binding Block_.preheader.0_p.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'hash1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model hash1 
+Execute         schedule -model hash1 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.04 seconds; current allocated memory: 266.160 MB.
+Execute         syn_report -verbosereport -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.verbose.sched.rpt 
+Execute         db_write -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.sched.adb -f 
+INFO-FLOW: Finish scheduling hash1.
+Execute         set_default_model hash1 
+Execute         bind -model hash1 
+BIND OPTION: model=hash1
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+Command         bind done; 0.52 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.54 seconds; current allocated memory: 266.981 MB.
+Execute         syn_report -verbosereport -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.verbose.bind.rpt 
+Command         syn_report done; 0.73 sec.
+Execute         db_write -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.bind.adb -f 
+INFO-FLOW: Finish binding hash1.
+Execute         get_model_list hash1 -filter all-wo-channel 
+INFO-FLOW: Preprocessing for RTLGen ...
+Execute         rtl_gen_preprocess prepareMessage 
+Execute         rtl_gen_preprocess computeHashRound 
+Execute         rtl_gen_preprocess Loop_1_proc 
+Execute         rtl_gen_preprocess Block_.preheader.0_p 
+Execute         rtl_gen_preprocess hash1 
+INFO-FLOW: Model list for RTL generation: prepareMessage computeHashRound Loop_1_proc Block_.preheader.0_p hash1
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'prepareMessage' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         get_config_rtl -module_prefix 
+Execute         get_config_rtl -module_auto_prefix 
+Execute         create_rtl_model prepareMessage -vendor xilinx -mg_file /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/prepareMessage.compgen.tcl 
+INFO: [SYN 201-210] Renamed object name 'prepareMessage_message_V' to 'prepareMessage_mebkb' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'prepareMessage'.
+INFO: [HLS 200-111]  Elapsed time: 0.78 seconds; current allocated memory: 269.021 MB.
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.rtl_wrap.cfg.tcl 
+Execute         gen_rtl prepareMessage -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/syn/systemc/prepareMessage -synmodules prepareMessage computeHashRound Loop_1_proc Block_.preheader.0_p hash1 
+Execute         gen_rtl prepareMessage -style xilinx -f -lang vhdl -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/syn/vhdl/prepareMessage 
+Execute         gen_rtl prepareMessage -style xilinx -f -lang vlog -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/syn/verilog/prepareMessage 
+Execute         syn_report -csynth -model prepareMessage -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/syn/report/prepareMessage_csynth.rpt 
+Execute         syn_report -rtlxml -model prepareMessage -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/syn/report/prepareMessage_csynth.xml 
+Execute         syn_report -verbosereport -model prepareMessage -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/prepareMessage.verbose.rpt 
+Execute         db_write -model prepareMessage -f -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/prepareMessage.adb 
+Execute         gen_tb_info prepareMessage -p /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/prepareMessage 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'computeHashRound' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         get_config_rtl -module_prefix 
+Execute         get_config_rtl -module_auto_prefix 
+Execute         create_rtl_model computeHashRound -vendor xilinx -mg_file /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/computeHashRound.compgen.tcl 
+INFO: [RTGEN 206-104] Estimated max fanout for 'computeHashRound' is 91456 from HDL expression: (1'b0 == ap_block_pp0_stage0_11001)
+INFO: [RTGEN 206-100] Finished creating RTL model for 'computeHashRound'.
+Command         create_rtl_model done; 0.43 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.69 seconds; current allocated memory: 297.973 MB.
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.rtl_wrap.cfg.tcl 
+Execute         gen_rtl computeHashRound -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/syn/systemc/computeHashRound -synmodules prepareMessage computeHashRound Loop_1_proc Block_.preheader.0_p hash1 
+Execute         gen_rtl computeHashRound -style xilinx -f -lang vhdl -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/syn/vhdl/computeHashRound 
+Execute         gen_rtl computeHashRound -style xilinx -f -lang vlog -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/syn/verilog/computeHashRound 
+Execute         syn_report -csynth -model computeHashRound -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/syn/report/computeHashRound_csynth.rpt 
+Command         syn_report done; 0.67 sec.
+Execute         syn_report -rtlxml -model computeHashRound -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/syn/report/computeHashRound_csynth.xml 
+Command         syn_report done; 0.33 sec.
+Execute         syn_report -verbosereport -model computeHashRound -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/computeHashRound.verbose.rpt 
+Command         syn_report done; 1.44 sec.
+Execute         db_write -model computeHashRound -f -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/computeHashRound.adb 
+Command         db_write done; 2.87 sec.
+Execute         gen_tb_info computeHashRound -p /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/computeHashRound 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Loop_1_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         get_config_rtl -module_prefix 
+Execute         get_config_rtl -module_auto_prefix 
+Execute         create_rtl_model Loop_1_proc -vendor xilinx -mg_file /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/Loop_1_proc.compgen.tcl 
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Loop_1_proc'.
+INFO: [HLS 200-111]  Elapsed time: 5.89 seconds; current allocated memory: 354.315 MB.
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.rtl_wrap.cfg.tcl 
+Execute         gen_rtl Loop_1_proc -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/syn/systemc/Loop_1_proc -synmodules prepareMessage computeHashRound Loop_1_proc Block_.preheader.0_p hash1 
+Execute         gen_rtl Loop_1_proc -style xilinx -f -lang vhdl -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/syn/vhdl/Loop_1_proc 
+Execute         gen_rtl Loop_1_proc -style xilinx -f -lang vlog -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/syn/verilog/Loop_1_proc 
+Execute         syn_report -csynth -model Loop_1_proc -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/syn/report/Loop_1_proc_csynth.rpt 
+Execute         syn_report -rtlxml -model Loop_1_proc -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/syn/report/Loop_1_proc_csynth.xml 
+Execute         syn_report -verbosereport -model Loop_1_proc -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/Loop_1_proc.verbose.rpt 
+Command         syn_report done; 0.7 sec.
+Execute         db_write -model Loop_1_proc -f -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/Loop_1_proc.adb 
+Command         db_write done; 0.72 sec.
+Execute         gen_tb_info Loop_1_proc -p /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/Loop_1_proc 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Block_preheader_0_p' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         get_config_rtl -module_prefix 
+Execute         get_config_rtl -module_auto_prefix 
+Execute         create_rtl_model Block_.preheader.0_p -vendor xilinx -mg_file /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/Block_preheader_0_p.compgen.tcl 
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Block_preheader_0_p'.
+INFO: [HLS 200-111]  Elapsed time: 1.51 seconds; current allocated memory: 356.498 MB.
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.rtl_wrap.cfg.tcl 
+Execute         gen_rtl Block_.preheader.0_p -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/syn/systemc/Block_preheader_0_p -synmodules prepareMessage computeHashRound Loop_1_proc Block_.preheader.0_p hash1 
+Execute         gen_rtl Block_.preheader.0_p -style xilinx -f -lang vhdl -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/syn/vhdl/Block_preheader_0_p 
+Execute         gen_rtl Block_.preheader.0_p -style xilinx -f -lang vlog -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/syn/verilog/Block_preheader_0_p 
+Execute         syn_report -csynth -model Block_.preheader.0_p -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/syn/report/Block_preheader_0_p_csynth.rpt 
+Execute         syn_report -rtlxml -model Block_.preheader.0_p -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/syn/report/Block_preheader_0_p_csynth.xml 
+Execute         syn_report -verbosereport -model Block_.preheader.0_p -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/Block_preheader_0_p.verbose.rpt 
+Execute         db_write -model Block_.preheader.0_p -f -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/Block_preheader_0_p.adb 
+Command         db_write done; 0.58 sec.
+Execute         gen_tb_info Block_.preheader.0_p -p /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/Block_preheader_0_p 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'hash1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         get_config_rtl -module_prefix 
+Execute         get_config_rtl -module_auto_prefix 
+Execute         create_rtl_model hash1 -vendor xilinx -mg_file /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.compgen.tcl 
+INFO: [RTGEN 206-500] Setting interface mode on port 'hash1/input_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'hash1/bitlength' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'hash1/outputlocation_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'hash1' to 'ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'hash1'.
+INFO: [HLS 200-111]  Elapsed time: 0.72 seconds; current allocated memory: 359.035 MB.
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.rtl_wrap.cfg.tcl 
+Execute         gen_rtl hash1 -istop -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/syn/systemc/hash1 -synmodules prepareMessage computeHashRound Loop_1_proc Block_.preheader.0_p hash1 
+Execute         gen_rtl hash1 -istop -style xilinx -f -lang vhdl -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/syn/vhdl/hash1 
+Execute         gen_rtl hash1 -istop -style xilinx -f -lang vlog -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/syn/verilog/hash1 
+Execute         syn_report -csynth -model hash1 -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/syn/report/hash1_csynth.rpt 
+Execute         syn_report -rtlxml -model hash1 -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/syn/report/hash1_csynth.xml 
+Execute         syn_report -verbosereport -model hash1 -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.verbose.rpt 
+Command         syn_report done; 0.78 sec.
+Execute         db_write -model hash1 -f -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.adb 
+Command         db_write done; 0.8 sec.
+Execute         gen_tb_info hash1 -p /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1 
+Execute         export_constraint_db -f -tool general -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.constraint.tcl 
+Execute         syn_report -designview -model hash1 -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.design.xml 
+Command         syn_report done; 0.78 sec.
+Execute         get_config_rtl -disable_wave_debug 
+Execute         syn_report -wcfg -model hash1 -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1_dataflow_ana.wcfg 
+Execute         syn_report -protoinst -model hash1 -o /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.protoinst 
+Execute         get_config_debug -directory 
+Execute         sc_get_clocks hash1 
+Execute         get_config_export -vivado_clock 
+Execute         sc_get_portdomain hash1 
+INFO-FLOW: Model list for RTL component generation: prepareMessage computeHashRound Loop_1_proc Block_.preheader.0_p hash1
+INFO-FLOW: Handling components in module [prepareMessage] ... 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/prepareMessage.compgen.tcl 
+INFO-FLOW: Found component prepareMessage_mebkb.
+INFO-FLOW: Append model prepareMessage_mebkb
+INFO-FLOW: Handling components in module [computeHashRound] ... 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/computeHashRound.compgen.tcl 
+INFO-FLOW: Handling components in module [Loop_1_proc] ... 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/Loop_1_proc.compgen.tcl 
+INFO-FLOW: Handling components in module [Block_preheader_0_p] ... 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/Block_preheader_0_p.compgen.tcl 
+INFO-FLOW: Handling components in module [hash1] ... 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.compgen.tcl 
+INFO-FLOW: Found component fifo_w32_d2_A.
+INFO-FLOW: Append model fifo_w32_d2_A
+INFO-FLOW: Found component fifo_w32_d2_A.
+INFO-FLOW: Append model fifo_w32_d2_A
+INFO-FLOW: Found component fifo_w32_d2_A.
+INFO-FLOW: Append model fifo_w32_d2_A
+INFO-FLOW: Found component fifo_w32_d2_A.
+INFO-FLOW: Append model fifo_w32_d2_A
+INFO-FLOW: Found component fifo_w32_d2_A.
+INFO-FLOW: Append model fifo_w32_d2_A
+INFO-FLOW: Found component fifo_w32_d2_A.
+INFO-FLOW: Append model fifo_w32_d2_A
+INFO-FLOW: Found component fifo_w32_d2_A.
+INFO-FLOW: Append model fifo_w32_d2_A
+INFO-FLOW: Found component fifo_w32_d2_A.
+INFO-FLOW: Append model fifo_w32_d2_A
+INFO-FLOW: Found component fifo_w32_d2_A.
+INFO-FLOW: Append model fifo_w32_d2_A
+INFO-FLOW: Append model prepareMessage
+INFO-FLOW: Append model computeHashRound
+INFO-FLOW: Append model Loop_1_proc
+INFO-FLOW: Append model Block_preheader_0_p
+INFO-FLOW: Append model hash1
+INFO-FLOW: Generating RTL model list ...
+INFO-FLOW: All models in this session: prepareMessage_mebkb fifo_w32_d2_A fifo_w32_d2_A fifo_w32_d2_A fifo_w32_d2_A fifo_w32_d2_A fifo_w32_d2_A fifo_w32_d2_A fifo_w32_d2_A fifo_w32_d2_A prepareMessage computeHashRound Loop_1_proc Block_preheader_0_p hash1
+INFO-FLOW: To file: write model prepareMessage_mebkb
+INFO-FLOW: To file: write model fifo_w32_d2_A
+INFO-FLOW: To file: write model fifo_w32_d2_A
+INFO-FLOW: To file: write model fifo_w32_d2_A
+INFO-FLOW: To file: write model fifo_w32_d2_A
+INFO-FLOW: To file: write model fifo_w32_d2_A
+INFO-FLOW: To file: write model fifo_w32_d2_A
+INFO-FLOW: To file: write model fifo_w32_d2_A
+INFO-FLOW: To file: write model fifo_w32_d2_A
+INFO-FLOW: To file: write model fifo_w32_d2_A
+INFO-FLOW: To file: write model prepareMessage
+INFO-FLOW: To file: write model computeHashRound
+INFO-FLOW: To file: write model Loop_1_proc
+INFO-FLOW: To file: write model Block_preheader_0_p
+INFO-FLOW: To file: write model hash1
+INFO-FLOW: Finished generating RTL model list.
+
+
+INFO-FLOW: RTL Generation done.
+INFO-FLOW: CAS Generation done.
+INFO-FLOW: CBC Generation done.
+Execute         syn_report -model hash1 -printsummary 
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were NOT satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 98.26 MHz
+INFO-FLOW: DBG:CMD: auto_generate_csynth_design
+INFO-FLOW: DBG:CMD:     auto_generate --sim-model -phase csynth_design -d /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/global.setting.tcl 
+INFO-FLOW: DBG:CMD: read_platform_lib /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/global.setting.tcl
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/generic/autopilot/common.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/generic/autopilot/APCoreGen.gen 
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/generic/autopilot/op.gen 
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/generic/autopilot/op_simcore.gen 
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/generic/autopilot/interface.gen 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/zynq/zynq.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/xilinx.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/plb46.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/fsl.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/axi4.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/saxilite.gen 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/maxi.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/util.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/xfft.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/xfir.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/dsp48.gen 
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/xilinx_fp.gen 
+INFO-FLOW: DBG:CMD:   using AESL_AUTOCG::g_clock_period=10.000 (was NA)
+INFO-FLOW: DBG:CMD:       generate_ip_cores sim=1 export=0 expOnly=0 dstVlogDir=syn/verilog
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute         ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute         ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/prepareMessage.compgen.tcl 
+INFO: [RTMG 210-278] Implementing memory 'prepareMessage_mebkb_ram (RAM)' using block RAMs.
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/computeHashRound.compgen.tcl 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/Loop_1_proc.compgen.tcl 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/Block_preheader_0_p.compgen.tcl 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.compgen.tcl 
+Execute           send_msg_by_id INFO @200-741@%s hash1_M_0_V_memcore 
+INFO: [HLS 200-741] Implementing PIPO hash1_M_0_V_memcore using a single memory for all blocks
+INFO: [RTMG 210-278] Implementing memory 'hash1_M_0_V_memcore_ram (RAM)' using block RAMs.
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+INFO: [RTMG 210-285] Implementing FIFO 'bitlength_c_U(fifo_w32_d2_A)' using Shift Registers.
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+INFO: [RTMG 210-285] Implementing FIFO 'H_V_7_0_loc_channel_U(fifo_w32_d2_A)' using Shift Registers.
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+INFO: [RTMG 210-285] Implementing FIFO 'H_V_6_0_loc_channel_U(fifo_w32_d2_A)' using Shift Registers.
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+INFO: [RTMG 210-285] Implementing FIFO 'H_V_5_0_loc_channel_U(fifo_w32_d2_A)' using Shift Registers.
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+INFO: [RTMG 210-285] Implementing FIFO 'H_V_4_0_loc_channel_U(fifo_w32_d2_A)' using Shift Registers.
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+INFO: [RTMG 210-285] Implementing FIFO 'H_V_3_0_loc_channel_U(fifo_w32_d2_A)' using Shift Registers.
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+INFO: [RTMG 210-285] Implementing FIFO 'H_V_2_0_loc_channel_U(fifo_w32_d2_A)' using Shift Registers.
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+INFO: [RTMG 210-285] Implementing FIFO 'H_V_1_0_loc_channel_U(fifo_w32_d2_A)' using Shift Registers.
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+INFO: [RTMG 210-285] Implementing FIFO 'H_V_0_0_loc_channel_U(fifo_w32_d2_A)' using Shift Registers.
+Command         ap_source done; 0.26 sec.
+INFO-FLOW: DBG:CMD:     auto_generate -export -impltomg_flag -rtl both -tool Vivado -pcore_version 1.00.a -phase csynth_design -d /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/global.setting.tcl 
+INFO-FLOW: DBG:CMD: read_platform_lib /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/global.setting.tcl
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/generic/autopilot/common.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/generic/autopilot/APCoreGen.gen 
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/generic/autopilot/op.gen 
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/generic/autopilot/op_simcore.gen 
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/generic/autopilot/interface.gen 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/zynq/zynq.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/xilinx.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/plb46.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/fsl.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/axi4.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/saxilite.gen 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/maxi.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/util.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/xfft.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/xfir.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/dsp48.gen 
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/xilinx_fp.gen 
+INFO-FLOW: DBG:CMD:       initCTypeInfo top_module=hash1 xml_exists=0
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.rtl_wrap.cfg.tcl 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.rtl_wrap.cfg.tcl 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.rtl_wrap.cfg.tcl 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+INFO-FLOW: DBG:CMD:       export_impl_rtl
+INFO-FLOW: DBG:CMD:       generate_ip_cores sim=0 export=0 expOnly=0 dstVlogDir=impl/.verilog
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/prepareMessage.compgen.tcl 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/computeHashRound.compgen.tcl 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/Loop_1_proc.compgen.tcl 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/Block_preheader_0_p.compgen.tcl 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.compgen.tcl 
+Execute           send_msg_by_id INFO @200-741@%s hash1_M_0_V_memcore 
+INFO: [HLS 200-741] Implementing PIPO hash1_M_0_V_memcore using a single memory for all blocks
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+INFO-FLOW: DBG:CMD:       generate_ip_cores sim=0 export=1 expOnly=1 dstVlogDir=impl/.pcores/verilog
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/prepareMessage.compgen.tcl 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/computeHashRound.compgen.tcl 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/Loop_1_proc.compgen.tcl 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/Block_preheader_0_p.compgen.tcl 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.compgen.tcl 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+Execute           source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute         ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute         ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+INFO-FLOW: DBG:CMD:       generate_ip_cores sim=0 export=0 expOnly=0 dstVlogDir=impl/.pcores/verilog_sim
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/prepareMessage.compgen.tcl 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/computeHashRound.compgen.tcl 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/Loop_1_proc.compgen.tcl 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/Block_preheader_0_p.compgen.tcl 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.compgen.tcl 
+Execute           send_msg_by_id INFO @200-741@%s hash1_M_0_V_memcore 
+INFO: [HLS 200-741] Implementing PIPO hash1_M_0_V_memcore using a single memory for all blocks
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute         ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute         ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute         ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute         ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute         ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute         ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.constraint.tcl 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+INFO-FLOW: DBG:CMD:       hasPcoreIpAdapter=false #gSsdmPorts=8
+INFO-FLOW: DBG:CMD: Skipping loadAnalyze_DB, #g_database=3
+INFO-FLOW: DBG:CMD:       generate_json is_phase_csynth=1 g_has_adaptors=false generate_bd_files=0 #modelList=15 #gSsdmPorts=8
+Execute         source /opt/xilinx/Vivado/2019.2/tps/tcl/tcllib1.11.1/fileutil/fileutil.tcl 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute         get_config_export -xo 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute         get_config_sdx -target 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.rtl_wrap.cfg.tcl 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.compgen.dataonly.tcl 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute         ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute         ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.constraint.tcl 
+Execute         sc_get_clocks hash1 
+Execute         ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute         ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute         get_config_debug -directory 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/prepareMessage.tbgen.tcl 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/computeHashRound.tbgen.tcl 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/Loop_1_proc.tbgen.tcl 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/Block_preheader_0_p.tbgen.tcl 
+Execute         source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+Execute         get_config_sdx -target 
+Execute         get_config_sdx -profile 
+Execute         get_config_rtl -kernel_profile 
+Execute         get_config_rtl -stall_sig_gen 
+Execute         get_config_rtl -profile 
+INFO-FLOW: DBG:CMD: add_json_sdx_info kernel file does not exist, skipping opencl info: /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/kernel.internal.xml
+INFO-FLOW: DBG:CMD:       delete-temp-dirs (skipped for debug)
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:59 ; elapsed = 00:01:13 . Memory (MB): peak = 1381.207 ; gain = 743.176 ; free physical = 4803 ; free virtual = 14067
+INFO: [VHDL 208-304] Generating VHDL RTL for hash1.
+INFO: [VLOG 209-307] Generating Verilog RTL for hash1.
+Command       autosyn done; 22.05 sec.
+Command     csynth_design done; 66.29 sec.
+Execute     cosim_design 
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/global.setting.tcl 
+INFO-FLOW: DBG:CMD: read_platform_lib /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/global.setting.tcl
+Execute       source /opt/xilinx/Vivado/2019.2/common/technology/generic/autopilot/common.gen 
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/generic/autopilot/APCoreGen.gen 
+Execute       source /opt/xilinx/Vivado/2019.2/common/technology/generic/autopilot/op.gen 
+Execute       source /opt/xilinx/Vivado/2019.2/common/technology/generic/autopilot/op_simcore.gen 
+Execute       source /opt/xilinx/Vivado/2019.2/common/technology/generic/autopilot/interface.gen 
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute       source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/zynq/zynq.gen 
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/xilinx.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/plb46.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/fsl.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/axi4.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/saxilite.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/maxi.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/util.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/xfft.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/xfir.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/dsp48.gen 
+Execute       source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/xilinx_fp.gen 
+Execute       ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute       ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.rtl_wrap.cfg.tcl 
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+Execute       is_encrypted /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/main_tb.cpp 
+Execute       is_encrypted /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/dut.cpp 
+Execute       is_encrypted /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha256.cpp 
+Execute       is_encrypted /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/util.cpp 
+Execute       is_encrypted /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/miner.cpp 
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+INFO: [COSIM 212-47] Using XSIM for RTL simulation.
+INFO: [COSIM 212-14] Instrumenting C test bench ...
+Execute       ap_part_info -name xc7z020-clg484-1 -data info 
+INFO-FLOW: TB processing: /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/main_tb.cpp /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/./sim/autowrap/testbench/main_tb.cpp_pre.cpp
+Execute       tidy_31 xilinx-tb-xfmat /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/./sim/autowrap/testbench/main_tb.cpp_pre.cpp std=c++11 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-tb-xfmat -quiet -fix-errors /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/./sim/autowrap/testbench/main_tb.cpp_pre.cpp -- -std=c++11 -fhls -ferror-limit=0
+Command       tidy_31 done; 0.75 sec.
+Execute       tidy_31 xilinx-tb31-process /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/./sim/autowrap/testbench/main_tb.cpp_pre.cpp.tb.cpp std=c++11 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-tb31-process -quiet -fix-errors /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/./sim/autowrap/testbench/main_tb.cpp_pre.cpp.tb.cpp -- -std=c++11 -fhls -ferror-limit=0
+Command       tidy_31 done; 0.75 sec.
+Execute       ap_part_info -name xc7z020-clg484-1 -data info 
+INFO-FLOW: TB processing: /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/dut.cpp /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/./sim/autowrap/testbench/dut.cpp_pre.cpp
+Execute       tidy_31 xilinx-tb-xfmat /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/./sim/autowrap/testbench/dut.cpp_pre.cpp std=c++11 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-tb-xfmat -quiet -fix-errors /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/./sim/autowrap/testbench/dut.cpp_pre.cpp -- -std=c++11 -fhls -ferror-limit=0
+Command       tidy_31 done; 0.73 sec.
+Execute       tidy_31 xilinx-tb31-process /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/./sim/autowrap/testbench/dut.cpp_pre.cpp.tb.cpp std=c++11 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-tb31-process -quiet -fix-errors /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/./sim/autowrap/testbench/dut.cpp_pre.cpp.tb.cpp -- -std=c++11 -fhls -ferror-limit=0
+Command       tidy_31 done; 0.74 sec.
+Execute       ap_part_info -name xc7z020-clg484-1 -data info 
+INFO-FLOW: TB processing: /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha256.cpp /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/./sim/autowrap/testbench/sha256.cpp_pre.cpp
+Execute       tidy_31 xilinx-tb-xfmat /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/./sim/autowrap/testbench/sha256.cpp_pre.cpp std=c++11 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-tb-xfmat -quiet -fix-errors /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/./sim/autowrap/testbench/sha256.cpp_pre.cpp -- -std=c++11 -fhls -ferror-limit=0
+Command       tidy_31 done; 1.23 sec.
+Execute       tidy_31 xilinx-tb31-process /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/./sim/autowrap/testbench/sha256.cpp_pre.cpp.tb.cpp std=c++11 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-tb31-process -quiet -fix-errors /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/./sim/autowrap/testbench/sha256.cpp_pre.cpp.tb.cpp -- -std=c++11 -fhls -ferror-limit=0
+Command       tidy_31 done; 0.77 sec.
+Execute       ap_part_info -name xc7z020-clg484-1 -data info 
+INFO-FLOW: TB processing: /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/util.cpp /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/./sim/autowrap/testbench/util.cpp_pre.cpp
+Execute       tidy_31 xilinx-tb-xfmat /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/./sim/autowrap/testbench/util.cpp_pre.cpp std=c++11 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-tb-xfmat -quiet -fix-errors /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/./sim/autowrap/testbench/util.cpp_pre.cpp -- -std=c++11 -fhls -ferror-limit=0
+Command       tidy_31 done; 0.75 sec.
+Execute       tidy_31 xilinx-tb31-process /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/./sim/autowrap/testbench/util.cpp_pre.cpp.tb.cpp std=c++11 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-tb31-process -quiet -fix-errors /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/./sim/autowrap/testbench/util.cpp_pre.cpp.tb.cpp -- -std=c++11 -fhls -ferror-limit=0
+Command       tidy_31 done; 0.77 sec.
+Execute       ap_part_info -name xc7z020-clg484-1 -data info 
+INFO-FLOW: TB processing: /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/miner.cpp /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/./sim/autowrap/testbench/miner.cpp_pre.cpp
+Execute       tidy_31 xilinx-tb-xfmat /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/./sim/autowrap/testbench/miner.cpp_pre.cpp std=c++11 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-tb-xfmat -quiet -fix-errors /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/./sim/autowrap/testbench/miner.cpp_pre.cpp -- -std=c++11 -fhls -ferror-limit=0
+Command       tidy_31 done; 0.72 sec.
+Execute       tidy_31 xilinx-tb31-process /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/./sim/autowrap/testbench/miner.cpp_pre.cpp.tb.cpp std=c++11 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-tb31-process -quiet -fix-errors /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/./sim/autowrap/testbench/miner.cpp_pre.cpp.tb.cpp -- -std=c++11 -fhls -ferror-limit=0
+Command       tidy_31 done; 1.38 sec.
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/./sim/autowrap/testbench/tb.status.tcl 
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.rtl_wrap.cfg.tcl 
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.rtl_wrap.cfg.tcl 
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.rtl_wrap.cfg.tcl 
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+Execute       ap_part_info -name xc7z020-clg484-1 -data info 
+Execute       source .run_sim.tcl 
+INFO: [COSIM 212-302] Starting C TB testing ... 
+Command       ap_source done; 0.17 sec.
+INFO: [COSIM 212-333] Generating C post check test bench ...
+Execute       ap_part_info -name xc7z020-clg484-1 -data info 
+INFO: [COSIM 212-12] Generating RTL test bench ...
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+Execute       source ../tv/cdatafile/ref.tcl 
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+Execute       source ../tv/cdatafile/ref.tcl 
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+Execute       source /home/ayl47/ece6775/hls-bitcoin-miner/ecelinux/sha.prj/solution1/.autopilot/db/hash1.tbgen.tcl 
+INFO: [COSIM 212-1] *** C/RTL co-simulation file generation completed. ***
+Execute       source .run_sim.tcl 
+Execute         source check_sim.tcl 
+Execute         source .sim.status.tcl 
+INFO: [COSIM 212-323] Starting verilog simulation. 
+INFO: [COSIM 212-15] Starting XSIM ...
+INFO: [COSIM 212-316] Starting C post checking ...
+Command       ap_source done; 12.82 sec.
+INFO: [COSIM 212-1000] *** C/RTL co-simulation finished: PASS ***
+Command     cosim_design done; 29.92 sec.
+Execute     cleanup_all 
