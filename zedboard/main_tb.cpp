@@ -8,7 +8,6 @@
 
 using namespace std;
 
-
 float correct = 0.0;
 int main()
 {
@@ -37,28 +36,34 @@ int main()
     bit32_t nbits[1] = {0x7FFF7F00};//{0x007FFFFF}; // Single 32-bit number
     
     // Partitioned total array for dut input stream
-    bit32_t data_in[20] = {0};
-    data_in[0] = nonce[0];
-    data_in[1] = version[0];
-    for(int i=2; i<10; i++){
-        data_in[i] = prevhash[i-2];
-    }
-    for(int i=10; i<18; i++){
-        data_in[i] = merkle_root[i-10];
-    }
-    data_in[18] = time[0];
-    data_in[19] = nbits[0];
-   
-   // Write two 32-bit words to the input stream
-    for(int i = 0; i<20; i++){
+    // data_in[20] = {0};
+
+    bit32_t data_in[20] = {1000, 0x01000050, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x3BA3EDFD, 0x6A7B12B2, 0x4AC72C3E, 0x47768F61, 0x6C81BC3, 0x188A5132, 0x6A9FB8AA, 0x2B1E5E4A, 0x29AB5F49, 0x7FFF7F00}
+
+    for (int i = 0; i < 20; i++) {
         dut_in.write(data_in[i]);
     }
+//     data_in[0] = nonce[0];
+//     data_in[1] = version[0];
+//     for(int i=2; i<10; i++){
+//         data_in[i] = prevhash[i-2];
+//     }
+//     for(int i=10; i<18; i++){
+//         data_in[i] = merkle_root[i-10];
+//     }
+//     data_in[18] = time[0];
+//     data_in[19] = nbits[0];
+   
+//    // Write two 32-bit words to the input stream
+//     for(int i = 0; i<20; i++){
+//         dut_in.write(data_in[i]);
+//     }
     
-    dut(dut_in, dut_out);
+    dut(data_in, dut_out);
     
     // Read out 8 32-bit hashes + nonce
     bit32_t nonce_out = dut_out.read();
-    bit32_t hash_out[8] = {0};
+    bit32_t hash_out[8] = {0,0,0,0,0,0,0,0};
     for(int i =0; i<8; i++)
     {
         hash_out[i] = dut_out.read();

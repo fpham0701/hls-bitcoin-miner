@@ -26,8 +26,8 @@
 // new_hash_pow mineblock(bit32_t noncestart, char* version, char* prevhash, char* merkle_root, char* time, char* nbits);
 // new_hash_pow mineblock(bit32_t noncestart,  bit32_t* version,  bit32_t* prevhash, 
 //                         bit32_t* merkle_root,  bit32_t* time,  bit32_t* nbits);
-new_hash_pow mineblock(bit32_t noncestart, bit32_t version[1], bit32_t prevhash[8], 
-                        bit32_t merkle_root[8], bit32_t time[1], bit32_t nbits[1]);
+void mineblock(bit32_t noncestart, bit32_t version[1], bit32_t prevhash[8], 
+                        bit32_t merkle_root[8], bit32_t time[1], bit32_t nbits[1], bit32_t rslt[9]);
 
 // void hashblock(bit32_t nonce, char* version, char* prevhash, 
 //     char* merkle_root, char* time, char* nbits, bit32_t* result);
