@@ -53,7 +53,7 @@ bit32_t sig1(bit32_t x)
 
 void hash1(bit32_t *input, int bitlength, bit32_t *outputlocation)
 {
-    bit32_t H_0[8] = { 0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19 };
+    bit32_t H_0[8] = { 0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19};
 
     bit32_t K[64] = {0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5,
     0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5,
@@ -74,7 +74,7 @@ void hash1(bit32_t *input, int bitlength, bit32_t *outputlocation)
 
     int wordlength = bitlength / 32 + 1;
     int k = (512 * 512 - bitlength - 1) % 512;
-    bit32_t message[10000] = {0};
+    bit32_t message[10000];
 
     for(int i = 0; i < wordlength; i++)
         message[i] = input[i];
@@ -99,13 +99,13 @@ void hash1(bit32_t *input, int bitlength, bit32_t *outputlocation)
         rounds = wordlength / 16 + 1;
     }
         
-    bit32_t M[32][16] = {0};
+    bit32_t M[32][16];
 
     for(int i = 0; i < 16; i++)
         for(int j = 0; j <= rounds; j++)
             M[j][i] = message[i + j * 16];
     
-    bit32_t H[32][8] = {0};
+    bit32_t H[32][8];
 
     for(int i = 0; i < 8; i++)
         H[0][i] = H_0[i];
