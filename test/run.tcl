@@ -4,23 +4,17 @@
 # @brief: A Tcl script for synthesizing the baseline digit recongnition design.
 
 # Project name
-set hls_prj sha.prj
+set hls_prj test.prj
 
 # Open/reset the project
 open_project ${hls_prj}
 
 # Top function of the design is "dut"
-set_top dut
-#set_top hash1
-#set_top hashblock
-#set_top mineblock
+set_top computeHashRound
 
 # Add design and testbench files
-add_files miner.cpp -cflags "-std=c++11"
-add_files util.cpp -cflags "-std=c++11"
-add_files sha256.cpp -cflags "-std=c++11"
-add_files dut.cpp -cflags "-std=c++11"
-add_files main_tb.cpp -tb -cflags "-std=c++11"
+add_files hash_round.cpp -cflags "-std=c++11"
+add_files testbench.cpp -tb -cflags "-std=c++11"
 # add_files tb_sha256.cpp -tb -cflags "-std=c++11"
 
 open_solution "solution1"
@@ -39,6 +33,6 @@ create_clock -period 10
 # Synthesize the design
 # csynth_design
 # Co-simulate the design
-# cosim_design
-cosim_design -trace_level all -wave_debug
+cosim_design
+# cosim_design -trace_level all -wave_debug
 exit
