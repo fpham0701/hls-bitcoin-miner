@@ -12,7 +12,9 @@ float correct = 0.0;
 int main() {
     hls::stream<bit32_t> data_in;
     hls::stream<bit32_t> data_out;
+    bit32_t strm_read;
     bit32_t hash_out[9];
+
 
     bit32_t nonce[1] = {1550};
 
@@ -49,16 +51,20 @@ int main() {
     dut(data_in, data_out);
 
     for (int i = 0; i < 9; i++) {
-        hash_out[i] = data_out.read();
+        //std::cout << "Data: " << data_out.read() << std::endl;
+        strm_read = data_out.read();
+        std::cout << "streamout:  " << strm_read << std::endl;
+        hash_out[i] = strm_read;
     }
+    timer.stop();
+
     // Print results
     std::cout << "Block solved! Nonce: " << std::hex << hash_out[0] << std::endl;
     std::cout << "Block hash:" << std::endl;
     for (int i = 8; i >= 1; i--) {
-        std::cout << i << " hash : " << std::hex << hash_out[i] << std::endl;
+        std::cout << i << " hash : " << hash_out[i] << std::endl;
     }
-
-    timer.stop();
+    
     return 0;
 }
 

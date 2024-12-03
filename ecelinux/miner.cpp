@@ -8,16 +8,8 @@
 #define BLOCK_SIZE 20
 #define RESULT_SIZE 8
 
-void hashblock(bit32_t blockheader[BLOCK_SIZE],  bit32_t result[RESULT_SIZE])
+void hashblock(bit32_t blockheader[BLOCK_SIZE], bit32_t result[RESULT_SIZE])
 {
-    result[0] = 0;
-    result[1] = 0;
-    result[2] = 0;
-    result[3] = 0;
-    result[4] = 0;
-    result[5] = 0;
-    result[6] = 0;
-    result[7] = 0;
     // Perform hashing twice
     bit32_t hash0[8];
     hash1(blockheader, 640, hash0);
