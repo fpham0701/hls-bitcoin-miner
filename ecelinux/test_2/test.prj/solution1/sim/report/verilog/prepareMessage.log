@@ -1,0 +1,161 @@
+INFO: [COSIM-47] Using XSIM for RTL simulation.
+INFO: [COSIM-14] Instrumenting C test bench ...
+   Build using "/opt/xilinx/Vivado/2019.2/tps/lnx64/gcc-6.2.0/bin/g++"
+   Compiling apatb_prepareMessage.cpp
+   Compiling hash_round.cpp_pre.cpp.tb.cpp
+   Compiling testbench.cpp_pre.cpp.tb.cpp
+   Generating cosim.tv.exe
+INFO: [COSIM-302] Starting C TB testing ... 
+INFO: [COSIM-333] Generating C post check test bench ...
+INFO: [COSIM-12] Generating RTL test bench ...
+INFO: [COSIM-1] *** C/RTL co-simulation file generation completed. ***
+INFO: [COSIM-323] Starting verilog simulation. 
+INFO: [COSIM-15] Starting XSIM ...
+INFO: [COSIM-316] Starting C post checking ...
+Message schedule M after prepareMessage:
+Round 0:
+00000000 00000001 00000002 00000003 00000004 00000005 00000006 00000007 00000008 00000009 0000000a 0000000b 0000000c 0000000d 0000000e 0000000f 
+Round 1:
+00000010 00000011 00000012 00000013 80000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000280 
+INFO: [XSIM 43-3496] Using init file passed via -initfile option "/opt/xilinx/Vivado/2019.2/data/xsim/ip/xsim_ip.ini".
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: /opt/xilinx/Vivado/2019.2/bin/unwrapped/lnx64.o/xelab xil_defaultlib.apatb_prepareMessage_top glbl -prj prepareMessage.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm --initfile /opt/xilinx/Vivado/2019.2/data/xsim/ip/xsim_ip.ini --lib ieee_proposed=./ieee_proposed -s prepareMessage 
+Multi-threading is on. Using 6 slave threads.
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vml37/ece6775/bitcoin/ecelinux/test_2/test.prj/solution1/sim/verilog/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vml37/ece6775/bitcoin/ecelinux/test_2/test.prj/solution1/sim/verilog/prepareMessage.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_prepareMessage_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vml37/ece6775/bitcoin/ecelinux/test_2/test.prj/solution1/sim/verilog/AESL_automem_input_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_input_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vml37/ece6775/bitcoin/ecelinux/test_2/test.prj/solution1/sim/verilog/AESL_automem_M_0_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_M_0_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vml37/ece6775/bitcoin/ecelinux/test_2/test.prj/solution1/sim/verilog/AESL_automem_M_1_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_M_1_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vml37/ece6775/bitcoin/ecelinux/test_2/test.prj/solution1/sim/verilog/AESL_automem_M_2_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_M_2_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vml37/ece6775/bitcoin/ecelinux/test_2/test.prj/solution1/sim/verilog/AESL_automem_M_3_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_M_3_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vml37/ece6775/bitcoin/ecelinux/test_2/test.prj/solution1/sim/verilog/AESL_automem_M_4_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_M_4_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vml37/ece6775/bitcoin/ecelinux/test_2/test.prj/solution1/sim/verilog/AESL_automem_M_5_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_M_5_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vml37/ece6775/bitcoin/ecelinux/test_2/test.prj/solution1/sim/verilog/AESL_automem_M_6_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_M_6_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vml37/ece6775/bitcoin/ecelinux/test_2/test.prj/solution1/sim/verilog/AESL_automem_M_7_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_M_7_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vml37/ece6775/bitcoin/ecelinux/test_2/test.prj/solution1/sim/verilog/AESL_automem_M_8_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_M_8_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vml37/ece6775/bitcoin/ecelinux/test_2/test.prj/solution1/sim/verilog/AESL_automem_M_9_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_M_9_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vml37/ece6775/bitcoin/ecelinux/test_2/test.prj/solution1/sim/verilog/AESL_automem_M_10_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_M_10_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vml37/ece6775/bitcoin/ecelinux/test_2/test.prj/solution1/sim/verilog/AESL_automem_M_11_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_M_11_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vml37/ece6775/bitcoin/ecelinux/test_2/test.prj/solution1/sim/verilog/AESL_automem_M_12_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_M_12_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vml37/ece6775/bitcoin/ecelinux/test_2/test.prj/solution1/sim/verilog/AESL_automem_M_13_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_M_13_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vml37/ece6775/bitcoin/ecelinux/test_2/test.prj/solution1/sim/verilog/AESL_automem_M_14_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_M_14_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vml37/ece6775/bitcoin/ecelinux/test_2/test.prj/solution1/sim/verilog/AESL_automem_M_15_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_M_15_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vml37/ece6775/bitcoin/ecelinux/test_2/test.prj/solution1/sim/verilog/prepareMessage.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module prepareMessage
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vml37/ece6775/bitcoin/ecelinux/test_2/test.prj/solution1/sim/verilog/prepareMessage_mebkb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module prepareMessage_mebkb_ram
+INFO: [VRFC 10-311] analyzing module prepareMessage_mebkb
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.prepareMessage_mebkb_ram
+Compiling module xil_defaultlib.prepareMessage_mebkb(DataWidth=3...
+Compiling module xil_defaultlib.prepareMessage
+Compiling module xil_defaultlib.AESL_automem_input_V
+Compiling module xil_defaultlib.AESL_automem_M_0_V
+Compiling module xil_defaultlib.AESL_automem_M_1_V
+Compiling module xil_defaultlib.AESL_automem_M_2_V
+Compiling module xil_defaultlib.AESL_automem_M_3_V
+Compiling module xil_defaultlib.AESL_automem_M_4_V
+Compiling module xil_defaultlib.AESL_automem_M_5_V
+Compiling module xil_defaultlib.AESL_automem_M_6_V
+Compiling module xil_defaultlib.AESL_automem_M_7_V
+Compiling module xil_defaultlib.AESL_automem_M_8_V
+Compiling module xil_defaultlib.AESL_automem_M_9_V
+Compiling module xil_defaultlib.AESL_automem_M_10_V
+Compiling module xil_defaultlib.AESL_automem_M_11_V
+Compiling module xil_defaultlib.AESL_automem_M_12_V
+Compiling module xil_defaultlib.AESL_automem_M_13_V
+Compiling module xil_defaultlib.AESL_automem_M_14_V
+Compiling module xil_defaultlib.AESL_automem_M_15_V
+Compiling module xil_defaultlib.apatb_prepareMessage_top
+Compiling module work.glbl
+Built simulation snapshot prepareMessage
+
+****** Webtalk v2019.2 (64-bit)
+  **** SW Build 2708876 on Wed Nov  6 21:39:14 MST 2019
+  **** IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source /home/vml37/ece6775/bitcoin/ecelinux/test_2/test.prj/solution1/sim/verilog/xsim.dir/prepareMessage/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Thu Dec  5 09:41:20 2024...
+
+****** xsim v2019.2 (64-bit)
+  **** SW Build 2708876 on Wed Nov  6 21:39:14 MST 2019
+  **** IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source xsim.dir/prepareMessage/xsim_script.tcl
+# xsim {prepareMessage} -autoloadwcfg -tclbatch {prepareMessage.tcl}
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+source prepareMessage.tcl
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 1 [n/a] @ "125000"
+// RTL Simulation : 1 / 1 [n/a] @ "2005000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 2045 ns : File "/home/vml37/ece6775/bitcoin/ecelinux/test_2/test.prj/solution1/sim/verilog/prepareMessage.autotb.v" Line 1135
+## quit
+INFO: [Common 17-206] Exiting xsim at Thu Dec  5 09:41:27 2024...
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'M_0_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'M_1_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'M_2_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'M_3_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'M_4_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'M_5_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'M_5_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'M_6_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'M_6_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'M_7_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'M_7_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'M_8_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'M_8_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'M_9_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'M_9_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'M_10_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'M_10_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'M_11_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'M_11_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'M_12_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'M_12_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'M_13_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'M_13_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'M_14_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'M_14_V', possible cause: There are uninitialized variables in the C design.
+WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'M_15_V', possible cause: There are uninitialized variables in the C design.
+Message schedule M after prepareMessage:
+Round 0:
+00000000 00000001 00000002 00000003 00000004 00000005 00000006 00000007 00000008 00000009 0000000a 0000000b 0000000c 0000000d 0000000e 0000000f 
+Round 1:
+00000010 00000011 00000012 00000013 80000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000280 
+INFO: [COSIM-1000] *** C/RTL co-simulation finished: PASS ***
+INFO: [COSIM-211] II is measurable only when transaction number is greater than 1 in RTL simulation. Otherwise, they will be marked as all NA. If user wants to calculate them, please make sure there are at least 2 transactions in RTL simulation.
