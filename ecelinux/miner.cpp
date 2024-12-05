@@ -10,6 +10,7 @@
 
 void hashblock(bit32_t blockheader[BLOCK_SIZE], bit32_t result[RESULT_SIZE])
 {
+    #pragma HLS inline
     // Perform hashing twice
     bit32_t hash0[8];
     hash1(blockheader, 640, hash0);

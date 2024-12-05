@@ -8,6 +8,7 @@
 
 // Rotate function optimized with inlining
 bit32_t rotateInt(bit32_t inputWord, int numberOfBitsToRotate) {
+    #pragma HLS inline
     int bitWidth = 32; // SHA-256 uses 32-bit words
     numberOfBitsToRotate = numberOfBitsToRotate % bitWidth;
 
@@ -20,48 +21,61 @@ bit32_t rotateInt(bit32_t inputWord, int numberOfBitsToRotate) {
 
 // Inline small functions
 int Ch(int x, int y, int z) {
+    #pragma HLS inline
     return ((x & y) ^ (~x & z));
 }
 
 int Maj(int x, int y, int z) {
+    #pragma HLS inline
     return ((x & y) ^ (x & z) ^ (y & z));
 }
 
 int Sig0f(int x) {
+    #pragma HLS inline
     return (rotateInt(x, 2) ^ rotateInt(x, 13) ^ rotateInt(x, 22));
 }
 
 int Sig1f(int x) {
+    #pragma HLS inline
     return (rotateInt(x, 6) ^ rotateInt(x, 11) ^ (rotateInt(x, 25)));
 }
 
 bit32_t sig0(bit32_t x) {
+    #pragma HLS inline
     return (rotateInt(x, 7) ^ rotateInt(x, 18) ^ (x >> 3));
 }
 
 bit32_t sig1(bit32_t x) {
+    #pragma HLS inline
     return (rotateInt(x, 17) ^ rotateInt(x, 19) ^ (x >> 10));
 }
 
 // Helper function to prepare the message schedule
 void prepareMessage(bit32_t input[INPUT_SIZE], int bitlength, bit32_t M[32][16]) {
+    #pragma HLS inline
+    #pragma HLS array_partition variable=M complete dim=2
 
     for (int i = 0; i < 32; i++) {
+        #pragma HLS unroll
         for (int j = 0; j < 16; j++) {
+            #pragma HLS unroll
             M[i][j] = 0;
         }
     }
 
     bit32_t message[INPUT_SIZE + 31];
+    #pragma HLS array_partition variable=message complete
 
     // Instantiating message array
     for (int i = 0; i < INPUT_SIZE + 31; i++) {
+        #pragma HLS unroll
         message[i] = 0;
     }
 
     int wordlength = bitlength / 32;
 
     for (int i = 0; i < wordlength; i++) {
+        #pragma HLS unroll
         message[i] = input[i];
     }
 
@@ -76,7 +90,9 @@ void prepareMessage(bit32_t input[INPUT_SIZE], int bitlength, bit32_t M[32][16])
         message[wordlength + 15 - wordlength % 16] = bitlength;
 
     for (int i = 0; i < 16; i++) {
+        #pragma HLS unroll
         for (int j = 0; j < (bitlength / 512 + 1); j++) {
+            #pragma HLS unroll
             M[j][i] = message[i + j * 16];
         }
     }
@@ -84,10 +100,15 @@ void prepareMessage(bit32_t input[INPUT_SIZE], int bitlength, bit32_t M[32][16])
 
 // Helper function to compute a single hash round
 void computeHashRound(bit32_t H_prev[8], bit32_t M[16], bit32_t K[64]) {
+    #pragma HLS array_partition variable=H_prev complete
+    #pragma HLS array_partition variable=M complete
+    #pragma HLS array_partition variable=K complete
 
     bit32_t W[64];
+    #pragma HLS array_partition variable=W complete
 
     for (int j = 0; j < 64; j++) {
+        #pragma HLS unroll
         if (j < 16)
             W[j] = M[j];
         else
@@ -104,6 +125,7 @@ void computeHashRound(bit32_t H_prev[8], bit32_t M[16], bit32_t K[64]) {
     bit32_t h = H_prev[7];
 
     for (int j = 0; j < 64; j++) {
+        #pragma HLS unroll factor=32
         bit32_t ch = Ch(e, f, g);
         bit32_t maj = Maj(a, b, c);
         bit32_t Sig0 = Sig0f(a);
@@ -134,6 +156,7 @@ void computeHashRound(bit32_t H_prev[8], bit32_t M[16], bit32_t K[64]) {
 
 // Main SHA-256 function
 void hash1(bit32_t input[INPUT_SIZE], int bitlength, bit32_t outputlocation[OUTPUT_SIZE]) {
+    #pragma HLS inline
 
     bit32_t H_0[8] = {0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 
                       0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19};
@@ -158,19 +181,24 @@ void hash1(bit32_t input[INPUT_SIZE], int bitlength, bit32_t outputlocation[OUTP
     bit32_t M[32][16];
 
     bit32_t H[8];
+    #pragma HLS array_partition variable=H complete
 
     for (int i = 0; i < 8; i++) {
+        #pragma HLS unroll
         H[i] = H_0[i];
     }
 
     prepareMessage(input, bitlength, M);
 
     int rounds = (bitlength / 512 + 1);
+    std::cout << "Rounds: " << rounds << std::endl;
     for (int i = 1; i <= rounds; i++) {
+        #pragma HLS unroll
         computeHashRound(H, M[i - 1], K);
     }
 
     for (int i = 0; i < 8; i++) {
+        #pragma HLS unroll
         outputlocation[i] = H[i];
     }
 }
