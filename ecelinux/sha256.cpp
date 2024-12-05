@@ -58,16 +58,16 @@ void prepareMessage(bit32_t input[INPUT_SIZE], int bitlength, bit32_t M[32][16])
 
     for (int i = 0; i < 32; i++) {
         for (int j = 0; j < 16; j++) {
-            #pragma HLS unroll
+            // #pragma HLS unroll
             M[i][j] = 0;
         }
     }
 
     bit32_t message[10000] = {};
-    int wordlength = bitlength / 32 + 1; // bitlength = 640
+    int wordlength = bitlength / 32; // bitlength = 640, 256
 
-    for (int i = 0; i < wordlength; i++) {
-        #pragma HLS pipeline II=1
+    for (int i = 0; i < wordlength; i++) { // wordlenghth 20, 8
+        // #pragma HLS pipeline II=1
         message[i] = input[i];
     }
 
@@ -83,7 +83,7 @@ void prepareMessage(bit32_t input[INPUT_SIZE], int bitlength, bit32_t M[32][16])
 
     for (int i = 0; i < 16; i++) {
         for (int j = 0; j <= (bitlength / 512 + 1); j++) {
-            #pragma HLS unroll
+            // #pragma HLS unroll
             M[j][i] = message[i + j * 16];
         }
     }
@@ -189,7 +189,7 @@ void hash1(bit32_t input[INPUT_SIZE], int bitlength, bit32_t outputlocation[OUTP
 
     int rounds = (bitlength / 512 + 1);
     for (int i = 1; i <= rounds; i++) {
-        #pragma HLS pipeline II=1
+        // #pragma HLS pipeline II=1
         computeHashRound(H, M[i - 1], K, H);
     }
 
