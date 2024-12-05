@@ -1,170 +1,176 @@
 #include <iostream>
 #include "typedefs.h"
 #include "sha256.h"
-// typedef ap_uint<32> bit32_t;
+#include "ap_int.h"
 
-bit32_t rotateInt(bit32_t inputWord, int numberOfBitsToRotate) 
-{
-    int bitWidth = sizeof(inputWord) * 8;
-    // Rotating 32 bits on a 32-bit integer is the same as rotating 0 bits;
-    //   33 bits -> 1 bit; etc.
+#define INPUT_SIZE 20
+#define OUTPUT_SIZE 9
+
+// Rotate function optimized with inlining
+bit32_t rotateInt(bit32_t inputWord, int numberOfBitsToRotate) {
+    int bitWidth = 32; // SHA-256 uses 32-bit words
     numberOfBitsToRotate = numberOfBitsToRotate % bitWidth;
 
     bit32_t tempWord = inputWord;
-
-    // Rotate input to the right
     inputWord = inputWord >> numberOfBitsToRotate;
-
-    // Build mask for carried over bits
     tempWord = tempWord << (bitWidth - numberOfBitsToRotate);
 
     return inputWord | tempWord;
 }
 
-int Ch(int x, int y, int z)
-{
+// Inline small functions
+int Ch(int x, int y, int z) {
     return ((x & y) ^ (~x & z));
 }
 
-int Maj(int x, int y, int z)
-{
+int Maj(int x, int y, int z) {
     return ((x & y) ^ (x & z) ^ (y & z));
 }
 
-int Sig0f(int x)
-{
-    return(rotateInt(x, 2) ^ rotateInt(x, 13) ^ rotateInt(x, 22));
+int Sig0f(int x) {
+    return (rotateInt(x, 2) ^ rotateInt(x, 13) ^ rotateInt(x, 22));
 }
 
-int Sig1f(int x)
-{
-    return(rotateInt(x, 6) ^ rotateInt(x, 11) ^ rotateInt(x,25));
+int Sig1f(int x) {
+    return (rotateInt(x, 6) ^ rotateInt(x, 11) ^ (rotateInt(x, 25)));
 }
 
-bit32_t sig0(bit32_t x)
-{
-    return(rotateInt(x, 7) ^ rotateInt(x, 18) ^ (x >> 3));
+bit32_t sig0(bit32_t x) {
+    return (rotateInt(x, 7) ^ rotateInt(x, 18) ^ (x >> 3));
 }
 
-bit32_t sig1(bit32_t x)
-{
-    return(rotateInt(x, 17) ^ rotateInt(x, 19) ^ (x >> 10));
+bit32_t sig1(bit32_t x) {
+    return (rotateInt(x, 17) ^ rotateInt(x, 19) ^ (x >> 10));
 }
 
-void hash1(bit32_t *input, int bitlength, bit32_t *outputlocation)
-{
-    bit32_t H_0[8] = { 0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19 };
+// Helper function to prepare the message schedule
+void prepareMessage(bit32_t input[INPUT_SIZE], int bitlength, bit32_t M[32][16]) {
 
-    bit32_t K[64] = {0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5,
-    0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5,
-    0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3,
-    0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174,
-    0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc,
-    0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da,
-    0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7,
-    0xc6e00bf3, 0xd5a79147, 0x06ca6351, 0x14292967,
-    0x27b70a85, 0x2e1b2138, 0x4d2c6dfc, 0x53380d13,
-    0x650a7354, 0x766a0abb, 0x81c2c92e, 0x92722c85,
-    0xa2bfe8a1, 0xa81a664b, 0xc24b8b70, 0xc76c51a3,
-    0xd192e819, 0xd6990624, 0xf40e3585, 0x106aa070,
-    0x19a4c116, 0x1e376c08, 0x2748774c, 0x34b0bcb5,
-    0x391c0cb3, 0x4ed8aa4a, 0x5b9cca4f, 0x682e6ff3,
-    0x748f82ee, 0x78a5636f, 0x84c87814, 0x8cc70208,
-    0x90befffa, 0xa4506ceb, 0xbef9a3f7, 0xc67178f2};
+    for (int i = 0; i < 32; i++) {
+        for (int j = 0; j < 16; j++) {
+            M[i][j] = 0;
+        }
+    }
 
-    int wordlength = bitlength / 32 + 1;
-    int k = (512 * 512 - bitlength - 1) % 512;
-    bit32_t message[10000] = {0};
+    bit32_t message[INPUT_SIZE + 31];
 
-    for(int i = 0; i < wordlength; i++)
+    // Instantiating message array
+    for (int i = 0; i < INPUT_SIZE + 31; i++) {
+        message[i] = 0;
+    }
+
+    int wordlength = bitlength / 32;
+
+    for (int i = 0; i < wordlength; i++) {
         message[i] = input[i];
+    }
 
-    if(bitlength % 32 != 0)
-        message[bitlength / 32] = message[bitlength / 32] | (1 << (32 - 1 - bitlength % 32));
+    if (bitlength % 32 != 0)
+        message[bitlength / 32] |= (1 << (31 - bitlength % 32));
     else
         message[bitlength / 32] = 1 << 31;
-    
-    bit32_t rounds;
-    //int rounds;
 
-    // Assuming our data isn't bigger than 2^32 bits long... which it won't be for a block hash.
-    if(wordlength % 16 == 0 || wordlength % 16 == 15)
-    {
-        message[wordlength + 15 + 16 - wordlength % 16] = bitlength;
-        rounds = wordlength / 16 + 2;
-    }
+    if (wordlength % 16 == 0 || wordlength % 16 == 15)
+        message[wordlength + 15 + 16 - wordlength % 16] = bitlength; //! why +15?
     else
-    {
         message[wordlength + 15 - wordlength % 16] = bitlength;
-        rounds = wordlength / 16 + 1;
-    }
-        
-    bit32_t M[32][16] = {0};
 
-    for(int i = 0; i < 16; i++)
-        for(int j = 0; j <= rounds; j++)
+    for (int i = 0; i < 16; i++) {
+        for (int j = 0; j < (bitlength / 512 + 1); j++) {
             M[j][i] = message[i + j * 16];
-    
-    bit32_t H[32][8] = {0};
-
-    for(int i = 0; i < 8; i++)
-        H[0][i] = H_0[i];
-
-    // Here our hash function rounds actually start.
-    for(int i = 1; i <= rounds; i++)
-    {
-        bit32_t a = H[i-1][0];
-        bit32_t b = H[i-1][1];
-        bit32_t c = H[i-1][2];
-        bit32_t d = H[i-1][3];
-        bit32_t e = H[i-1][4];
-        bit32_t f = H[i-1][5];
-        bit32_t g = H[i-1][6];
-        bit32_t h = H[i-1][7];
-
-        bit32_t W[64];
-
-        for(int j = 0; j < 64; j++)
-        {
-            bit32_t ch = Ch(e, f, g);
-            bit32_t maj = Maj(a, b, c);
-            bit32_t Sig0 = Sig0f(a);
-            bit32_t Sig1 = Sig1f(e);
-
-            if(j < 16)
-                W[j] = M[i-1][j];
-            else
-                W[j] = sig1(W[j-2]) + W[j-7] + sig0(W[j-15]) + W[j-16];
-            
-            bit32_t T1 = h + Sig1 + ch + K[j] + W[j];
-            bit32_t T2 = Sig0 + maj;
-            h = g;
-            g = f;
-            f = e;
-            e = d + T1;
-            d = c;
-            c = b;
-            b = a;
-            a = T1 + T2;
         }
-
-        H[i][0] = a + H[i-1][0];
-        H[i][1] = b + H[i-1][1];
-        H[i][2] = c + H[i-1][2];
-        H[i][3] = d + H[i-1][3];
-        H[i][4] = e + H[i-1][4];
-        H[i][5] = f + H[i-1][5];
-        H[i][6] = g + H[i-1][6];
-        H[i][7] = h + H[i-1][7];
     }
-
-    for(int i = 0; i < 8; i++) {
-        outputlocation[i] = H[rounds][i];
-        // std::cout << "outputlocation[" << i << "] = " << std::hex << outputlocation[i] << std::endl;
-    }
-
-
-
-        
 }
-        
+
+// Helper function to compute a single hash round
+void computeHashRound(bit32_t H_prev[8], bit32_t M[16], bit32_t K[64]) {
+
+    bit32_t W[64];
+
+    for (int j = 0; j < 64; j++) {
+        if (j < 16)
+            W[j] = M[j];
+        else
+            W[j] = sig1(W[j - 2]) + W[j - 7] + sig0(W[j - 15]) + W[j - 16];
+    }
+
+    bit32_t a = H_prev[0];
+    bit32_t b = H_prev[1];
+    bit32_t c = H_prev[2];
+    bit32_t d = H_prev[3];
+    bit32_t e = H_prev[4];
+    bit32_t f = H_prev[5];
+    bit32_t g = H_prev[6];
+    bit32_t h = H_prev[7];
+
+    for (int j = 0; j < 64; j++) {
+        bit32_t ch = Ch(e, f, g);
+        bit32_t maj = Maj(a, b, c);
+        bit32_t Sig0 = Sig0f(a);
+        bit32_t Sig1 = Sig1f(e);
+
+        bit32_t T1 = h + Sig1 + ch + K[j] + W[j];
+        bit32_t T2 = Sig0 + maj;
+
+        h = g;
+        g = f;
+        f = e;
+        e = d + T1;
+        d = c;
+        c = b;
+        b = a;
+        a = T1 + T2;
+    }
+
+    H_prev[0] = a + H_prev[0];
+    H_prev[1] = b + H_prev[1];
+    H_prev[2] = c + H_prev[2];
+    H_prev[3] = d + H_prev[3];
+    H_prev[4] = e + H_prev[4];
+    H_prev[5] = f + H_prev[5];
+    H_prev[6] = g + H_prev[6];
+    H_prev[7] = h + H_prev[7];
+}
+
+// Main SHA-256 function
+void hash1(bit32_t input[INPUT_SIZE], int bitlength, bit32_t outputlocation[OUTPUT_SIZE]) {
+
+    bit32_t H_0[8] = {0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 
+                      0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19};
+    bit32_t K[64] = {0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5,
+                     0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5,
+                     0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3,
+                     0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174,
+                     0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc,
+                     0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da,
+                     0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7,
+                     0xc6e00bf3, 0xd5a79147, 0x06ca6351, 0x14292967,
+                     0x27b70a85, 0x2e1b2138, 0x4d2c6dfc, 0x53380d13,
+                     0x650a7354, 0x766a0abb, 0x81c2c92e, 0x92722c85,
+                     0xa2bfe8a1, 0xa81a664b, 0xc24b8b70, 0xc76c51a3,
+                     0xd192e819, 0xd6990624, 0xf40e3585, 0x106aa070,
+                     0x19a4c116, 0x1e376c08, 0x2748774c, 0x34b0bcb5,
+                     0x391c0cb3, 0x4ed8aa4a, 0x5b9cca4f, 0x682e6ff3,
+                     0x748f82ee, 0x78a5636f, 0x84c87814, 0x8cc70208,
+                     0x90befffa, 0xa4506ceb, 0xbef9a3f7, 0xc67178f2};
+
+
+    bit32_t M[32][16];
+
+    bit32_t H[8];
+
+    for (int i = 0; i < 8; i++) {
+        H[i] = H_0[i];
+    }
+
+    prepareMessage(input, bitlength, M);
+
+    int rounds = (bitlength / 512 + 1);
+    for (int i = 1; i <= rounds; i++) {
+        computeHashRound(H, M[i - 1], K);
+    }
+
+    for (int i = 0; i < 8; i++) {
+        outputlocation[i] = H[i];
+    }
+}
