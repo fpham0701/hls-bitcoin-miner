@@ -7,7 +7,7 @@
 set hls_prj test.prj
 
 # Open/reset the project
-open_project ${hls_prj}
+open_project ${hls_prj} -reset
 
 # Top function of the design is "dut"
 # set_top computeHashRound
@@ -31,7 +31,7 @@ create_clock -period 10
 ############################################
 
 # Simulate the C++ design
-csim_design -O
+# csim_design -O
 # Synthesize the design
 csynth_design
 # Co-simulate the design

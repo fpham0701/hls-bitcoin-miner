@@ -155,7 +155,11 @@ void prepareMessage(bit32_t input[INPUT_SIZE], int bitlength, bit32_t M[32][16])
         }
     }
 
-    bit32_t message[10000] = {};
+    bit32_t message[INPUT_SIZE + 31] = {};
+    for (int i = 0; i < INPUT_SIZE + 31; i++) {
+        message[i] = 0;
+    }
+
     // int wordlength = bitlength / 32 + 1; // bitlength = 640
     int wordlength = bitlength / 32 ; // bitlength = 640
 
@@ -165,18 +169,22 @@ void prepareMessage(bit32_t input[INPUT_SIZE], int bitlength, bit32_t M[32][16])
     }
 
     if (bitlength % 32 != 0)
-        message[bitlength / 32] |= (1 << (31 - bitlength % 32));
+        message[bitlength / 32] |= (1 << (31 - bitlength % 32)); // 20
     else
-        message[bitlength / 32] = 1 << 31;
+        message[bitlength / 32] = 1 << 31; // 20
 
     if (wordlength % 16 == 0 || wordlength % 16 == 15)
-        message[wordlength + 15 + 16 - wordlength % 16] = bitlength;
+        message[wordlength + 15 + 16 - wordlength % 16] = bitlength; // 20 + 31 - 4 = 47
     else
-        message[wordlength + 15 - wordlength % 16] = bitlength;
+        message[wordlength + 15 - wordlength % 16] = bitlength; // 20 + 15 - 4 = 31
+
+    // message[0:20], message[31]
 
     for (int i = 0; i < 16; i++) {
-        for (int j = 0; j <= (bitlength / 512 + 1); j++) {
-            #pragma HLS unroll
+        for (int j = 0; j < (bitlength / 512 + 1); j++) {
+            // j: 0 , 1
+            // i + j * 16 < i + 16
+            // i = 5, j = 1: 5 + 16 = 21 -> x
             M[j][i] = message[i + j * 16];
         }
     }

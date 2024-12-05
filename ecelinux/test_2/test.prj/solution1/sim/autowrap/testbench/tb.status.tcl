@@ -1,1 +1,0 @@
-set ::AESL_AUTOSIM::gTopFileName /home/vml37/ece6775/bitcoin/ecelinux/test_2/test.prj/solution1/./sim/autowrap/testbench/hash_round.cpp_pre.cpp.tb.cpp

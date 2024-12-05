@@ -7,7 +7,7 @@
 set hls_prj sha.prj
 
 # Open/reset the project
-open_project ${hls_prj}
+open_project ${hls_prj} -reset
 
 # Top function of the design is "dut"
 set_top dut
@@ -37,8 +37,8 @@ create_clock -period 10
 # Simulate the C++ design
 # csim_design -O
 # Synthesize the design
-# csynth_design
+csynth_design
 # Co-simulate the design
-# cosim_design
-cosim_design -trace_level all -wave_debug
+cosim_design
+# cosim_design -trace_level all -wave_debug
 exit

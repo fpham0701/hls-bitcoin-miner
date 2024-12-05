@@ -56,15 +56,21 @@ bit32_t sig1(bit32_t x) {
 void prepareMessage(bit32_t input[INPUT_SIZE], int bitlength, bit32_t M[32][16]) {
     #pragma HLS array_partition variable=M complete dim=2
 
-    for (int i = 0; i < 32; i++) {
+    for (int i = 0; i < 32; i++) { //! 32 is a magic number
         for (int j = 0; j < 16; j++) {
             // #pragma HLS unroll
             M[i][j] = 0;
         }
     }
 
-    bit32_t message[10000] = {};
+    // bit32_t message[10000] = {};
+    bit32_t message[INPUT_SIZE + 31] = {}; //! 31 is a magic number
+    for (int i = 0; i < INPUT_SIZE + 31; i++) {
+        message[i] = 0;
+    }
+
     int wordlength = bitlength / 32; // bitlength = 640, 256
+
 
     for (int i = 0; i < wordlength; i++) { // wordlenghth 20, 8
         // #pragma HLS pipeline II=1
@@ -77,13 +83,12 @@ void prepareMessage(bit32_t input[INPUT_SIZE], int bitlength, bit32_t M[32][16])
         message[bitlength / 32] = 1 << 31;
 
     if (wordlength % 16 == 0 || wordlength % 16 == 15)
-        message[wordlength + 15 + 16 - wordlength % 16] = bitlength;
+        message[wordlength + 15 + 16 - wordlength % 16] = bitlength; //! why +15?
     else
         message[wordlength + 15 - wordlength % 16] = bitlength;
 
     for (int i = 0; i < 16; i++) {
-        for (int j = 0; j <= (bitlength / 512 + 1); j++) {
-            // #pragma HLS unroll
+        for (int j = 0; j < (bitlength / 512 + 1); j++) {
             M[j][i] = message[i + j * 16];
         }
     }
@@ -91,12 +96,13 @@ void prepareMessage(bit32_t input[INPUT_SIZE], int bitlength, bit32_t M[32][16])
 
 // Helper function to compute a single hash round
 void computeHashRound(bit32_t H_prev[8], bit32_t M[16], bit32_t K[64], bit32_t H_new[8]) {
+    //! H_prev and H_new should be the same array
     #pragma HLS array_partition variable=H_prev complete dim = 1
     #pragma HLS array_partition variable=H_nwq complete dim = 1
     #pragma HLS array_partition variable=M complete
     #pragma HLS array_partition variable=K complete dim =1
 
-    bit32_t W[64] = {0};
+    bit32_t W[64] = {0}; //! only works for C native types
     #pragma HLS array_partition variable=W complete
 
     // #pragma pipeline II=2
@@ -174,10 +180,10 @@ void hash1(bit32_t input[INPUT_SIZE], int bitlength, bit32_t outputlocation[OUTP
                      0x90befffa, 0xa4506ceb, 0xbef9a3f7, 0xc67178f2};
 
 
-    bit32_t M[32][16] = {};
+    bit32_t M[32][16] = {}; //? initialize
     #pragma HLS array_partition variable=M complete dim=2
 
-    bit32_t H[8] = {};
+    bit32_t H[8] = {}; //? initialize
     #pragma HLS array_partition variable=H complete dim = 1
 
     for (int i = 0; i < 8; i++) {
