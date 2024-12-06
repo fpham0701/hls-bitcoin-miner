@@ -137,7 +137,9 @@ int main(int arc, char **argv) {
             if (expected_hashes[i][j] != results[i][j]) {
                 error++;
                 cout << "Error on Test " << i+1 << endl;
-                break;
+                cout << "\tExpected Result " << expected_hashes[i][j] << endl;
+                cout << "\tActual Result " << results[i][j] << endl;
+                // break;
             }
         }
         num_test_insts++;

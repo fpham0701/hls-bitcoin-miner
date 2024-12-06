@@ -1,0 +1,77 @@
+INFO: [XSIM 43-3496] Using init file passed via -initfile option "/opt/xilinx/Vivado/2019.2/data/xsim/ip/xsim_ip.ini".
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: /opt/xilinx/Vivado/2019.2/bin/unwrapped/lnx64.o/xelab xil_defaultlib.apatb_prepareMessage_top glbl -prj prepareMessage.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm --initfile /opt/xilinx/Vivado/2019.2/data/xsim/ip/xsim_ip.ini --lib ieee_proposed=./ieee_proposed -s prepareMessage 
+Multi-threading is on. Using 6 slave threads.
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/test/test.prj/solution1/sim/verilog/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/test/test.prj/solution1/sim/verilog/prepareMessage.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_prepareMessage_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/test/test.prj/solution1/sim/verilog/AESL_automem_input_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_input_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/test/test.prj/solution1/sim/verilog/AESL_automem_M_0_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_M_0_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/test/test.prj/solution1/sim/verilog/AESL_automem_M_1_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_M_1_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/test/test.prj/solution1/sim/verilog/AESL_automem_M_2_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_M_2_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/test/test.prj/solution1/sim/verilog/AESL_automem_M_3_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_M_3_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/test/test.prj/solution1/sim/verilog/AESL_automem_M_4_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_M_4_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/test/test.prj/solution1/sim/verilog/AESL_automem_M_5_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_M_5_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/test/test.prj/solution1/sim/verilog/AESL_automem_M_6_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_M_6_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/test/test.prj/solution1/sim/verilog/AESL_automem_M_7_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_M_7_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/test/test.prj/solution1/sim/verilog/AESL_automem_M_8_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_M_8_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/test/test.prj/solution1/sim/verilog/AESL_automem_M_9_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_M_9_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/test/test.prj/solution1/sim/verilog/AESL_automem_M_10_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_M_10_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/test/test.prj/solution1/sim/verilog/AESL_automem_M_11_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_M_11_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/test/test.prj/solution1/sim/verilog/AESL_automem_M_12_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_M_12_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/test/test.prj/solution1/sim/verilog/AESL_automem_M_13_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_M_13_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/test/test.prj/solution1/sim/verilog/AESL_automem_M_14_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_M_14_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/test/test.prj/solution1/sim/verilog/AESL_automem_M_15_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_M_15_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/test/test.prj/solution1/sim/verilog/prepareMessage.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module prepareMessage
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ayl47/ece6775/test/test.prj/solution1/sim/verilog/prepareMessage_mebkb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module prepareMessage_mebkb_ram
+INFO: [VRFC 10-311] analyzing module prepareMessage_mebkb
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.prepareMessage_mebkb_ram
+Compiling module xil_defaultlib.prepareMessage_mebkb(DataWidth=3...
+Compiling module xil_defaultlib.prepareMessage
+Compiling module xil_defaultlib.AESL_automem_input_V
+Compiling module xil_defaultlib.AESL_automem_M_0_V
+Compiling module xil_defaultlib.AESL_automem_M_1_V
+Compiling module xil_defaultlib.AESL_automem_M_2_V
+Compiling module xil_defaultlib.AESL_automem_M_3_V
+Compiling module xil_defaultlib.AESL_automem_M_4_V
+Compiling module xil_defaultlib.AESL_automem_M_5_V
+Compiling module xil_defaultlib.AESL_automem_M_6_V
+Compiling module xil_defaultlib.AESL_automem_M_7_V
+Compiling module xil_defaultlib.AESL_automem_M_8_V
+Compiling module xil_defaultlib.AESL_automem_M_9_V
+Compiling module xil_defaultlib.AESL_automem_M_10_V
+Compiling module xil_defaultlib.AESL_automem_M_11_V
+Compiling module xil_defaultlib.AESL_automem_M_12_V
+Compiling module xil_defaultlib.AESL_automem_M_13_V
+Compiling module xil_defaultlib.AESL_automem_M_14_V
+Compiling module xil_defaultlib.AESL_automem_M_15_V
+Compiling module xil_defaultlib.apatb_prepareMessage_top
+Compiling module work.glbl
+Built simulation snapshot prepareMessage
