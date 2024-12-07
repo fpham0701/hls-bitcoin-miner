@@ -10,16 +10,12 @@
 
 void hashblock(bit32_t blockheader[BLOCK_SIZE], bit32_t result[RESULT_SIZE])
 {
+    #pragma HLS inline
     // Perform hashing twice
     bit32_t hash0[8];
     hash1(blockheader, 640, hash0);
-    for (int i = 0; i < 8; i++) {
-        std::cout << "HASH0 is: " << i << " " << hash0[i] << std::endl;
-    }
     hash1(hash0, 256, result);
-    for (int i = 0; i < 8; i++) {
-        std::cout << "RST is: " << i << " " << result[i] << std::endl;
-    }
+
 }
 
 // Mines a block, returns nonce + valid hash
@@ -47,11 +43,13 @@ void mineblock(bit32_t noncestart, bit32_t version[1], bit32_t prevhash[8],
 
     // Copy prevhash into blockheader[1..8]
     for (int i = 0; i < 8; ++i) {
+        #pragma HLS unroll
         blockheader[1 + i] = prevhash[i];
     }
 
     // Copy merkle_root into blockheader[9..16]
     for (int i = 0; i < 8; ++i) {
+        #pragma HLS unroll
         blockheader[9 + i] = merkle_root[i];
     }
 
@@ -66,6 +64,7 @@ void mineblock(bit32_t noncestart, bit32_t version[1], bit32_t prevhash[8],
 
     for (int n = 0; n < 10; n ++)
     {
+        #pragma HLS unroll factor=5
         int count = 0;
         nonce++;
         blockheader[19] = nonce;
@@ -76,6 +75,7 @@ void mineblock(bit32_t noncestart, bit32_t version[1], bit32_t prevhash[8],
         rslt[0] = nonce;
 
         for (int i = 0; i < 8; i++) {
+            #pragma HLS unroll
             rslt[i+1] = result[i];
         }
     }
