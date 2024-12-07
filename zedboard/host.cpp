@@ -25,14 +25,14 @@ const int OUTPUT_SIZE = 9;
 //------------------------------------------------------------------------
 // helper function to parse testing data
 //------------------------------------------------------------------------
-void parseLine(const string &line, bit32_t inputs[TEST_SIZE][INPUT_SIZE], int64_t expected_hashes[TEST_SIZE][OUTPUT_SIZE], int i) {
+void parseLine(const string &line, bit32_t inputs[TEST_SIZE][INPUT_SIZE], bit32_t expected_hashes[TEST_SIZE][OUTPUT_SIZE], int i) {
     stringstream ss(line);
     string hex;
 
     // Parse input values
     for (int j = 0; j < INPUT_SIZE; j++) {
         if (getline(ss, hex, ',')) {
-            int64_t value = strtol(hex.c_str(), NULL, 16);
+            bit32_t value = strtol(hex.c_str(), NULL, 16);
             inputs[i][j]= value;
             cout << "Input " << j << ": " << hex << " -> " << inputs[i][j] << endl;
         }
@@ -42,7 +42,7 @@ void parseLine(const string &line, bit32_t inputs[TEST_SIZE][INPUT_SIZE], int64_
     for (int j = 0; j < OUTPUT_SIZE; j++) {
         if (getline(ss, hex, ',')) {
 
-            int64_t value = strtoul(hex.c_str(), NULL, 16);
+            bit32_t value = strtoul(hex.c_str(), NULL, 16);
             cout << value << endl;
             expected_hashes[i][j] = value;
             cout << "Expected " << j << ": " << hex << " -> " << expected_hashes[i][j] << endl;
@@ -71,11 +71,12 @@ int main(int arc, char **argv) {
 
     // data instantiation
     bit32_t inputs[TEST_SIZE][INPUT_SIZE];
-    int64_t expected_hashes[TEST_SIZE][OUTPUT_SIZE];
+    bit32_t expected_hashes[TEST_SIZE][OUTPUT_SIZE];
     bit32_t results[TEST_SIZE][OUTPUT_SIZE];
 
     // Timer
     Timer timer("SHA-256 Test");
+
     // intermediate results
     int nbytes;
     int error = 0;
@@ -87,7 +88,7 @@ int main(int arc, char **argv) {
     }
 
     //--------------------------------------------------------------------
-    // read data 
+    // parse/read data 
     //--------------------------------------------------------------------
     for (int i = 0; i < TEST_SIZE; i++) {
         assert(getline(myfile, line));
@@ -96,33 +97,31 @@ int main(int arc, char **argv) {
         parseLine(line, inputs, expected_hashes, i);
     }
 
-    // TODO THINGS TO CHANGE: can remove this w/o timer function and just run the thing (lab3)
-    // OR, like lab4, run without timer, and then add performacne 20 times
-    //--------------------------------------------------------------------
-    // Run it once without timer to test accuracy
-    //--------------------------------------------------------------------
     cout << "Testing accuracy over " << TEST_SIZE << " hashes." << endl;
-    // Send data to accelerator
     timer.start();
+
+    //--------------------------------------------------------------------
+    // write data to accelerator 
+    //--------------------------------------------------------------------
     for (int i = 0; i < TEST_SIZE; i++) {
         for (int j = 0; j < INPUT_SIZE; j++) {
             // send 32-bit value through the write channel
             bit32_t test_inst;
-
             test_inst(inputs[i][j].length()-1, 0) = inputs[i][j](inputs[i][j].length()-1,0);
-            int64_t input = test_inst;
+            bit32_t input = test_inst;
 
-            nbytes = write(fdw, (void *)&input, sizeof(input));
-            assert(nbytes == sizeof(input));
+            int nbytes = write(fdw, (void *)&test_inst, sizeof(test_inst));
+            assert(nbytes == sizeof(test_inst));
         }
     }
     cout << endl;
 
-    // receive data through read channel
+    //--------------------------------------------------------------------
+    // receive data from accelerator
+    //--------------------------------------------------------------------
     for (int i = 0; i < TEST_SIZE; i++) {
-        for (int j = 0; j < OUTPUT_SIZE; j++) {
+        for (int j = 0; j < OUTPUT_SIZE; j++) {   
             bit32_t result_hash;
-
             nbytes = read(fdr, (void *)&result_hash, sizeof(result_hash));
             assert(nbytes == sizeof(result_hash));
             results[i][j] = result_hash;
@@ -131,13 +130,16 @@ int main(int arc, char **argv) {
 
     timer.stop();
 
-    // count errors and total test insts
+    //--------------------------------------------------------------------
+    // calculate error rate
+    //--------------------------------------------------------------------
     for (int i = 0; i < TEST_SIZE; i++) {
-        for (int j = 0; j < OUTPUT_SIZE; j++) {
-            if (expected_hashes[i][j] != results[i][j]) {
+        if (expected_hashes[i][0] != results[i][0]) {
+            error++;
+        }
+        for (int j = 1; j < OUTPUT_SIZE; j++) {
+            if (expected_hashes[i][j] != results[i][OUTPUT_SIZE-j]) {
                 error++;
-                cout << "Error on Test " << i+1 << endl;
-                break;
             }
         }
         num_test_insts++;

@@ -15,7 +15,7 @@ int main() {
     bit32_t hash_out[9];
 
 
-    bit32_t nonce[1] = {1550};
+    bit32_t nonce[1] = {0x60E};
 
     bit32_t version[1] = {0x01000050}; // Single 32-bit number
 
