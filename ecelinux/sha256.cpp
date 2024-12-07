@@ -18,7 +18,6 @@ bit32_t rotateInt(bit32_t inputWord, int numberOfBitsToRotate) {
     return inputWord | tempWord;
 }
 
-// Inline small functions
 int Ch(int x, int y, int z) {
     return ((x & y) ^ (~x & z));
 }
@@ -154,9 +153,7 @@ void hash1(bit32_t input[INPUT_SIZE], int bitlength, bit32_t outputlocation[OUTP
                      0x748f82ee, 0x78a5636f, 0x84c87814, 0x8cc70208,
                      0x90befffa, 0xa4506ceb, 0xbef9a3f7, 0xc67178f2};
 
-
     bit32_t M[32][16];
-
     bit32_t H[8];
 
     for (int i = 0; i < 8; i++) {

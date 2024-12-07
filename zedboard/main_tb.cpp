@@ -6,21 +6,18 @@
 
 using namespace std;
 
-float correct = 0.0;
-
 int main() {
     hls::stream<bit32_t> data_in;
     hls::stream<bit32_t> data_out;
     bit32_t strm_read;
     bit32_t hash_out[9];
 
-
     bit32_t nonce[1] = {0x60E};
 
     bit32_t version[1] = {0x01000050}; // Single 32-bit number
 
     bit32_t prevhash[8] = {0x00000000, 0x00000000, 0x00000000, 0x00000000, 
-                            0x00000000, 0x00000000, 0x00000000, 0x00000000}; // 8 x 32-bit numbers
+                           0x00000000, 0x00000000, 0x00000000, 0x00000000}; // 8 x 32-bit numbers
 
     bit32_t merkle_root[8] = {0x3BA3EDFD, 0x6A7B12B2, 0x4AC72C3E, 0x47768F61,
                                 0x6C81BC3, 0x188A5132, 0x6A9FB8AA, 0x2B1E5E4A}; // 8 x 32-bit numbers
@@ -50,7 +47,6 @@ int main() {
     dut(data_in, data_out);
 
     for (int i = 0; i < 9; i++) {
-        //std::cout << "Data: " << data_out.read() << std::endl;
         strm_read = data_out.read();
         hash_out[i] = strm_read;
     }

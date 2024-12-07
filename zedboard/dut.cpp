@@ -31,14 +31,10 @@ void dut(hls::stream<bit32_t> &strm_in, hls::stream<bit32_t> &strm_out) {
 
     bit32_t nbits[1];
     nbits[0] = strm_in.read();
-
-    std::cout << "Nonce: " << nonce << std::endl;
-    std::cout << "Time: " << time[0] << std::endl;
     
     mineblock(nonce, version, prevhash, merkle_root, time, nbits, rslt);
     
     for (int i = 0; i < 9; i++) {
-        std::cout << "ResultsII " << i << ": " << rslt[i] << std::endl;
         strm_out.write(rslt[i]);
     }
 }

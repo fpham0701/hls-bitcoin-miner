@@ -77,7 +77,6 @@ void mineblock(bit32_t noncestart, bit32_t version[1], bit32_t prevhash[8],
 
         for (int i = 0; i < 8; i++) {
             rslt[i+1] = result[i];
-            std::cout << "The result is " << i << ": " << rslt[i+1] << std::endl;
         }
     }
 }
