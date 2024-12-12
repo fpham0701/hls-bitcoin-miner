@@ -24,7 +24,7 @@ int main() {
 
     bit32_t time[1] = {0x29AB5F49}; // Single 32-bit number
     
-    bit32_t nbits[1] = {0x7FFF7F00}; //{0x007FFFFF}; // Single 32-bit number  
+    bit32_t nbits[1] = {0x7FFF7F00}; //{0x007FFFFF}; // Single 32-bit number 
 
     Timer timer("SHA-256 Test");
     timer.start();

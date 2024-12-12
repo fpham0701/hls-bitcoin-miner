@@ -72,6 +72,18 @@ void mineblock(bit32_t noncestart, bit32_t version[1], bit32_t prevhash[8],
         bit32_t result[8];
 
         hashblock(blockheader, result);
+        // Check if the hash meets the difficulty
+        for (int i = 0; i < 8; i++) {
+            if (result[7 - i] < difficulty[i]) {
+                count += 1;
+                std::cout << "blockheader = " << blockheader << std::endl;
+                std::cout << "hash = " << result << std::endl;
+                std::cout << "count = " << count << std::endl;
+            }
+            else if (result[7 - i] > difficulty[i]) {
+                break;
+            }
+        }
 
         rslt[0] = nonce;
 
