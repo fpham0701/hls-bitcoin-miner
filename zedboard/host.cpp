@@ -18,7 +18,7 @@
 
 using namespace std;
 
-const int TEST_SIZE = 1; // PLACEHOLDER TEST SIZE
+const int TEST_SIZE = 100; // PLACEHOLDER TEST SIZE
 const int INPUT_SIZE = 20;
 const int OUTPUT_SIZE = 9;
 
@@ -139,6 +139,7 @@ int main(int arc, char **argv) {
         }
         for (int j = 1; j < OUTPUT_SIZE; j++) {
             if (expected_hashes[i][j] != results[i][OUTPUT_SIZE-j]) {
+                cout << "Mismatch on test set " << i << " expected: " << std::hex << expected_hashes[i][j] << " actual: "<< results[i][OUTPUT_SIZE-j]<< endl;
                 error++;
             }
         }
