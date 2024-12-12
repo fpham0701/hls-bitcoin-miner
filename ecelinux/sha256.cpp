@@ -114,43 +114,43 @@ void computeHashRound(bit32_t H_prev[8], bit32_t M[16], bit32_t K[64]) {
             W[j] = sig1(W[j - 2]) + W[j - 7] + sig0(W[j - 15]) + W[j - 16];
     }
 
-    bit32_t a = H_prev[0];
-    bit32_t b = H_prev[1];
-    bit32_t c = H_prev[2];
-    bit32_t d = H_prev[3];
-    bit32_t e = H_prev[4];
-    bit32_t f = H_prev[5];
-    bit32_t g = H_prev[6];
-    bit32_t h = H_prev[7];
+    bit32_t a_reg = H_prev[0];
+    bit32_t b_reg = H_prev[1];
+    bit32_t c_reg = H_prev[2];
+    bit32_t d_reg = H_prev[3];
+    bit32_t e_reg = H_prev[4];
+    bit32_t f_reg = H_prev[5];
+    bit32_t g_reg = H_prev[6];
+    bit32_t h_reg = H_prev[7];
 
     for (int j = 0; j < 64; j++) {
         #pragma HLS unroll factor=32
-        bit32_t ch = Ch(e, f, g);
-        bit32_t maj = Maj(a, b, c);
-        bit32_t Sig0 = Sig0f(a);
-        bit32_t Sig1 = Sig1f(e);
+        bit32_t ch = Ch(e_reg, f_reg, g_reg);
+        bit32_t maj = Maj(a_reg, b_reg, c_reg);
+        bit32_t Sig0 = Sig0f(a_reg);
+        bit32_t Sig1 = Sig1f(e_reg);
 
-        bit32_t T1 = h + Sig1 + ch + K[j] + W[j];
+        bit32_t T1 = h_reg + Sig1 + ch + K[j] + W[j];
         bit32_t T2 = Sig0 + maj;
 
-        h = g;
-        g = f;
-        f = e;
-        e = d + T1;
-        d = c;
-        c = b;
-        b = a;
-        a = T1 + T2;
+        h_reg = g_reg;
+        g_reg = f_reg;
+        f_reg = e_reg;
+        e_reg = d_reg + T1;
+        d_reg = c_reg;
+        c_reg = b_reg;
+        b_reg = a_reg;
+        a_reg = T1 + T2;
     }
 
-    H_prev[0] = a + H_prev[0];
-    H_prev[1] = b + H_prev[1];
-    H_prev[2] = c + H_prev[2];
-    H_prev[3] = d + H_prev[3];
-    H_prev[4] = e + H_prev[4];
-    H_prev[5] = f + H_prev[5];
-    H_prev[6] = g + H_prev[6];
-    H_prev[7] = h + H_prev[7];
+    H_prev[0] = a_reg + H_prev[0];
+    H_prev[1] = b_reg + H_prev[1];
+    H_prev[2] = c_reg + H_prev[2];
+    H_prev[3] = d_reg + H_prev[3];
+    H_prev[4] = e_reg + H_prev[4];
+    H_prev[5] = f_reg + H_prev[5];
+    H_prev[6] = g_reg + H_prev[6];
+    H_prev[7] = h_reg + H_prev[7];
 }
 
 // Main SHA-256 function
